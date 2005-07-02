@@ -41,11 +41,11 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=D:\CDWav\Execute
+OutputDir=../Execute
 UnitOutputDir=Units
 PackageDLLOutputDir=
 PackageDCPOutputDir=
-SearchPath=Units;\Components
+SearchPath=Units;..\Components
 Packages=vclx30;VCL30;vcldb30;vcldbx30;inetdb30;inet30;VclSmp30;Qrpt30;teeui30;teedb30;tee30;dss30;IBEVNT30;VCL50;VCLX50
 Conditionals=_DISP
 DebugSourceDirs=
@@ -88,7 +88,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=9
 Release=4
-Build=38
+Build=39
 Debug=0
 PreRelease=0
 Special=0
@@ -99,7 +99,7 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=MiLo Software
 FileDescription=CD WAV Editor
-FileVersion=1.9.4.38
+FileVersion=1.9.4.39
 InternalName=CDWAV
 LegalCopyright=Copyright (c) 1998-2003 MiLo Software
 LegalTrademarks=
@@ -109,4 +109,21 @@ ProductVersion=1.94.6
 Comments=
 [Excluded Packages]
 E:\WINNT\system32\vclshlctrls60.bpl=Win32 Shell Controls
+D:\Components\dirtree.bpl=(untitled)
 E:\Program Files\HREF Tools\WebHub\lib\D6\whwizd6.bpl=HREF Tools Corp - WebHub Project Wizard
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DISP
+[HistoryLists\hlUnitAliases]
+Count=1
+Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[HistoryLists\hlSearchPath]
+Count=1
+Item0=Units;..\Components
+[HistoryLists\hlUnitOutputDirectory]
+Count=1
+Item0=Units
+[HistoryLists\hlOutputDirectorry]
+Count=2
+Item0=../Execute
+Item1=Execute

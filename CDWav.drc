@@ -8,48 +8,48 @@
   resources were bound to the produced executable.
 */
 
-#define Main_NeedTimeStr 65168
-#define Main_IgnoreFileStr 65169
-#define Main_NoRecFileStr 65170
-#define Main_StartRecStr 65171
-#define Main_NoComLineStr 65172
-#define Main_UnregStr 65173
-#define Main_WaveErrStr 65174
-#define Main_WhileOpeneningStr 65175
-#define Main_WhilePrepareStr 65176
-#define Main_strSilence 65177
-#define Main_SureLoseStr 65184
-#define Main_FileStr 65185
-#define Main_TrackStr 65186
-#define Main_TitleStr 65187
-#define Main_IndexStr 65188
-#define Main_NoWaveKeyStr 65189
-#define Main_OpenStr 65190
-#define Main_NoIndexStr 65191
-#define Main_ElapsedStr 65192
-#define Main_RemainStr 65193
-#define Main_TrackTimeStr 65194
-#define Main_TrackRemStr 65195
-#define Main_RecordStr 65196
-#define Main_MacroStr 65197
-#define Main_OnlySingleStr 65198
-#define Main_NoTimeStr 65199
+#define Main_StartRecStr 65168
+#define Main_NoComLineStr 65169
+#define Main_UnregStr 65170
+#define Main_WaveErrStr 65171
+#define Main_WhileOpeneningStr 65172
+#define Main_WhilePrepareStr 65173
+#define Main_strSilence 65174
+#define TimeSplitFrm_SplitStr 65175
+#define TimeSplitFrm_SplitSmallFuzzStr 65176
+#define TimeSplitFrm_AtMarkerStr 65177
+#define Main_TitleStr 65184
+#define Main_IndexStr 65185
+#define Main_NoWaveKeyStr 65186
+#define Main_OpenStr 65187
+#define Main_NoIndexStr 65188
+#define Main_ElapsedStr 65189
+#define Main_RemainStr 65190
+#define Main_TrackTimeStr 65191
+#define Main_TrackRemStr 65192
+#define Main_RecordStr 65193
+#define Main_MacroStr 65194
+#define Main_OnlySingleStr 65195
+#define Main_NoTimeStr 65196
+#define Main_NeedTimeStr 65197
+#define Main_IgnoreFileStr 65198
+#define Main_NoRecFileStr 65199
 #define AboutFull_RegStr 65200
 #define AuditionFrm_lastSecondsStr 65201
-#define TimeSplitFrm_SplitStr 65202
-#define TimeSplitFrm_SplitSmallFuzzStr 65203
-#define TimeSplitFrm_AtMarkerStr 65204
-#define Main_HelpStr 65205
-#define Main_LockMemStr 65206
-#define Main_TotTimeStr 65207
-#define Main_LoadStr 65208
-#define Main_AllocMemStr 65209
-#define Main_UnSavedStr 65210
-#define Main_NoWaveInStr 65211
-#define Main_NoRecStr 65212
-#define Main_NoCallBackStr 65213
-#define Main_NoDataBlocksStr 65214
-#define Main_RecStopStr 65215
+#define Main_HelpStr 65202
+#define Main_LockMemStr 65203
+#define Main_TotTimeStr 65204
+#define Main_LoadStr 65205
+#define Main_AllocMemStr 65206
+#define Main_UnSavedStr 65207
+#define Main_NoWaveInStr 65208
+#define Main_NoRecStr 65209
+#define Main_NoCallBackStr 65210
+#define Main_NoDataBlocksStr 65211
+#define Main_RecStopStr 65212
+#define Main_SureLoseStr 65213
+#define Main_FileStr 65214
+#define Main_TrackStr 65215
 #define RecThd_NoFileStr 65216
 #define RecThd_NoRiffStr 65217
 #define RecThd_NoCrFmtStr 65218
@@ -372,9 +372,6 @@
 #define SysConst_SIntOverflow 65535
 STRINGTABLE
 BEGIN
-	Main_NeedTimeStr,	"/T (duration) needs time, e.g. /T1:30"
-	Main_IgnoreFileStr,	"Ignored file parameter: "
-	Main_NoRecFileStr,	"Record (/R) supplied, but no file to record to."
 	Main_StartRecStr,	"Start recording to: "
 	Main_NoComLineStr,	"Error parsing commandline: "
 	Main_UnregStr,	" - Unregistered"
@@ -382,9 +379,9 @@ BEGIN
 	Main_WhileOpeneningStr,	"While opening audio device"
 	Main_WhilePrepareStr,	"While preparing a buffer for playback"
 	Main_strSilence,	"(unused) "
-	Main_SureLoseStr,	"Are you sure you want to lose all your split points and start over?"
-	Main_FileStr,	"FILE \"%s\" WAVE"
-	Main_TrackStr,	"  TRACK %s AUDIO"
+	TimeSplitFrm_SplitStr,	"Split interval must be more than zero."
+	TimeSplitFrm_SplitSmallFuzzStr,	"\"Within\" must be smaller than half the split interval"
+	TimeSplitFrm_AtMarkerStr,	"Start at the marker position (%s)"
 	Main_TitleStr,	"    TITLE \"%s\""
 	Main_IndexStr,	"    INDEX 01 "
 	Main_NoWaveKeyStr,	"FILE line does not have a WAVE keyword."
@@ -398,11 +395,11 @@ BEGIN
 	Main_MacroStr,	"DDE Macro Received: \"%s\""
 	Main_OnlySingleStr,	"You can only drop a single file on CDWave."
 	Main_NoTimeStr,	"Time format not understood (minutes or HH:MM)."
+	Main_NeedTimeStr,	"/T (duration) needs time, e.g. /T1:30"
+	Main_IgnoreFileStr,	"Ignored file parameter: "
+	Main_NoRecFileStr,	"Record (/R) supplied, but no file to record to."
 	AboutFull_RegStr,	"Registered to: "
 	AuditionFrm_lastSecondsStr,	"Last seconds"
-	TimeSplitFrm_SplitStr,	"Split interval must be more than zero."
-	TimeSplitFrm_SplitSmallFuzzStr,	"\"Within\" must be smaller than half the split interval"
-	TimeSplitFrm_AtMarkerStr,	"Start at the marker position (%s)"
 	Main_HelpStr,	".HLP"
 	Main_LockMemStr,	"Error occurred:\n%s\nwhile attempting to lock memory."
 	Main_TotTimeStr,	"Total time"
@@ -414,6 +411,9 @@ BEGIN
 	Main_NoCallBackStr,	"Internal error: Unknown CALLBACK mode."
 	Main_NoDataBlocksStr,	"Unable to add wave data blocks."
 	Main_RecStopStr,	"Recording stopped because of error (disk full?)"
+	Main_SureLoseStr,	"Are you sure you want to lose all your split points and start over?"
+	Main_FileStr,	"FILE \"%s\" WAVE"
+	Main_TrackStr,	"  TRACK %s AUDIO"
 	RecThd_NoFileStr,	"Cannot start recording (blank filename)."
 	RecThd_NoRiffStr,	"Cannot create RIFF chunk."
 	RecThd_NoCrFmtStr,	"Cannot create fmt chunk."

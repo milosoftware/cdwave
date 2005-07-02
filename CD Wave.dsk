@@ -1,24 +1,24 @@
 [Closed Files]
 File_0=SourceModule,'d:\components\shellcontrols\ShellCtrls.pas',0,1,919,31,925,0,0
 File_1=SourceModule,'e:\program files\borland\delphi6\source\rtl\Win\ShlObj.pas',0,1,519,1,538,0,0
-File_2=SourceModule,'D:\Components\FLAC.pas',0,1,1,1,1,0,0
-File_3=SourceModule,'D:\Components\Vorbis.pas',0,1,1,1,12,0,0
-File_4=SourceModule,'D:\Components\FLAC_Enc.pas',0,1,1,4,14,0,0
-File_5=SourceModule,'D:\Components\Lame_Enc.pas',0,1,1,1,10,0,0
+File_2=SourceModule,'D:\Components\Vorbis.pas',0,1,1,1,12,0,0
+File_3=SourceModule,'D:\Components\FLAC_Enc.pas',0,1,1,4,14,0,0
+File_4=SourceModule,'D:\Components\Lame_Enc.pas',0,1,1,1,10,0,0
 
 [Modules]
-Module0=D:\CDWav\SelectDirFrm.pas
+Module0=D:\Components\FLAC.pas
 Module1=D:\CDWav\WaveIO.pas
-Module2=D:\CDWav\MAIN.PAS
-Module3=D:\CDWav\WaveWriters.pas
-Module4=D:\Components\APE.pas
-Count=5
+Module2=D:\CDWav\WaveWriters.pas
+Module3=D:\CDWav\SelectDirFrm.pas
+Module4=D:\CDWav\MAIN.PAS
+Module5=D:\Components\APE.pas
+Count=6
 EditWindowCount=1
 PackageWindowCount=1
 
-[D:\CDWav\SelectDirFrm.pas]
+[D:\Components\FLAC.pas]
 ModuleType=SourceModule
-FormState=1
+FormState=0
 FormOnTop=0
 
 [D:\CDWav\WaveIO.pas]
@@ -26,12 +26,17 @@ ModuleType=SourceModule
 FormState=0
 FormOnTop=0
 
-[D:\CDWav\MAIN.PAS]
+[D:\CDWav\WaveWriters.pas]
 ModuleType=SourceModule
 FormState=0
 FormOnTop=0
 
-[D:\CDWav\WaveWriters.pas]
+[D:\CDWav\SelectDirFrm.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=1
+
+[D:\CDWav\MAIN.PAS]
 ModuleType=SourceModule
 FormState=0
 FormOnTop=0
@@ -62,13 +67,14 @@ FormState=0
 FormOnTop=0
 
 [EditWindow0]
-ViewCount=5
-CurrentView=3
+ViewCount=6
+CurrentView=2
 View0=0
 View1=1
 View2=2
 View3=3
 View4=4
+View5=5
 CodeExplorer=CodeExplorer@EditWindow0
 MessageView=MessageView@EditWindow0
 Create=1
@@ -89,8 +95,8 @@ LeftPanelClients=DockSite0
 LeftPanelData=0000040000000000000000000000000000000000000000000001000000000000000009000000446F636B5369746530FFFFFFFF
 RightPanelSize=0
 BottomPanelSize=114
-BottomPanelClients=MessageView@EditWindow0,DebugLogView
-BottomPanelData=00000400010000000B0000004D6573736167655669657700050000000000000272000000000000000100000000000500000C00000044656275674C6F67566965770100000000000500000000000001000000000005000000000000FFFFFFFF
+BottomPanelClients=DebugLogView,MessageView@EditWindow0
+BottomPanelData=000004000000000000050000000000000272000000000000000100000000800200000C00000044656275674C6F67566965770100000000000500000B0000004D6573736167655669657701000000000005000000000000010000000000050000000000000100000000000500000000000001000000000005000000000000FFFFFFFF
 
 [View0]
 Module=D:\Components\APE.pas
@@ -101,26 +107,33 @@ LeftCol=1
 
 [View1]
 Module=D:\CDWav\WaveIO.pas
-CursorX=1
-CursorY=713
-TopLine=688
+CursorX=19
+CursorY=719
+TopLine=703
 LeftCol=1
 
 [View2]
+Module=D:\Components\FLAC.pas
+CursorX=20
+CursorY=109
+TopLine=100
+LeftCol=1
+
+[View3]
 Module=D:\CDWav\WaveWriters.pas
 CursorX=29
 CursorY=716
 TopLine=713
 LeftCol=1
 
-[View3]
+[View4]
 Module=D:\CDWav\SelectDirFrm.pas
-CursorX=17
-CursorY=617
+CursorX=31
+CursorY=612
 TopLine=599
 LeftCol=1
 
-[View4]
+[View5]
 Module=D:\CDWav\MAIN.PAS
 CursorX=1
 CursorY=705
@@ -150,14 +163,15 @@ SectionWidth1=210
 Module=D:\Components\MiLo.dpk
 
 [Watches]
-Count=2
+Count=5
 Watch0='RecSplitName',256,0,18,1,0
 Watch1='RecSettings',16,0,18,1,0
+Watch2='metadata.data',256,0,18,1,0
+Watch3='metadata.data.total_samples',4,0,18,1,0
+Watch4='metadata.data.total_samples',64,0,18,1,0
 
 [Breakpoints]
-Count=2
-Breakpoint0='D:\CDWav\WaveIO.pas',141,'',0,1,'',1,0,0,'',1,'','',''
-Breakpoint1='D:\CDWav\WaveIO.pas',707,'',0,1,'',1,0,0,'',1,'','',''
+Count=0
 
 [AddressBreakpoints]
 Count=0
@@ -166,13 +180,13 @@ Count=0
 Create=1
 Visible=1
 State=0
-Left=43
+Left=0
 Top=0
-Width=1237
+Width=1280
 Height=105
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=1229
+ClientWidth=1272
 ClientHeight=78
 
 [ProjectManager]
@@ -181,12 +195,12 @@ Visible=1
 State=0
 Left=0
 Top=0
-Width=275
-Height=650
+Width=256
+Height=671
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=275
-ClientHeight=650
+ClientWidth=256
+ClientHeight=671
 TBDockHeight=341
 LRDockWidth=246
 Dockable=1
@@ -240,18 +254,18 @@ Visible=1
 State=0
 Left=0
 Top=0
-Width=275
-Height=650
+Width=256
+Height=671
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=275
-ClientHeight=650
+ClientWidth=256
+ClientHeight=671
 TBDockHeight=659
 LRDockWidth=190
 Dockable=1
 SplitPos=117
 ArrangeBy=Name
-SelectedItem=Font.Size
+SelectedItem=Caption
 ExpandedItems=Anchors,BorderIcons,Constraints,Font,Options
 HiddenCategories=Legacy
 
@@ -261,12 +275,12 @@ Visible=1
 State=0
 Left=0
 Top=0
-Width=275
-Height=650
+Width=256
+Height=671
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=275
-ClientHeight=650
+ClientWidth=256
+ClientHeight=671
 TBDockHeight=650
 LRDockWidth=246
 Dockable=1
@@ -372,11 +386,11 @@ Visible=1
 State=0
 Left=12
 Top=0
-Width=1268
+Width=624
 Height=114
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=1268
+ClientWidth=624
 ClientHeight=114
 TBDockHeight=114
 LRDockWidth=417
@@ -440,7 +454,7 @@ Dockable=0
 
 [MessageView@EditWindow0]
 Create=1
-Visible=0
+Visible=1
 State=0
 Left=652
 Top=0
@@ -473,7 +487,7 @@ ClientHeight=679
 TBDockHeight=94
 LRDockWidth=283
 Dockable=1
-TabPosition=0
+TabPosition=2
 ActiveTab=Object Inspector
 TabDockClients=PropertyInspector,ProjectManager,WatchWindow
 

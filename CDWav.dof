@@ -15,7 +15,7 @@ K=0
 L=1
 M=0
 N=1
-O=0
+O=1
 P=1
 Q=0
 R=0
@@ -81,7 +81,7 @@ Item18=DAEFrm.dfm
 Item19=DirNameFrm.dfm
 Item20=CDWav.drc
 [Language]
-ActiveLang=NLD
+ActiveLang=
 ProjectLang=$00000409
 RootDir=
 [Version Info]
@@ -90,7 +90,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=9
 Release=4
-Build=37
+Build=39
 Debug=0
 PreRelease=0
 Special=0
@@ -101,7 +101,7 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=MiLo Software
 FileDescription=CD WAV Editor
-FileVersion=1.9.4.37
+FileVersion=1.9.4.39
 InternalName=CDWAV
 LegalCopyright=Copyright (c) 1998-2003 MiLo Software
 LegalTrademarks=

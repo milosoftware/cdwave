@@ -88,7 +88,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=9
 Release=4
-Build=36
+Build=38
 Debug=0
 PreRelease=0
 Special=0
@@ -99,7 +99,7 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=MiLo Software
 FileDescription=CD WAV Editor
-FileVersion=1.9.4.36
+FileVersion=1.9.4.38
 InternalName=CDWAV
 LegalCopyright=Copyright (c) 1998-2003 MiLo Software
 LegalTrademarks=

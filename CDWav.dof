@@ -56,8 +56,6 @@ HostApplication=
 Launcher=
 UseLauncher=0
 DebugCWD=
-[Resource DLL Projects]
-Item0=Dutch (Netherlands)*$00000413*NLD*NLD
 [RDP Source Files]
 Item0=MAIN.dfm
 Item1=About.dfm

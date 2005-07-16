@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  StdCtrls, License;
+  StdCtrls, License, ClipBrd;
 
 type
   TKeyGenform = class(TForm)
@@ -35,6 +35,9 @@ var Key: TKey;
 begin
   Key := RegInfo.Verify(eUsername.Text);
   eRegKey.Text := Format('%.8x%.8x', [Key.lo, Key.hi]);
+  Clipboard.AsText :=
+    'User name: ' + eUsername.Text + #13#10 +
+    'Reg. code: ' + eRegKey.Text + #13#10;
 end;
 
 end.

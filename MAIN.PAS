@@ -2889,8 +2889,8 @@ begin
   if value > 0 then
   begin
     WaveScrollBar.Enabled := True;
-    WaveScrollBar.Max := value - 1;
     WaveScrollBar.PageSize := 0;
+    WaveScrollBar.Max := value - 1;
     Panel4Resize(nil);
   end else begin
     //WaveScrollBar.Max := 1;

@@ -51,6 +51,20 @@ type
       function Read(Buffer: PChar; Bytes: Cardinal): Cardinal; override;
     end;
 
+    TW64WaveFile = class(TWaveFile)
+    private
+      hFile: THANDLE;
+      FWaveOffset: Int64;
+    protected
+      function GetIsOpen: Boolean; override;
+    public
+      procedure Open(const AFileName: string); override;
+      procedure Close; override;
+      procedure SetFilePos(bytes: Cardinal); override;
+      function GetFilePos: Cardinal; override;
+      function Read(Buffer: PChar; Bytes: Cardinal): Cardinal; override;
+    end;
+
     TFLACWaveFile = class(TWaveFile)
     private
       HFile: THandle;
@@ -129,6 +143,7 @@ resourcestring
   NoFlacInit = 'FLAC Stream failed to initialize, cannot continue';
   NoExtStr = 'Unknown file extension: %s';
   FlacError = 'FLAC decoder failure: Code %d.';
+  TooBigStr = 'File is to large, CD Wave can only handle files up to 4GB';
 
 function OpenFile(const FileName: string): TWaveFile;
 var
@@ -141,6 +156,8 @@ begin
     Result := TFLACWaveFile.Create
   else if Ext = '.ape' then
     Result := TAPEWaveFile.Create
+  else if Ext = '.w64' then
+    Result := TW64WaveFile.Create
   else
     raise Exception.CreateFmt(NoExtStr, [Ext]);
   Result.Open(FileName);
@@ -771,6 +788,158 @@ begin
     FFilePos := bytes;
   end;
 end;
+
+{------------------------------------------------------------------------------}
+const
+  CKGUID_RIFF: TGUID = '{66666972-912E-11CF-A5D6-28DB04C10000}';
+  CKGUID_LIST: TGUID = '{7473696C-912F-11CF-A5D6-28DB04C10000}';
+  CKGUID_WAVE: TGUID = '{65766177-ACF3-11D3-8CD1-00C04F8EDB8A}';
+  CKGUID_FMT : TGUID = '{20746D66-ACF3-11D3-8CD1-00C04F8EDB8A}';
+  CKGUID_FACT: TGUID = '{74636166-ACF3-11D3-8CD1-00C04F8EDB8A}';
+  CKGUID_DATA: TGUID = '{61746164-ACF3-11D3-8CD1-00C04F8EDB8A}';
+  CKGUID_LEVL: TGUID = '{6C76656C-ACF3-11D3-8CD1-00C04F8EDB8A}';
+  CKGUID_JUNK: TGUID = '{6b6E756A-ACF3-11D3-8CD1-00C04f8EDB8A}';
+  CKGUID_BEXT: TGUID = '{74786562-ACF3-11D3-8CD1-00C04F8EDB8A}';
+  //MARKER 	{ ABF76256-392D-11D2-86C7-00C04F8EDB8A }
+  //SUMMARYLIST 	{ 925F94BC-525A-11D2-86DC-00C04F8EDB8A }
+
+type
+  TW64RIFF = packed record
+    riff: TGUID;
+    size: Int64;
+    filetype: TGUID;
+  end;
+  TW64CHUNK = packed record
+    fourcc: TGUID;
+    size:   Int64;
+  end;
+
+procedure TW64WaveFile.Open;
+var
+  WaveFileSize: Int64;
+  Size: DWORD;
+  ChunkSize, ChunkDataSize: Int64;
+  RiffHead: TW64RIFF;
+  RiffChunk: TW64CHUNK;
+  GotData: Boolean;
+  h: DWORD;
+begin
+  hFile := CreateFile(
+          PChar(AFileName),
+          GENERIC_READ,
+          FILE_SHARE_READ,
+          nil,
+          OPEN_EXISTING,
+          FILE_ATTRIBUTE_NORMAL or FILE_FLAG_SEQUENTIAL_SCAN,
+          0);
+  if hFile = INVALID_HANDLE_VALUE then
+          raise EWin32Error.CreateFmt(
+            NoOpenStr,
+            [SysErrorMessage(GetLastError), AFileName]);
+  try
+    Int64Rec(WaveFileSize).Lo := GetFileSize(hFile, @Int64Rec(WaveFileSize).Hi);
+    if Read(@RiffHead, sizeof(RiffHead)) < sizeof(RiffHead) then
+        raise Exception.Create(TruncStr);
+    if not CompareMem(@RiffHead.riff, @CKGUID_RIFF, sizeof(TGUID)) then
+        raise Exception.Create(NoRiffStr2);
+    if not CompareMem(@RiffHead.filetype, @CKGUID_WAVE, sizeof(TGUID)) then
+        raise Exception.Create(NoRiffStr2);
+    GotData := False;
+    repeat
+      // Read chunk
+      if Read(@RiffChunk, sizeof(RiffChunk)) < sizeof(RiffChunk) then
+        raise Exception.Create(TruncStr);
+      // The w64 header size includes the chunk header (24 bytes)
+      ChunkDataSize := RiffChunk.size - sizeof(RiffChunk);
+      // Round size up to 8-byte align (padding)
+      ChunkSize := (((ChunkDataSize - 1) shr 3) + 1) shl 3;
+      // Determine type, and do something with the useful ones.
+      if CompareMem(@RiffChunk.fourcc, @CKGUID_FMT, sizeof(TGUID)) then
+      begin
+        // FMT : Wave format
+        if ChunkDataSize < sizeof(TWaveFormat) then
+          raise Exception.Create(LengthStr);
+        if ChunkDataSize > sizeof(FPCMWaveFormat) then
+          Size := sizeof(FPCMWaveFormat)
+        else
+          Size := ChunkDataSize;
+        if Read(@FPCMWaveFormat, Size) <> integer(Size) then
+          raise Exception.Create(TruncStr);
+        if not IsPCM(@FPCMWaveFormat.Format) then
+          raise Exception.Create(OnlyPCMStr);
+        if not (FPCMWaveFormat.Format.wBitsPerSample in [8,16,24]) then
+          raise Exception.Create(Only8Or16Str);
+        // Fix the header if needed (e.g. SoundForge uses an invalid 24bit fmt)
+        if (FPCMWaveFormat.Format.wBitsPerSample > 16) and
+          (FPCMWaveFormat.Format.wFormatTag = WAVE_FORMAT_PCM) then
+        begin
+          FPCMWaveFormat.Format.wFormatTag := WAVE_FORMAT_EXTENSIBLE;
+          FPCMWaveFormat.Format.cbSize := 22;
+          FPCMWaveFormat.wSamples := FPCMWaveFormat.Format.wBitsPerSample;
+          FPCMWaveFormat.SubFormat := WFE_GUID;
+          FPCMWaveFormat.dwChannelMask := 0;
+        end;
+        if ChunkSize > Size then
+          // Skip padding etc.
+          SetFilePointer(hFile, ChunkSize - Size, nil, FILE_CURRENT);
+      end
+      else if CompareMem(@RiffChunk.fourcc, @CKGUID_DATA, sizeof(TGUID)) then
+      begin
+        GotData := True;
+        FWaveOffset :=  SetFilePointer(hFile, 0, @h, FILE_CURRENT);
+        if (FWaveOffset = $FFFFFFFF) then
+            RaiseLastWin32Error;
+        if ChunkDataSize > $FFFFFFFE then
+            raise Exception.Create(TooBigStr);
+        FWaveSize := ChunkDataSize;
+      end;
+    until GotData;
+    SetFilePos(0);
+    //raise Exception.Create('W64 format not implemented yet.');
+  except
+    Close;
+    raise;
+  end;
+end;
+
+procedure TW64WaveFile.Close;
+begin
+  CloseHandle(hFile);
+  hFile := 0;
+end;
+
+function TW64WaveFile.GetIsOpen;
+begin
+  Result := hFile <> 0;
+end;
+
+procedure TW64WaveFile.SetFilePos;
+var h: DWORD;
+begin
+  h := 0;
+  if SetFilePointer(hFile, FWaveOffset + bytes, @h, FILE_BEGIN) = $FFFFFFFF then
+    RaiseLastWin32Error;
+end;
+
+function TW64WaveFile.GetFilePos;
+var h: DWORD;
+begin
+  h := 0;
+  Result := SetFilePointer(hFile, 0, @h, FILE_CURRENT);
+  if (Result = $FFFFFFFF) then
+    RaiseLastWin32Error;
+//    raise Exception.Create(NoPosStr);
+  dec(Result, FWaveOffset);
+end;
+
+function TW64WaveFile.Read;
+begin
+  if not ReadFile(hFile, Buffer^, bytes, Result, nil) then
+    raise EWin32Error.CreateFmt(
+            NoReadStr,
+            [SysErrorMessage(GetLastError)]);
+end;
+
 
 end.
 

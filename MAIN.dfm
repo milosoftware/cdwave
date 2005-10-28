@@ -786,8 +786,9 @@ object MainForm: TMainForm
   object OpenDialog: TOpenDialog
     HelpContext = 102
     Filter = 
-      'Audio files (*.wav, *.flac, *.ape)|*.wav;*.flac;*.ape|Wave audio' +
-      ' (*.wav)|*.wav|FLAC (*.flac)|*.flac|Monkey'#39's audio (*.ape)|*.ape'
+      'Audio files (*.wav, *.flac, *.ape, *.w64)|*.wav;*.flac;*.ape;*.w' +
+      '64|Wave audio (*.wav)|*.wav|FLAC (*.flac)|*.flac|Monkey'#39's audio ' +
+      '(*.ape)|*.ape|Sony Wave 64 (*.w64)|*.w64'
     Options = [ofReadOnly, ofHideReadOnly, ofShowHelp, ofPathMustExist, ofFileMustExist]
     Left = 30
     Top = 135

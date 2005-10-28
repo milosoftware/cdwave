@@ -17,28 +17,23 @@ Deze licentieovereenkomst is een juridische overeenkomst tussen u (een individu 
 MiLo Software
 Ospel, The Netherlands
 
+Door installatie of enig ander gebruik van de software bent u gebonden aan deze overeenkomst. Indien u niet akkoord gaat met deze voorwaarden, mag u de software niet installeren of gebruiken.
 
-By installing or otherwise using this software you agree to be bound by this agreement. If you do not agree to be bound by the terms of this agreement, you may not install or use this software.
+Intellectueel eigendom en andere rechten zijn het eigendom van de auteur van de software.
 
-All intellectual and other rights to this software are owned by the author of this software.
+U mag kopieen van de software geven aan iedereen, op elk medium, distribueren en opsturen aan shareware sites op het internet, zo lang de inhoud van het pakket ongewijzigd blijft.
 
-You may give copies of this software package to anyone, copy it to any media, distribute it by any means, and upload it to shareware sites on the Internet, as long as the original package remains unmodified.
+Een geregistreerde versie mag worden gebruikt door een persoon op een of meer computers, dan wel op een computer door meer dan een persoon, maar nooit gelijktijdig. De licentie is niet voor gelijktijdig gebruik.
 
-The registration may either be used by a single person who uses the software personally on one or more computers, or installed on a single workstation used nonsimultaneously by multiple people, but not both.  This is not a concurrent use license.
+De software is niet gratis, behoudens onderstaande voorwaarden. U heeft, zonder betalingsplicht, het recht om de software te evalueren voor een periode van 30 dagen. Na het verstrijken van de termijn van 30 dagen bent u verplicht te registreren indien u nog van de software gebruik wilt maken. Op de MiLo software website op http://www.milosoftware.com vind u alle benodigde informatie.
 
+Het is toegestaan, zonder betaling:
+- Exacte kopieen te verstrekken aan anderen, tenzij dit tot doel heeft de evaluatieperiode te verlengen;
+- Kopieen te distribureren, zolang dit electronisch gebeurt;
+- Zoveel kopieen te maken als u wenselijk acht, voor bovenstaande doeleinden.
 
-This is not free software.  Subject to the terms below, you are hereby licensed by the auhor to use this software for evaluation purposes without charge for a period of 30 days.  If you use this software after the 30 day evaluation period a registration fee is required. See the MiLo Software web site at www.milosoftware.com for information about online ordering and quantity discounts.
+Het is expliciet verboden om geld of enige andere donatie te vragen of te ontvangen, voor kopieen van de software. Het is eveneens verboden kopieen van de software te verspreiden gebundeld met andere producten waar een vergoeding voor gevraagd wordt. Alleen met uitdrukkelijke schriftelijke toestemming van de auteur kan hiervan worden afgeweken. De auteur houdt zich tevens het recht voor deze privileges op elk moment te kunnen intrekken zonder opgaaf van reden.
 
-You may, without making any payment:
-- give exact copies of the software personally to anyone, except for the purpose of extending their evaluation period;
-- distribute exact copies of the software, if done exclusively through electronic channels;
-- make as many exact copies of the software as you wish, for purposes of distribution as described above.
+De auteur stelt zich niet aansprakelijk voor schade als gevolg van het gebruik van de software of begeleidende documentatie, door uzelf of door anderen. De software wordt geleverd zonder enige garantie, zelfs niet voor het geschikt zijn voor een bepaald doel.
 
-YOU ARE SPECIFICALLY PROHIBITED FROM CHARGING, OR REQUESTING DONATIONS, FOR ANY COPIES, HOWEVER MADE, AND FROM DISTRIBUTING SUCH COPIES WITH OTHER PRODUCTS OF ANY KIND, COMMERCIAL OR OTHERWISE, WITHOUT PRIOR WRITTEN PERMISSION FROM THE AUTHOR. THE AUTHOR RESERVES THE RIGHT TO REVOKE THE ABOVE DISTRIBUTION RIGHTS AT ANY TIME, FOR ANY OR NO REASON.
-
-TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SOFTWARE AND DOCUMENTATION ARE PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES AND CONDITIONS, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, CONFORMANCE WITH DESCRIPTION, TITLE AND NON-INFRINGEMENT OF THIRD PARTY RIGHTS.
-
-TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL OR EXEMPLARY DAMAGES OR LOST PROFITS WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION, OR ANY OTHER PECUNIARY LOSS) ARISING OUT OF THE USE OR INABILITY TO USE THE SOFTWARE PRODUCT, EVEN IF THE AUTHOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-
-Should any term of these terms and conditions be declared void or unenforceable by any court of competent jurisdiction, such declaration shall have no effect on the remaining terms hereof.
-
+Indien een rechtbank besluit dat een deel van deze overeenkomst in strijd is met de wet, en derhalve niet nageleefd dient te worden, dan heeft dat geen gevolgen voor de rest van deze overeenkomst.

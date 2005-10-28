@@ -1,9 +1,9 @@
 [Setup]
 AppName=CD Wave
-AppVerName=CD Wave Editor version 1.94.1
-AppVersion=1.94.1
+AppVerName=CD Wave Editor version 1.94.2
+AppVersion=1.94.2
 VersionInfoVersion=1.9.4.7
-VersionInfoTextVersion=1.94.1
+VersionInfoTextVersion=1.94.2
 AppCopyright=Copyright © 1997-2005 Mike Looijmans
 DefaultDirName={pf}\CD Wave
 DefaultGroupName=CD Wave
@@ -17,11 +17,11 @@ AppUpdatesURL=http://www.cdwave.com/download.html
 DisableStartupPrompt=yes
 LicenseFile=license.txt
 VersionInfoDescription=CD Wave Editor Setup
-OutputBaseFilename=cdwav194
+OutputBaseFilename=cdwav1942
 
 [Languages]
 Name: "en"; MessagesFile: "compiler:Default.isl"
-Name: "nl"; MessagesFile: "compiler:Languages/Dutch.isl"
+Name: "nl"; MessagesFile: "compiler:Languages/Dutch.isl"; LicenseFile: license_nl.txt
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked

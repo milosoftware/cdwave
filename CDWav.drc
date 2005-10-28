@@ -8,80 +8,81 @@
   resources were bound to the produced executable.
 */
 
-#define Main_NeedTimeStr 65168
-#define Main_IgnoreFileStr 65169
-#define Main_NoRecFileStr 65170
-#define Main_StartRecStr 65171
-#define Main_NoComLineStr 65172
-#define Main_UnregStr 65173
-#define Main_WaveErrStr 65174
-#define Main_WhileOpeneningStr 65175
-#define Main_WhilePrepareStr 65176
-#define Main_strSilence 65177
-#define Main_SureLoseStr 65184
-#define Main_FileStr 65185
-#define Main_TrackStr 65186
-#define Main_TitleStr 65187
-#define Main_IndexStr 65188
-#define Main_NoWaveKeyStr 65189
-#define Main_OpenStr 65190
-#define Main_NoIndexStr 65191
-#define Main_ElapsedStr 65192
-#define Main_RemainStr 65193
-#define Main_TrackTimeStr 65194
-#define Main_TrackRemStr 65195
-#define Main_RecordStr 65196
-#define Main_MacroStr 65197
-#define Main_OnlySingleStr 65198
-#define Main_NoTimeStr 65199
-#define AboutFull_RegStr 65200
-#define AuditionFrm_lastSecondsStr 65201
-#define TimeSplitFrm_SplitStr 65202
-#define TimeSplitFrm_SplitSmallFuzzStr 65203
-#define TimeSplitFrm_AtMarkerStr 65204
-#define Main_HelpStr 65205
-#define Main_LockMemStr 65206
-#define Main_TotTimeStr 65207
-#define Main_LoadStr 65208
-#define Main_AllocMemStr 65209
-#define Main_UnSavedStr 65210
-#define Main_NoWaveInStr 65211
-#define Main_NoRecStr 65212
-#define Main_NoCallBackStr 65213
-#define Main_NoDataBlocksStr 65214
-#define Main_RecStopStr 65215
-#define RecThd_NoFileStr 65216
-#define RecThd_NoRiffStr 65217
-#define RecThd_NoCrFmtStr 65218
-#define RecThd_NoWriteFmtStr 65219
-#define RecThd_NoAscWriteStr 65220
-#define RecThd_NoDataStr 65221
-#define RecThd_NoRiffStr2 65222
-#define RecThd_NoDescStr 65223
-#define RecThd_NoAllocMemStr 65224
-#define RecThd_NoSeekStr 65225
-#define RecThd_TimeOutStr 65226
-#define RecThd_ZombieStr 65227
-#define License_NoValidKeyStr 65228
-#define License_ThankRegStr 65229
-#define About_WindowsStr 65230
-#define About_VersionStr 65231
-#define WaveWriters_NoWriteStr 65232
-#define WaveWriters_NoOpenConvStr 65233
-#define WaveWriters_NoBufSizeStr 65234
-#define WaveWriters_NoAllocDestStr 65235
-#define WaveWriters_NoHeaderStr 65236
-#define WaveWriters_AcmErrorStr 65237
-#define WaveWriters_NoWriteDestStr 65238
-#define WaveWriters_ReadStr 65239
-#define akrip32_ReadTOCError 65240
-#define working_CancelStr 65241
-#define working_WriteStr 65242
-#define working_WritingStr 65243
-#define working_NoReadStr2 65244
-#define working_ZeroBytesStr 65245
-#define working_DAEErr 65246
-#define working_DAEStr 65247
+#define Main_NoTimeStr 65168
+#define Main_NeedTimeStr 65169
+#define Main_IgnoreFileStr 65170
+#define Main_NoRecFileStr 65171
+#define Main_StartRecStr 65172
+#define Main_NoComLineStr 65173
+#define Main_UnregStr 65174
+#define Main_WaveErrStr 65175
+#define Main_WhileOpeneningStr 65176
+#define Main_WhilePrepareStr 65177
+#define Main_strSilence 65178
+#define Main_RecStopStr 65184
+#define Main_SureLoseStr 65185
+#define Main_FileStr 65186
+#define Main_TrackStr 65187
+#define Main_TitleStr 65188
+#define Main_IndexStr 65189
+#define Main_NoWaveKeyStr 65190
+#define Main_OpenStr 65191
+#define Main_NoIndexStr 65192
+#define Main_ElapsedStr 65193
+#define Main_RemainStr 65194
+#define Main_TrackTimeStr 65195
+#define Main_TrackRemStr 65196
+#define Main_RecordStr 65197
+#define Main_MacroStr 65198
+#define Main_OnlySingleStr 65199
+#define About_VersionStr 65200
+#define AboutFull_RegStr 65201
+#define AuditionFrm_lastSecondsStr 65202
+#define TimeSplitFrm_SplitStr 65203
+#define TimeSplitFrm_SplitSmallFuzzStr 65204
+#define TimeSplitFrm_AtMarkerStr 65205
+#define Main_HelpStr 65206
+#define Main_LockMemStr 65207
+#define Main_TotTimeStr 65208
+#define Main_LoadStr 65209
+#define Main_AllocMemStr 65210
+#define Main_UnSavedStr 65211
+#define Main_NoWaveInStr 65212
+#define Main_NoRecStr 65213
+#define Main_NoCallBackStr 65214
+#define Main_NoDataBlocksStr 65215
+#define working_DAEStr 65216
+#define RecThd_NoFileStr 65217
+#define RecThd_NoRiffStr 65218
+#define RecThd_NoCrFmtStr 65219
+#define RecThd_NoWriteFmtStr 65220
+#define RecThd_NoAscWriteStr 65221
+#define RecThd_NoDataStr 65222
+#define RecThd_NoRiffStr2 65223
+#define RecThd_NoDescStr 65224
+#define RecThd_NoAllocMemStr 65225
+#define RecThd_NoSeekStr 65226
+#define RecThd_TimeOutStr 65227
+#define RecThd_ZombieStr 65228
+#define License_NoValidKeyStr 65229
+#define License_ThankRegStr 65230
+#define About_WindowsStr 65231
+#define WaveWriters_NoAllocMemStr 65232
+#define WaveWriters_NoWriteStr 65233
+#define WaveWriters_NoOpenConvStr 65234
+#define WaveWriters_NoBufSizeStr 65235
+#define WaveWriters_NoAllocDestStr 65236
+#define WaveWriters_NoHeaderStr 65237
+#define WaveWriters_AcmErrorStr 65238
+#define WaveWriters_NoWriteDestStr 65239
+#define WaveWriters_ReadStr 65240
+#define akrip32_ReadTOCError 65241
+#define working_CancelStr 65242
+#define working_WriteStr 65243
+#define working_WritingStr 65244
+#define working_NoReadStr2 65245
+#define working_ZeroBytesStr 65246
+#define working_DAEErr 65247
 #define WaveIO_NoDescrStr 65248
 #define WaveIO_LengthStr 65249
 #define WaveIO_TruncStr 65250
@@ -97,7 +98,7 @@
 #define WaveIO_NoFlacInit 65260
 #define WaveIO_NoExtStr 65261
 #define WaveIO_FlacError 65262
-#define WaveWriters_NoAllocMemStr 65263
+#define WaveIO_TooBigStr 65263
 #define ShellConsts_SShellDefaultSizeStr 65264
 #define ShellConsts_SShellDefaultTypeStr 65265
 #define ShellConsts_SShellDefaultModifiedStr 65266
@@ -372,6 +373,7 @@
 #define SysConst_SIntOverflow 65535
 STRINGTABLE
 BEGIN
+	Main_NoTimeStr,	"Time format not understood (minutes or HH:MM)."
 	Main_NeedTimeStr,	"/T (duration) needs time, e.g. /T1:30"
 	Main_IgnoreFileStr,	"Ignored file parameter: "
 	Main_NoRecFileStr,	"Record (/R) supplied, but no file to record to."
@@ -382,6 +384,7 @@ BEGIN
 	Main_WhileOpeneningStr,	"While opening audio device"
 	Main_WhilePrepareStr,	"While preparing a buffer for playback"
 	Main_strSilence,	"(unused) "
+	Main_RecStopStr,	"Recording stopped because of error (disk full?)"
 	Main_SureLoseStr,	"Are you sure you want to lose all your split points and start over?"
 	Main_FileStr,	"FILE \"%s\" WAVE"
 	Main_TrackStr,	"  TRACK %s AUDIO"
@@ -397,7 +400,7 @@ BEGIN
 	Main_RecordStr,	"Recording"
 	Main_MacroStr,	"DDE Macro Received: \"%s\""
 	Main_OnlySingleStr,	"You can only drop a single file on CDWave."
-	Main_NoTimeStr,	"Time format not understood (minutes or HH:MM)."
+	About_VersionStr,	"Version"
 	AboutFull_RegStr,	"Registered to: "
 	AuditionFrm_lastSecondsStr,	"Last seconds"
 	TimeSplitFrm_SplitStr,	"Split interval must be more than zero."
@@ -413,7 +416,7 @@ BEGIN
 	Main_NoRecStr,	"Unable to create recording thread."
 	Main_NoCallBackStr,	"Internal error: Unknown CALLBACK mode."
 	Main_NoDataBlocksStr,	"Unable to add wave data blocks."
-	Main_RecStopStr,	"Recording stopped because of error (disk full?)"
+	working_DAEStr,	"Digital Audio Extraction"
 	RecThd_NoFileStr,	"Cannot start recording (blank filename)."
 	RecThd_NoRiffStr,	"Cannot create RIFF chunk."
 	RecThd_NoCrFmtStr,	"Cannot create fmt chunk."
@@ -429,7 +432,7 @@ BEGIN
 	License_NoValidKeyStr,	"Key is not valid."
 	License_ThankRegStr,	"Thank you for registering"
 	About_WindowsStr,	"Windows 98 or 95 OSR2"
-	About_VersionStr,	"Version"
+	WaveWriters_NoAllocMemStr,	"Unable to allocate memory."
 	WaveWriters_NoWriteStr,	"Error writing file."
 	WaveWriters_NoOpenConvStr,	"Unable to open conversion stream."
 	WaveWriters_NoBufSizeStr,	"Unable to determine destination buffer size."
@@ -445,7 +448,6 @@ BEGIN
 	working_NoReadStr2,	"Unable to read source file."
 	working_ZeroBytesStr,	"Reported 0 bytes written, cannot continue."
 	working_DAEErr,	"Error during audio extraction"
-	working_DAEStr,	"Digital Audio Extraction"
 	WaveIO_NoDescrStr,	"No fmt descriptor."
 	WaveIO_LengthStr,	"Bad fmt length."
 	WaveIO_TruncStr,	"Truncated file."
@@ -461,7 +463,7 @@ BEGIN
 	WaveIO_NoFlacInit,	"FLAC Stream failed to initialize, cannot continue"
 	WaveIO_NoExtStr,	"Unknown file extension: %s"
 	WaveIO_FlacError,	"FLAC decoder failure: Code %d."
-	WaveWriters_NoAllocMemStr,	"Unable to allocate memory."
+	WaveIO_TooBigStr,	"File is to large, CD Wave can only handle files up to 4GB"
 	ShellConsts_SShellDefaultSizeStr,	"Size"
 	ShellConsts_SShellDefaultTypeStr,	"Type"
 	ShellConsts_SShellDefaultModifiedStr,	"Modified"

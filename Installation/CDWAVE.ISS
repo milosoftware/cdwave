@@ -2,7 +2,7 @@
 AppName=CD Wave
 AppVerName=CD Wave Editor version 1.94.2
 AppVersion=1.94.2
-VersionInfoVersion=1.9.4.7
+VersionInfoVersion=1.9.4.8
 VersionInfoTextVersion=1.94.2
 AppCopyright=Copyright © 1997-2005 Mike Looijmans
 DefaultDirName={pf}\CD Wave

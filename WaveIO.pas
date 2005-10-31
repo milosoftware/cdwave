@@ -821,7 +821,7 @@ var
   ChunkSize, ChunkDataSize: Int64;
   RiffHead: TW64RIFF;
   RiffChunk: TW64CHUNK;
-  GotData: Boolean;
+  GotData, GotFmt: Boolean;
   h: DWORD;
 begin
   hFile := CreateFile(
@@ -845,6 +845,7 @@ begin
     if not CompareMem(@RiffHead.filetype, @CKGUID_WAVE, sizeof(TGUID)) then
         raise Exception.Create(NoRiffStr2);
     GotData := False;
+    GotFmt := False;
     repeat
       // Read chunk
       if Read(@RiffChunk, sizeof(RiffChunk)) < sizeof(RiffChunk) then
@@ -882,6 +883,7 @@ begin
         if ChunkSize > Size then
           // Skip padding etc.
           SetFilePointer(hFile, ChunkSize - Size, nil, FILE_CURRENT);
+        GotFmt := True;
       end
       else if CompareMem(@RiffChunk.fourcc, @CKGUID_DATA, sizeof(TGUID)) then
       begin
@@ -892,10 +894,13 @@ begin
         if ChunkDataSize > $FFFFFFFE then
             raise Exception.Create(TooBigStr);
         FWaveSize := ChunkDataSize;
+      end else
+      begin
+        // Unkown chunk, skip over it.
+        SetFilePointer(hfile, Int64Rec(ChunkSize).Lo, @Int64Rec(ChunkSize).Hi, FILE_CURRENT);
       end;
-    until GotData;
+    until GotFmt and GotData;
     SetFilePos(0);
-    //raise Exception.Create('W64 format not implemented yet.');
   except
     Close;
     raise;

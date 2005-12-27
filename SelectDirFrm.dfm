@@ -1,8 +1,8 @@
 inherited SelectDirDlg: TSelectDirDlg
   Left = 290
   Top = 113
-  Width = 635
-  Height = 720
+  Width = 544
+  Height = 746
   HelpContext = 1030
   BorderStyle = bsSizeable
   Caption = 'Select Output'
@@ -13,16 +13,16 @@ inherited SelectDirDlg: TSelectDirDlg
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel [0]
-    Left = 428
+    Left = 337
     Top = 0
     Width = 199
-    Height = 693
+    Height = 719
     Align = alRight
     BevelOuter = bvNone
     TabOrder = 0
     object Panel2: TPanel
       Left = 0
-      Top = 650
+      Top = 676
       Width = 199
       Height = 43
       Align = alBottom
@@ -241,7 +241,7 @@ inherited SelectDirDlg: TSelectDirDlg
       Left = 0
       Top = 89
       Width = 199
-      Height = 561
+      Height = 587
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 3
@@ -270,7 +270,7 @@ inherited SelectDirDlg: TSelectDirDlg
           TabOrder = 0
           OnChange = cbModeChange
           Items.Strings = (
-            'No conversion'
+            'Direct WAV'
             'WAV'
             'MP3 (LAME)'
             'OGG Vorbis'
@@ -433,19 +433,20 @@ inherited SelectDirDlg: TSelectDirDlg
         Width = 199
         Height = 79
         Align = alTop
-        Caption = 'No conversion parameters'
+        Caption = 'WAV Parameters'
         TabOrder = 3
-        object Label10: TLabel
+        object lblDirectEx: TLabel
           Left = 8
           Top = 16
-          Width = 183
-          Height = 26
-          Caption = 'Saves audio in same format as original file '
+          Width = 185
+          Height = 33
+          AutoSize = False
+          Caption = 'Save audio in standard WAV format without conversion'
           WordWrap = True
         end
         object cbOld24: TCheckBox
           Left = 8
-          Top = 56
+          Top = 48
           Width = 169
           Height = 17
           Hint = 'Save in a format compatible with some older programs'
@@ -585,8 +586,8 @@ inherited SelectDirDlg: TSelectDirDlg
   object ShellTree: TShellTreeView
     Left = 0
     Top = 0
-    Width = 428
-    Height = 693
+    Width = 337
+    Height = 719
     ObjectTypes = [otFolders]
     Root = 'rfDesktop'
     UseShellImages = True

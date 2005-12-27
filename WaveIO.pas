@@ -287,6 +287,14 @@ begin
       raise Exception.Create(OnlyPCMStr);
     if not (FPCMWaveFormat.Format.wBitsPerSample in [8,16,24]) then
       raise Exception.Create(Only8Or16Str);
+    if (FPCMWaveFormat.Format.cbSize + sizeof(FPCMWaveFormat.Format)) > Size then
+    begin
+      if Size < sizeof(FPCMWaveFormat.Format) then
+        FPCMWaveFormat.Format.cbSize := 0
+      else
+        FPCMWaveFormat.Format.cbSize := Size - sizeof(FPCMWaveFormat.Format);
+      //MessageDlg('FMT size adjusted, header is corrupt', mtWarning, [mbOk], 0);
+    end;
     // Fix the header if needed (e.g. SoundForge uses an invalid 24bit fmt)
     if (FPCMWaveFormat.Format.wBitsPerSample > 16) and
        (FPCMWaveFormat.Format.wFormatTag = WAVE_FORMAT_PCM) then
@@ -864,7 +872,7 @@ begin
           Size := sizeof(FPCMWaveFormat)
         else
           Size := ChunkDataSize;
-        if Read(@FPCMWaveFormat, Size) <> integer(Size) then
+        if Read(@FPCMWaveFormat, Size) <> Size then
           raise Exception.Create(TruncStr);
         if not IsPCM(@FPCMWaveFormat.Format) then
           raise Exception.Create(OnlyPCMStr);

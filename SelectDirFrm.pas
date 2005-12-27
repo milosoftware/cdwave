@@ -1,5 +1,7 @@
 unit SelectDirFrm;
 
+{$WARN UNIT_PLATFORM OFF}
+
 interface
 
 uses
@@ -48,7 +50,7 @@ type
     lBadOGGFormat: TLabel;
     GrpNoConversion: TGroupBox;
     cbOld24: TCheckBox;
-    Label10: TLabel;
+    lblDirectEx: TLabel;
     cbMP3Quality: TComboBox;
     grpFLAC: TGroupBox;
     Label12: TLabel;

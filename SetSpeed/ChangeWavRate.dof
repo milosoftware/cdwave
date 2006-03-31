@@ -41,12 +41,12 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=WAV File rate changer
 [Directories]
-OutputDir=
+OutputDir=..\Execute
 UnitOutputDir=
 PackageDLLOutputDir=
 PackageDCPOutputDir=
-SearchPath=D:\Components;D:\CDWav
-Packages=vcl;rtl;dbrtl;adortl;vcldb;vclx;bdertl;vcldbx;ibxpress;dsnap;cds;bdecds;qrpt;teeui;teedb;tee;dss;teeqr;visualclx;visualdbclx;dsnapcrba;dsnapcon;VclSmp;vclie;xmlrtl;inet;inetdbbde;inetdbxpress;inetdb;nmfast;webdsnap;websnap;dbexpress;dbxcds;indy;dclaxserver;dirtree;MiLo;vclshlctrls;IBO40CRT;IBO40TRT;IBO40FRT;IBO40VRT;IBO40XRT;IBO40WRT;IBO40WXDT;IBO40WXRT;IBO40FTS;IBO40RPL;whubd6;whubdbd6;whdemod6;TWPComp
+SearchPath=..\..\Components;..
+Packages=vcl;rtl;dbrtl;adortl;vcldb;vclx;bdertl;vcldbx;ibxpress;dsnap;cds;bdecds;qrpt;teeui;teedb;tee;dss;teeqr;visualclx;visualdbclx;dsnapcrba;dsnapcon;VclSmp;vclie;xmlrtl;inet;inetdbbde;inetdbxpress;inetdb;nmfast;webdsnap;websnap;dbexpress;dbxcds;indy;dclaxserver;MiLo;vclshlctrls;IBO40CRT;IBO40TRT;IBO40FRT;IBO40VRT;IBO40XRT;IBO40WRT;IBO40WXDT;IBO40WXRT;IBO40FTS;IBO40RPL;whubd6;whubdbd6;whdemod6;TWPComp
 Conditionals=
 DebugSourceDirs=
 UsePackages=0
@@ -87,7 +87,7 @@ ProductVersion=1.0.0.0
 Comments=
 [Excluded Packages]
 E:\WINNT\system32\vclshlctrls60.bpl=Win32 Shell Controls
-E:\Program Files\HREF Tools\WebHub\lib\D6\whwizd6.bpl=HREF Tools Corp - WebHub Project Wizard
+D:\Components\dirtree.bpl=(untitled)
 [HistoryLists\hlConditionals]
 Count=1
 Item0=DONTLINKDEFAULTMSGTABLE
@@ -95,12 +95,14 @@ Item0=DONTLINKDEFAULTMSGTABLE
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
-Count=2
-Item0=D:\Components;D:\CDWav
-Item1=D:\GDIPlus;D:\GDIPlus\pas\D6
+Count=3
+Item0=..\..\Components;..
+Item1=D:\Components;D:\CDWav
+Item2=D:\GDIPlus;D:\GDIPlus\pas\D6
 [HistoryLists\hlUnitOutputDirectory]
 Count=1
 Item0=..\dcu
 [HistoryLists\hlOutputDirectorry]
-Count=1
-Item0=..\bin
+Count=2
+Item0=..\Execute
+Item1=..\bin

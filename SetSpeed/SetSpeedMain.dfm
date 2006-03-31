@@ -76,7 +76,7 @@ object Form1: TForm1
     Height = 21
     Enabled = False
     TabOrder = 3
-    Text = 'eFileName'
+    Text = '(choose a WAV file)'
   end
   object OpenDlg: TOpenDialog
     Filter = 'Wave audio (*.wav)|*.wav'

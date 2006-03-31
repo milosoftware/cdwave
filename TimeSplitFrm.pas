@@ -15,9 +15,9 @@ type
     btnApply: TBitBtn;
     Label1: TLabel;
     eMinutes: TEdit;
-    UpDown1: TUpDown;
+    udMinutes: TUpDown;
     eSeconds: TEdit;
-    UpDown2: TUpDown;
+    udSeconds: TUpDown;
     Label2: TLabel;
     Label3: TLabel;
     Panel1: TPanel;
@@ -30,6 +30,8 @@ type
     procedure btnApplyClick(Sender: TObject);
     procedure cbFuzzyClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,7 +40,7 @@ type
 
 implementation
 
-uses Main;
+uses Main, Registry;
 {$R *.DFM}
 
 resourcestring
@@ -81,6 +83,51 @@ begin
     Format(AtMarkerStr, [TMainForm(Owner).MakeTime(at)]);
   if (at <> 0) then cbAtMarker.Checked := False;
   cbAtMarker.Enabled := at <> 0;
+end;
+
+procedure TTimeSplitForm.FormCreate(Sender: TObject);
+var Reg: TRegistry;
+begin
+  Reg := TRegistry.Create;
+  with Reg do
+  try
+    if OpenKey('SOFTWARE', False) and
+       OpenKey('MiLo', False) and
+       OpenKey('CDWAV', False)
+    then
+    try
+        udMinutes.Position := (ReadInteger('TimeSplitMinutes'));
+        udSeconds.Position := (ReadInteger('TimeSplitSeconds'));
+        cbFuzzy.Checked := ReadBool('TimeSplitFuzzy');
+        udSilence.Position := (ReadInteger('TimeSplitSilence'));
+        cbFuzzyClick(nil);
+    except
+    end;
+  finally
+    Reg.Free;
+    inherited;
+  end;
+end;
+
+procedure TTimeSplitForm.FormDestroy(Sender: TObject);
+var Reg: TRegistry;
+begin
+  Reg := TRegistry.Create;
+  with Reg do
+  try
+    if OpenKey('SOFTWARE', True) and
+       OpenKey('MiLo', True) and
+       OpenKey('CDWAV', True) then
+    with Reg do begin
+        WriteInteger('TimeSplitMinutes', StrToInt(eMinutes.Text));
+        WriteInteger('TimeSplitSeconds', StrToInt(eSeconds.Text));
+        WriteInteger('TimeSplitSilence', StrToInt(eSilence.Text));
+        WriteBool('TimeSplitFuzzy', cbFuzzy.Checked);
+    end;
+  finally
+    Reg.Free;
+    inherited;
+  end;
 end;
 
 end.

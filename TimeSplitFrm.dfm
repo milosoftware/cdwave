@@ -14,6 +14,8 @@ object TimeSplitForm: TTimeSplitForm
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -60,7 +62,7 @@ object TimeSplitForm: TTimeSplitForm
       TabOrder = 0
       Text = '0'
     end
-    object UpDown1: TUpDown
+    object udMinutes: TUpDown
       Left = 49
       Top = 56
       Width = 15
@@ -80,7 +82,7 @@ object TimeSplitForm: TTimeSplitForm
       TabOrder = 2
       Text = '0'
     end
-    object UpDown2: TUpDown
+    object udSeconds: TUpDown
       Left = 49
       Top = 88
       Width = 15

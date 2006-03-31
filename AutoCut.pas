@@ -28,6 +28,8 @@ type
     procedure btnHelpClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
     procedure tbRelPosChange(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,7 +39,7 @@ type
 implementation
 
 {$R *.DFM}
-uses Main;
+uses Main, Registry;
 
 procedure TAutoCutDlg.eLevelChange(Sender: TObject);
 var s: String;
@@ -64,6 +66,49 @@ end;
 procedure TAutoCutDlg.tbRelPosChange(Sender: TObject);
 begin
   lRelPos.Caption := IntToStr(tbRelPos.Position) + '%';
+end;
+
+procedure TAutoCutDlg.FormDestroy(Sender: TObject);
+var Reg: TRegistry;
+begin
+  Reg := TRegistry.Create;
+  with Reg do
+  try
+    if OpenKey('SOFTWARE', True) and
+       OpenKey('MiLo', True) and
+       OpenKey('CDWAV', True) then
+    with Reg do begin
+        WriteInteger('AutoSplitLevel', udLevel.Position);
+        WriteInteger('AutoSplitTime', udTime.Position);
+        WriteInteger('AutoSplitPos', tbRelPos.Position);
+    end;
+  finally
+    Reg.Free;
+    inherited;
+  end;
+end;
+
+procedure TAutoCutDlg.FormCreate(Sender: TObject);
+var Reg: TRegistry;
+begin
+  Reg := TRegistry.Create;
+  with Reg do
+  try
+    if OpenKey('SOFTWARE', False) and
+       OpenKey('MiLo', False) and
+       OpenKey('CDWAV', False)
+    then
+    try
+        udLevel.Position := ReadInteger('AutoSplitLevel');
+        udTime.Position := ReadInteger('AutoSplitTime');
+        tbRelPos.Position := ReadInteger('AutoSplitPos');
+        tbRelPosChange(nil);
+    except
+    end;
+  finally
+    Reg.Free;
+    inherited;
+  end;
 end;
 
 end.

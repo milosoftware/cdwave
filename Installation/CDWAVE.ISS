@@ -1,9 +1,9 @@
 [Setup]
 AppName=CD Wave
-AppVerName=CD Wave Editor version 1.94.5
-AppVersion=1.94.5
-VersionInfoVersion=1.9.5.1
-VersionInfoTextVersion=1.94.5
+AppVerName=CD Wave Editor version 1.95
+AppVersion=1.95
+VersionInfoVersion=1.9.5.0
+VersionInfoTextVersion=1.95
 AppCopyright=Copyright © 1997-2006 Mike Looijmans
 DefaultDirName={pf}\CD Wave
 DefaultGroupName=CD Wave
@@ -17,7 +17,7 @@ AppUpdatesURL=http://www.cdwave.com/download.html
 DisableStartupPrompt=yes
 LicenseFile=license.txt
 VersionInfoDescription=CD Wave Editor Setup
-OutputBaseFilename=cdwav1945
+OutputBaseFilename=cdwav195
 
 [Languages]
 Name: "en"; MessagesFile: "compiler:Default.isl"

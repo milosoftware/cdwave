@@ -8,25 +8,49 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   FormatFrm, StdCtrls, Buttons, FileCtrl, mmsystem, msacm, ComCtrls,
   Menus, ExtCtrls, ActnList, ImgList, Lame_Enc, Vorbis, FLAC, FLAC_Enc,
-  ShellCtrls, APE, DirNameFrm;
+  APE, DirNameFrm, ShlBrowseFolder;
 
 type
   TSelectDirDlg = class(TFormatForm)
-    PopupMenu1: TPopupMenu;
-    Create1: TMenuItem;
-    Rename1: TMenuItem;
-    Delete1: TMenuItem;
-    ActionList1: TActionList;
-    CreateDir: TAction;
-    DeleteDir: TAction;
-    RenameDir: TAction;
-    RefreshDir: TAction;
-    Refresh1: TMenuItem;
-    ImageList1: TImageList;
-    Panel1: TPanel;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    eDirectory: TEdit;
+    btnBrowse: TBitBtn;
     Panel2: TPanel;
     btnCancel: TBitBtn;
     btnOk: TBitBtn;
+    btnHelp: TBitBtn;
+    lblLoc: TLabel;
+    Panel1: TPanel;
+    PanelFormat: TPanel;
+    ModePanel: TPanel;
+    Label1: TLabel;
+    cbMode: TComboBox;
+    grpMP3: TGroupBox;
+    lMP3Status: TLabel;
+    lBadMP3Format: TLabel;
+    Label11: TLabel;
+    cbMP3Quality: TComboBox;
+    rbPreset: TRadioButton;
+    rbVBR: TRadioButton;
+    rbCBR: TRadioButton;
+    cbBitrate: TComboBox;
+    grpOGG: TGroupBox;
+    lOGGStatus: TLabel;
+    Label6: TLabel;
+    lBadOGGFormat: TLabel;
+    cbOGGQuality: TComboBox;
+    GrpNoConversion: TGroupBox;
+    lblDirectEx: TLabel;
+    cbOld24: TCheckBox;
+    grpFLAC: TGroupBox;
+    Label12: TLabel;
+    Label13: TLabel;
+    cbFLACLevel: TComboBox;
+    grpAPE: TGroupBox;
+    Label14: TLabel;
+    Label15: TLabel;
+    cbAPELevel: TComboBox;
     grpSpace: TGroupBox;
     Label2: TLabel;
     Label3: TLabel;
@@ -34,47 +58,9 @@ type
     lAvailable: TLabel;
     Label4: TLabel;
     Label5: TLabel;
-    ButtonPanel: TPanel;
-    PanelFormat: TPanel;
-    btnHelp: TBitBtn;
-    ModePanel: TPanel;
-    cbMode: TComboBox;
-    Label1: TLabel;
-    grpMP3: TGroupBox;
-    lMP3Status: TLabel;
-    grpOGG: TGroupBox;
-    lOGGStatus: TLabel;
-    cbOGGQuality: TComboBox;
-    Label6: TLabel;
-    lBadMP3Format: TLabel;
-    lBadOGGFormat: TLabel;
-    GrpNoConversion: TGroupBox;
-    cbOld24: TCheckBox;
-    lblDirectEx: TLabel;
-    cbMP3Quality: TComboBox;
-    grpFLAC: TGroupBox;
-    Label12: TLabel;
-    cbFLACLevel: TComboBox;
-    Label13: TLabel;
-    rbPreset: TRadioButton;
-    rbVBR: TRadioButton;
-    rbCBR: TRadioButton;
-    cbBitrate: TComboBox;
-    Label11: TLabel;
-    ShellTree: TShellTreeView;
-    grpAPE: TGroupBox;
-    Label14: TLabel;
-    Label15: TLabel;
-    cbAPELevel: TComboBox;
-    btnCreate: TBitBtn;
-    btnRefresh: TBitBtn;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure GetACMFormatFilter(var afc: TACMFORMATCHOOSE); override;
-    procedure bntCreateDirClick(Sender: TObject);
-    procedure Rename1Click(Sender: TObject);
-    procedure btnDeleteDirClick(Sender: TObject);
-    procedure RefreshDirExecute(Sender: TObject);
     procedure btnHelpClick(Sender: TObject);
     procedure cbModeChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -82,9 +68,9 @@ type
     procedure cbMP3QualityChange(Sender: TObject);
     procedure cbFLACLevelChange(Sender: TObject);
     procedure rbPresetClick(Sender: TObject);
-    procedure ShellTreeChange(Sender: TObject; Node: TTreeNode);
     procedure cbAPELevelChange(Sender: TObject);
-    procedure CreateDirUpdate(Sender: TObject);
+    procedure eDirectoryChange(Sender: TObject);
+    procedure btnBrowseClick(Sender: TObject);
   private
     { Private declarations }
     FActivePanel: TControl;
@@ -133,7 +119,7 @@ resourcestring
   strNoLameDll = 'LAME_ENC.DLL not found';
   strNoCreateDir = 'Select a folder, cannot create a directory here';
   strCreateDirFailed = 'Failed to create directory';
-
+  strSelectOutDir = 'Select output directory';
 type
 
     TMP3Format = record
@@ -175,13 +161,19 @@ begin
     else
       dir := value;
     if DirectoryExists(dir) then
-      ShellTree.Path := dir;
+    begin
+      eDirectory.Text := dir;
+    end;
   end;
 end;
 
 function TSelectDirDlg.GetDirectory;
 begin
-  Result := ShellTree.Path;
+  Result := eDirectory.Text;
+  if not DirectoryExists(result) then
+  begin
+    raise Exception.Create('Directory does not exist');
+  end;
   if Result[Length(Result)] <> '\' then
      result := Result + '\';
   //Result := DirectoryTree1.Directory;
@@ -529,50 +521,6 @@ begin
   UpdateOKbutton;
 end;
 
-procedure TSelectDirDlg.bntCreateDirClick(Sender: TObject);
-var oldpath: string;
-    newfolder: string;
-    folder: TShellFolder;
-begin
-  inherited;
-  folder := ShellTree.SelectedFolder;
-  if not folder.IsFolder then
-      raise Exception.Create(strNoCreateDir);
-  oldpath := GetCurrentDir;
-  try
-    if not SetCurrentDir(folder.PathName) then
-      raise Exception.Create(strNoCreateDir);
-    newfolder := GetDirName;
-    if not SysUtils.CreateDir(newfolder) then
-      raise Exception.Create(strCreateDirFailed);
-    ShellTree.Selected.Expand(false);
-  finally
-    SetCurrentDir(oldpath);
-  end;
-end;
-
-procedure TSelectDirDlg.Rename1Click(Sender: TObject);
-begin
-  inherited;
-  //DirectoryTree1.Selected.EditText;
-  if ShellTree.SelectedFolder.IsFolder then
-    ShellTree.Selected.EditText;
-end;
-
-procedure TSelectDirDlg.btnDeleteDirClick(Sender: TObject);
-begin
-  inherited;
-  ShellTree.Selected.Delete;
-  //DirectoryTree1.DeleteDirectory;
-end;
-
-procedure TSelectDirDlg.RefreshDirExecute(Sender: TObject);
-begin
-  inherited;
-  ShellTree.Refresh(ShellTree.Selected);
-  //DirectoryTree1.Refresh;
-end;
-
 procedure TSelectDirDlg.btnHelpClick(Sender: TObject);
 begin
   inherited;
@@ -636,19 +584,6 @@ begin
   cbMP3QualityChange(sender);
 end;
 
-procedure TSelectDirDlg.ShellTreeChange(Sender: TObject; Node: TTreeNode);
-begin
-  inherited;
-  FValidPath :=  DirectoryExists(shellTree.Path);
-  if FValidPath then
-  begin
-    Available := CalcDiskFreeSpace(Directory);
-  end else begin
-    Available := 0;
-  end;
-  UpdateOKbutton;
-end;
-
 procedure TSelectDirDlg.UpdateOKbutton;
 var valid: boolean;
 begin
@@ -658,17 +593,6 @@ begin
   btnOK.Enabled := valid;
 end;
 
-procedure TSelectDirDlg.CreateDirUpdate(Sender: TObject);
-var folder: TShellFolder;
-begin
-  inherited;
-  folder := ShellTree.SelectedFolder;
-  CreateDir.Enabled :=
-        assigned(folder) and
-        not (fpReadOnly in folder.Properties) and
-        folder.IsFolder;
-end;
-
 function TSelectDirDlg.GetDirName: string;
 begin
   if not assigned(FDirNameForm) then
@@ -676,6 +600,31 @@ begin
   FDirNameForm.eDirName.Text := NewFolderName;
   if FDirNameForm.ShowModal <> mrOk then Abort;
   Result := FDirNameForm.eDirName.Text;
+end;
+
+procedure TSelectDirDlg.eDirectoryChange(Sender: TObject);
+begin
+  inherited;
+  FValidPath :=  DirectoryExists(eDirectory.Text);
+  if FValidPath then
+  begin
+    Available := CalcDiskFreeSpace(Directory);
+  end else begin
+    Available := 0;
+  end;
+  UpdateOKbutton;
+end;
+
+procedure TSelectDirDlg.btnBrowseClick(Sender: TObject);
+var dir: string;
+begin
+  inherited;
+  dir := BrowseForFolder(Handle, strSelectOutDir, eDirectory.Text);
+  if dir <> '' then
+  begin
+    eDirectory.Text := dir;
+    eDirectoryChange(nil);
+  end;
 end;
 
 end.

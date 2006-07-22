@@ -29,7 +29,7 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 Source: "..\Execute\CDWav.exe"; DestDir: "{app}"
-Source: "..\Execute\CDWav.nld"; DestDir: "{app}"
+Source: "..\Execute\CDWav.nl"; DestDir: "{app}"
 Source: "..\Execute\CDWav.hlp"; DestDir: "{app}"
 Source: "..\Execute\CDWav.cnt"; DestDir: "{app}"
 Source: "..\Execute\vorbis.dll"; DestDir: "{app}"

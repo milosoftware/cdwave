@@ -9,7 +9,7 @@ MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
 DCC = $(ROOT)\bin\dcc32.exe $**
 BRCC = $(ROOT)\bin\brcc32.exe $**
 #------------------------------------------------------------------------------
-PROJECTS = CDWav.exe CDWav.NLD
+PROJECTS = CDWav.exe CDWav.NL
 #------------------------------------------------------------------------------
 default: $(PROJECTS)
 #------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ default: $(PROJECTS)
 CDWav.exe: CDWav.DPR
   $(DCC)
 
-CDWav.NLD: NLD\CDWav.dpr
+CDWav.NL: NL\CDWav.dpr
   $(DCC)
 
 

@@ -129,7 +129,7 @@ begin
   if (s >= 0) and (WaveFormat.nAvgBytesPerSec <> 0) then
   begin
     str(s/(WaveFormat.nAvgBytesPerSec*60):3:0, m);
-    lFreeSpace.Caption := IntToStr(s shr 10) + ' MB - ' + m + MinStr;
+    lFreeSpace.Caption := IntToStr(s shr 20) + ' MB - ' + m + MinStr;
     lFileExists.Visible := FileExists(f);
     if Sender = eFileName then
     begin

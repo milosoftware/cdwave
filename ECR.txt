@@ -1,39 +1,20 @@
-Requests:
+Bugs:
+- when I try to start a timed recording for the following day - say 6 am tomorrow morning.  If it's not past midnight, the recording starts immediately. 
 
-x Show last added entry in track list
-x Spacebar for PLAY/STOP
-- Remove/uncheck "small" splits (usually silence)
-- Renumber when unchecking items (track01 - silence - track02)
+Requests:
 - Merge tracks (around silence)
 - Display sound level value somewhere
-- Stop recording at hh:mm
 - Shutdown system after recording
-
-Internal
-- Make path of WAV file relative to CUE sheet
-
-Bugs & fixes
-- Split on conversion: 48->44 will NOT cut on sector boundaries.
-- Repaint lower wave while recording
-- Remember autosplit settings.
 
 Interface/functionality
 - Time lines or other time indication along the window
 - Stereo, show L/R channels seperately  (Quad?)
 - Color tracks in bottom wav
-x Colors in track list
-x Remember Maximized window also
-x Split on-the-fly (while recording)
-x Overwrite confirmations
 - Save confirmation
 - Edit splits, Split point location adjust
-x Panning behaviour when reaching end of lower pane
-x Change green middle bar into real scrollbar
 - show VU meter/LEDs after recording.
 
 New functionality
-x Recording settings (samplerate, bits, channels)
-x 24-bit support
 - CD TEXT
 - Calc tempo (b.p.m.)
 - Loudness balancing (max level w/o clipping)
@@ -41,7 +22,6 @@ x 24-bit support
 - Fade IN/OUT on tracks
 - Remove 'unwanted' data (zero samples)
 - Crossfade two tracks that are not adjacent
-- Sample rate conversion
 - Save/load 'peak' files
 - Add silence to start/end of tracks
 

@@ -1,6 +1,6 @@
 inherited DlgRecordShare: TDlgRecordShare
-  Left = 205
-  Top = 217
+  Left = 328
+  Top = 370
   ClientHeight = 432
   ClientWidth = 488
   OnActivate = FormActivate

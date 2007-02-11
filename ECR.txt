@@ -1,5 +1,6 @@
 Bugs:
 - when I try to start a timed recording for the following day - say 6 am tomorrow morning.  If it's not past midnight, the recording starts immediately. 
+- Invalid characters in track names (?/\* etc)
 
 Requests:
 - Merge tracks (around silence)

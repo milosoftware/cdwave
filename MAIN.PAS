@@ -458,10 +458,6 @@ resourcestring
   NoDataBlocksStr = 'Unable to add wave data blocks.';
   RecStopStr = 'Recording stopped because of error (disk full?)';
   SureLoseStr = 'Are you sure you want to lose all your split points and start over?';
-  FileStr = 'FILE "%s" WAVE';
-  TrackStr = '  TRACK %s AUDIO';
-  TitleStr = '    TITLE "%s"';
-  IndexStr = '    INDEX 01 ';
   NoWaveKeyStr = 'FILE line does not have a WAVE keyword.';
   OpenStr = 'Open associated file: "%s"?';
   NoIndexStr = 'Line %s: Invalid INDEX line, time format too short.';
@@ -485,6 +481,12 @@ resourcestring
   WhileOpeneningStr = 'While opening audio device';
   WhilePrepareStr = 'While preparing a buffer for playback';
   strSilence = '(unused) ';
+
+const
+  FileStr  = 'FILE "%s" WAVE';
+  TrackStr = '  TRACK %s AUDIO';
+  TitleStr = '    TITLE "%s"';
+  IndexStr = '    INDEX 01 ';
 
 function TwoDigit(n: Integer): string;
 begin

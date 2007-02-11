@@ -1,6 +1,6 @@
 inherited AboutBoxShare: TAboutBoxShare
-  Left = 203
-  Top = 123
+  Left = 325
+  Top = 210
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel

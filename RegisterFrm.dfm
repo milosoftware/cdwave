@@ -1,6 +1,6 @@
 object RegisterForm: TRegisterForm
-  Left = 332
-  Top = 116
+  Left = 531
+  Top = 198
   HelpContext = 9001
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog

@@ -48,7 +48,7 @@ type
     FileExitItem: TMenuItem;
     HelpAboutItem: TMenuItem;
     StatusLine: TStatusBar;
-    OpenDialog: TOpenDialog;  { &About... }
+    OpenDialog: TOpenDialog;
     TimeDragPanel: TPanel;
     pbTimeRange: TPaintBox;
     Panel1: TPanel;
@@ -2577,8 +2577,10 @@ procedure TMainForm.FormShow(Sender: TObject);
 var i: integer;
     s: String;
     TheFile: string;
-    action: (aNothing, aPlay, aRecord);
-function CalcTime(const ts: string): Cardinal;
+    WriteDir: string;
+    action: (aNothing, aPlay, aRecord, aSplit);
+    splitSeconds, splitFuzzy: Cardinal;
+function CalcSeconds(const ts: string): Cardinal;
 var min, hr: Cardinal;
     pos: Integer;
 begin
@@ -2598,12 +2600,35 @@ begin
     end;
     inc(pos);
   end;
-  Result := WaveFormat.nAvgBytesPerSec  * ((hr * 60) + min) * 60;
+  Result := (hr * 60) + min;
 end;
+function CalcTime(const ts:string): Cardinal;
+begin
+  Result := WaveFormat.nAvgBytesPerSec  * CalcSeconds(ts) * 60;
+end;
+procedure WriteFiles;
+var LoadingDlg: TLoadingDlg;
+begin
+    LoadingDlg := TLoadingDlg.Create(self);
+    try
+      LoadingDlg.SaveTracks(
+        TrackList.Items,
+        WaveFile,
+        WriteDir,
+        WaveFormat,
+        nil);
+    finally
+      LoadingDlg.Free;
+    end;
+end;
+
 begin
  try
   i := 1;
   action := aNothing;
+  SplitSeconds := 0;
+  SplitFuzzy := 0;
+  WriteDir := '';
   DlgRecord.GetSettings(RecSettings); // use defaults
   CopyWaveFormat(DlgRecord.WaveFormat);
   while i <= ParamCount do
@@ -2633,6 +2658,21 @@ begin
                 RecSettings.StartOnVoice := True;
              end;
         'Q': QuitAfterRecording := True;
+        'O': SelectDirDlg.Directory := copy(s, 3, length(s) - 2);
+        'I': begin
+                action := aSplit;
+                splitSeconds := CalcSeconds(copy(s, 3, length(s) - 2));
+             end;
+        'F': begin
+                splitFuzzy := CalcSeconds(copy(s, 3, length(s) - 2));
+             end;
+        'W': begin
+                WriteDir := copy(s, 3, length(s) - 2);
+                if (WriteDir[length(WriteDir)] <> '\') then
+                    WriteDir := WriteDir + '\';
+             end;
+      else
+        raise Exception.Create('Unknown commandline option: ' + s);
       end;
     end else begin
       if (TheFile <> '') then StatusLine.Panels[1].Text := IgnoreFileStr + TheFile;
@@ -2654,7 +2694,20 @@ begin
     if TheFile <> '' then
     begin
       LoadFile(TheFile);
-      if action = aPlay then BtnPlayClick(nil);
+      case action of
+        aPlay: BtnPlayClick(nil);
+        aSplit: begin
+                  if splitFuzzy <> 0 then
+                    TimeSplitFuzzy(0, splitSeconds, splitFuzzy)
+                  else
+                    TimeSplit(0, splitSeconds);
+                  if WriteDir <> '' then
+                  begin
+                    WriteFiles;
+                    if QuitAfterRecording then Close;
+                  end;
+                end;
+      end;
     end;
  except
     on e: Exception do

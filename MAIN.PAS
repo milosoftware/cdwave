@@ -1058,6 +1058,7 @@ procedure TMainForm.pbWaveMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 var at: Cardinal;
 begin
+  if x < 0 then x := 0;
   if (WaveStatus >= wsOpen) and (WaveStatus < wsRecord) and (x <> WaveZoomLastMove) then
   with Sender as TPaintBox do
   begin

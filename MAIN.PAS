@@ -1064,6 +1064,8 @@ begin
   begin
     WaveZoomLastMove := x;
     at := SectorSize * (ZoomOffset + Cardinal(x));
+    if at >= WaveFile.WaveSize then
+        Exit;
     StatusLine.Panels[0].Text := MakeTime(at);
     if WaveZoomMBD then
     begin
@@ -2090,6 +2092,8 @@ if (x <> TimeRangeLastMove) and assigned(WaveFile) then
       At := 0
     else
       At := Cardinal((int64(x) * WaveFile.WaveSize) div Width);
+    if (At >= WaveFile.WaveSize) then
+        Exit;
     StatusLine.Panels[0].Text := MakeTime(At);
     if TimeRangeMBD then
     begin

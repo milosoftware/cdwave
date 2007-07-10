@@ -163,7 +163,7 @@ type
 
   TFlacWaveWriter = class(TFileWaveWriter)
   protected
-     stream: PFLAC__SeekableStreamEncoder;
+     stream: PFLAC__StreamEncoder;
      F32Buffer: PFLACIntBuf;
   public
     constructor Create(AFromFormat, AToFormat: PWaveFormatEx);
@@ -964,22 +964,22 @@ end;
 
 //-----
 
-  function EncSeekCBFunc(encoder : PFLAC__SeekableStreamEncoder;
+  function EncSeekCBFunc(encoder : PFLAC__StreamEncoder;
                       absolute_byte_offset : FLAC__uint64;
                       client_data : Pointer) : Integer; cdecl;
   var
     res: Cardinal;
   begin
-    Result := FLAC__SEEKABLE_STREAM_ENCODER_SEEK_STATUS_OK;
+    Result := FLAC__STREAM_ENCODER_SEEK_STATUS_OK;
     res := SetFilePointer(TFlacWaveWriter(client_data).hFile,
                           Int64Rec(absolute_byte_offset).Lo,
                           @Int64Rec(absolute_byte_offset).Hi,
                           SEEK_SET);
     if (res = $FFFFFFFF) and (GetLastError <> NO_ERROR) then
-      Result := FLAC__SEEKABLE_STREAM_ENCODER_SEEK_ERROR;
+      Result := FLAC__STREAM_ENCODER_SEEK_ERROR;
   end;
 
-  function EncWriteCBFunc(encoder : PFLAC__SeekableStreamEncoder;
+  function EncWriteCBFunc(encoder : PFLAC__StreamEncoder;
                                 buffer : PFLAC__byte;
                                 bytes, samples, current_frame : LongWord;
                                 client_data : Pointer) : Integer; cdecl;
@@ -987,17 +987,44 @@ end;
     if FileWrite(TFlacWaveWriter(client_data).hFile, buffer^, bytes) =
        Integer(bytes)
     then
-      Result := FLAC__SEEKABLE_STREAM_ENCODER_OK
+      Result := FLAC__STREAM_ENCODER_OK
     else
-      Result := FLAC__SEEKABLE_STREAM_ENCODER_WRITE_ERROR;
+      Result := FLAC__STREAM_ENCODER_WRITE_ERROR;
   end;
+
+function EncTellCBfunc(encoder: PFLAC__StreamEncoder;
+                       var absolute_byte_offset: FLAC__uint64;
+                       client_data: Pointer): Integer; cdecl;
+var f: TFlacWaveWriter;
+    r, h: Cardinal;
+begin
+  f := client_data;
+  h := 0;
+  // 64 - bit file sizes not fully supported here...
+  r := SetFilePointer(f.HFile, 0, @h, FILE_CURRENT);
+  if (r = $FFFFFFFF) and (GetLastError <> NO_ERROR) then
+    Result := FLAC__STREAM_ENCODER_TELL_STATUS_ERROR
+  else begin
+    Result := FLAC__STREAM_ENCODER_TELL_STATUS_OK;
+    Int64Rec(absolute_byte_offset).Lo := r;
+    Int64Rec(absolute_byte_offset).Hi := h;
+  end;
+end;
+
+
+{
+  FLAC__StreamEncoderMetadataCallback = procedure(encoder: PFLAC__StreamEncoder;
+                                              const metadata: PFLAC__StreamMetadata;
+                                              client_data : Pointer); cdecl;
+
+ }
 
 
 constructor TFlacWaveWriter.Create;
 var F32BufferSize: Cardinal;
 begin
   inherited;
-  stream := FLAC__seekable_stream_encoder_new;
+  stream := FLAC__stream_encoder_new;
   if stream = nil then raise Exception.Create('Unable to create FLAC encoder');
   FBufferSize := 4608 * (FromFormat.wBitsPerSample shr 3) * FromFormat.nChannels;
   F32BufferSize := 4608 * sizeof(FLAC__int32) * FromFormat.nChannels;
@@ -1011,7 +1038,7 @@ end;
 
 destructor TFlacWaveWriter.Destroy;
 begin
-  if stream <> nil then FLAC__seekable_stream_encoder_delete(stream);
+  if stream <> nil then FLAC__stream_encoder_delete(stream);
   if (Buffer <> nil) then
   begin
     GlobalFree(Cardinal(Buffer));
@@ -1057,41 +1084,40 @@ const
 
 procedure TFlacWaveWriter.InitFile;
 var cfg: TFlacConfig;
+    err: Integer;
 begin
   FileName := ChangeFileExt(FileName, '.flac');
   inherited;
-  FLAC__seekable_stream_encoder_set_client_data(stream, self);
-  FLAC__seekable_stream_encoder_set_channels(stream, FromFormat.nChannels);
-  FLAC__seekable_stream_encoder_set_bits_per_sample(stream, FromFormat.wBitsPerSample);
-  FLAC__seekable_stream_encoder_set_sample_rate(stream, FromFormat.nSamplesPerSec);
-  FLAC__seekable_stream_encoder_set_total_samples_estimate(stream, ToWrite div FromFormat.nBlockAlign);
-  FLAC__seekable_stream_encoder_set_seek_callback(stream, EncSeekCBFunc);
-  FLAC__seekable_stream_encoder_set_write_callback(stream, EncWriteCBfunc);
+  FLAC__stream_encoder_set_channels(stream, FromFormat.nChannels);
+  FLAC__stream_encoder_set_bits_per_sample(stream, FromFormat.wBitsPerSample);
+  FLAC__stream_encoder_set_sample_rate(stream, FromFormat.nSamplesPerSec);
+  FLAC__stream_encoder_set_total_samples_estimate(stream, ToWrite div FromFormat.nBlockAlign);
   cfg := FlacConfig[PFlacWaveFormat(ToFormat).Level];
   with cfg do
   begin
-    FLAC__seekable_stream_encoder_set_max_lpc_order(stream, lpc);
-    FLAC__seekable_stream_encoder_set_blocksize(stream, block);
+    FLAC__stream_encoder_set_max_lpc_order(stream, lpc);
+    FLAC__stream_encoder_set_blocksize(stream, block);
     if rice_min > 0 then
-      FLAC__seekable_stream_encoder_set_min_residual_partition_order(stream, rice_min);
-    FLAC__seekable_stream_encoder_set_max_residual_partition_order(stream, rice_max);
+      FLAC__stream_encoder_set_min_residual_partition_order(stream, rice_min);
+    FLAC__stream_encoder_set_max_residual_partition_order(stream, rice_max);
     if ToFormat.nChannels > 1 then
     begin
-      FLAC__seekable_stream_encoder_set_do_mid_side_stereo(stream, midside);
-      FLAC__seekable_stream_encoder_set_loose_mid_side_stereo(stream, a_midside);
+      FLAC__stream_encoder_set_do_mid_side_stereo(stream, midside);
+      FLAC__stream_encoder_set_loose_mid_side_stereo(stream, a_midside);
     end;
-    FLAC__seekable_stream_encoder_set_do_exhaustive_model_search(stream, exhaustive);
+    FLAC__stream_encoder_set_do_exhaustive_model_search(stream, exhaustive);
   end;
-  if FLAC__seekable_stream_encoder_init(stream) <> FLAC__SEEKABLE_STREAM_ENCODER_OK then
-    raise Exception.Create('Failed to initialize FLAC stream encoder');
+  err := FLAC__stream_encoder_init_stream(stream, EncWriteCBFunc, EncSeekCBFunc, EncTellCBFunc, nil, self);
+  if err <> FLAC__STREAM_ENCODER_OK then
+    raise Exception.Create('Failed to initialize FLAC stream encoder, code: ' + IntToStr(err));
 end;
 
 procedure TFlacWaveWriter.DoneFile;
 begin
   try
-    if FLAC__seekable_stream_encoder_get_state(stream) <>
-       FLAC__SEEKABLE_STREAM_ENCODER_UNINITIALIZED then
-      FLAC__seekable_stream_encoder_finish(stream);
+    if FLAC__stream_encoder_get_state(stream) <>
+       FLAC__STREAM_ENCODER_UNINITIALIZED then
+      FLAC__stream_encoder_finish(stream);
   finally
     inherited;
   end;
@@ -1112,7 +1138,7 @@ begin
     17..24: for i := 0 to s-1 do flacBuf[i] := PInteger(@(PArray24(Buf)[i]))^ and $00FFFFFF;
     else flacBuf := Buffer;
   end;
-  if not FLAC__seekable_stream_encoder_process_interleaved(stream, @flacBuf[0], s div Fromformat.nChannels) then
+  if not FLAC__stream_encoder_process_interleaved(stream, @flacBuf[0], s div Fromformat.nChannels) then
     raise Exception.Create('FLAC Stream write failed?');
   result := bytes;
 end;

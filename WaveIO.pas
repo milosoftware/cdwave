@@ -68,7 +68,7 @@ type
     TFLACWaveFile = class(TWaveFile)
     private
       HFile: THandle;
-      FStream: PFLAC__SeekableStreamDecoder;
+      FStream: PFLAC__StreamDecoder;
       FStatus: Integer;
       AtEOF: boolean;
       // "Overflow" buffer (when we get more data than fits in the Data buffer
@@ -410,7 +410,7 @@ end;
 
 // -----------------------------------------------------------------------------
 
-function fdReadCallback(decoder : PFLAC__SeekableStreamDecoder;
+function fdReadCallback(decoder : PFLAC__StreamDecoder;
                         buffer : PFLAC__byte;
                         var bytes : LongWord;
                         client_data : Pointer) : Integer; cdecl;
@@ -420,12 +420,12 @@ begin
   if ReadFile(f.HFile, buffer^, bytes, bytes, nil) then
   begin
     f.AtEOF := bytes = 0;
-    Result := FLAC__SEEKABLE_STREAM_DECODER_READ_STATUS_OK
+    Result := FLAC__STREAM_DECODER_READ_STATUS_OK
   end else
-    Result := FLAC__SEEKABLE_STREAM_DECODER_READ_STATUS_ERROR;
+    Result := FLAC__STREAM_DECODER_READ_STATUS_ERROR;
 end;
 
-function fdSeekCallback(decoder : PFLAC__SeekableStreamDecoder;
+function fdSeekCallback(decoder : PFLAC__StreamDecoder;
                         absolute_byte_offset : FLAC__uint64;
                         client_data : Pointer) : Integer; cdecl;
 var f: TFLACWaveFile;
@@ -435,12 +435,12 @@ begin
   // 64 - bit file sizes not fully supported here...
   h := Int64Rec(absolute_byte_offset).Hi;
   if SetFilePointer(f.HFile, absolute_byte_offset, @h, FILE_BEGIN) = $FFFFFFFF then
-    Result := FLAC__SEEKABLE_STREAM_DECODER_SEEK_STATUS_ERROR
+    Result := FLAC__STREAM_DECODER_SEEK_STATUS_ERROR
   else
-    Result := FLAC__SEEKABLE_STREAM_DECODER_SEEK_STATUS_OK
+    Result := FLAC__STREAM_DECODER_SEEK_STATUS_OK
 end;
 
-function fdTellCallback(decoder : PFLAC__SeekableStreamDecoder;
+function fdTellCallback(decoder : PFLAC__StreamDecoder;
                         var absolute_byte_offset : FLAC__uint64;
                         client_data : Pointer) : Integer; cdecl;
 var f: TFLACWaveFile;
@@ -451,15 +451,15 @@ begin
   // 64 - bit file sizes not fully supported here...
   r := SetFilePointer(f.HFile, 0, @h, FILE_CURRENT);
   if (r = $FFFFFFFF) and (GetLastError <> NO_ERROR) then
-    Result := FLAC__SEEKABLE_STREAM_DECODER_TELL_STATUS_ERROR
+    Result := FLAC__STREAM_DECODER_TELL_STATUS_ERROR
   else begin
-    Result := FLAC__SEEKABLE_STREAM_DECODER_TELL_STATUS_OK;
+    Result := FLAC__STREAM_DECODER_TELL_STATUS_OK;
     Int64Rec(absolute_byte_offset).Lo := r;
     Int64Rec(absolute_byte_offset).Hi := h;
   end;
 end;
 
-function fdLengthCallback(decoder : PFLAC__SeekableStreamDecoder;
+function fdLengthCallback(decoder : PFLAC__StreamDecoder;
                           var stream_length : FLAC__uint64;
                           client_data : Pointer) : Integer; cdecl;
 var f: TFLACWaveFile;
@@ -469,30 +469,30 @@ begin
   // 64 - bit file sizes not fully supported here...
   r := GetFileSize(f.Hfile, @Int64Rec(stream_length).Hi);
   if (r = $FFFFFFFF) and (GetLastError <> NO_ERROR) then
-    Result := FLAC__SEEKABLE_STREAM_DECODER_LENGTH_STATUS_ERROR
+    Result := FLAC__STREAM_DECODER_LENGTH_STATUS_ERROR
   else begin
-    Result := FLAC__SEEKABLE_STREAM_DECODER_LENGTH_STATUS_OK ;
+    Result := FLAC__STREAM_DECODER_LENGTH_STATUS_OK ;
     Int64Rec(stream_length).Lo := r;
   end;
 end;
 
-function fdEofCallback(decoder : PFLAC__SeekableStreamDecoder;
+function fdEofCallback(decoder : PFLAC__StreamDecoder;
                        client_data : Pointer) : FLAC__bool; cdecl;
 begin
   Result := TFlacWaveFile(client_data).AtEOF;
 end;
 
-function fdWriteCallback(decoder : PFLAC__SeekableStreamDecoder;
+function fdWriteCallback(decoder : PFLAC__StreamDecoder;
                          frame : PFLAC__FrameHeader;
                          buffer : PFLACChannels;
                          client_data : Pointer) : Integer; cdecl;
 begin
   // Do something intelligent here...
   TFlacWaveFile(client_data).OnData(frame, buffer);
-  Result := FLAC__SEEKABLE_STREAM_DECODER_OK;
+  Result := FLAC__STREAM_DECODER_READ_STATUS_OK;
 end;
 
-procedure fdMetadataCallback(decoder : PFLAC__SeekableStreamDecoder;
+procedure fdMetadataCallback(decoder : PFLAC__StreamDecoder;
                              metadata : PFLAC__StreamMetadata;
                              client_data : Pointer); cdecl;
 begin
@@ -502,7 +502,7 @@ begin
 end;
 
 
-procedure fdErrorCallback(decoder : PFLAC__SeekableStreamDecoder;
+procedure fdErrorCallback(decoder : PFLAC__StreamDecoder;
                           status : Integer;
                           client_data : Pointer); cdecl;
 begin
@@ -525,36 +525,29 @@ begin
     raise EWin32Error.CreateFmt(
             NoOpenStr,
             [SysErrorMessage(GetLastError), AFileName]);
-  FStream := FLAC__seekable_stream_decoder_new;
+  FStream := FLAC__stream_decoder_new;
   if FStream = nil then
   begin
     CloseHandle(HFile);
     raise Exception.Create(NoFlacMemory);
   end;
   try
-    FLAC__seekable_stream_decoder_set_read_callback(FStream, fdReadCallback);
-    FLAC__seekable_stream_decoder_set_seek_callback(FStream, fdSeekCallback);
-    FLAC__seekable_stream_decoder_set_tell_callback(FStream, fdTellCallback);
-    FLAC__seekable_stream_decoder_set_length_callback(FStream, fdLengthCallback);
-    FLAC__seekable_stream_decoder_set_write_callback(FStream, fdWriteCallback);
-    FLAC__seekable_stream_decoder_set_metadata_callback(FStream, fdMetadataCallback);
-    FLAC__seekable_stream_decoder_set_eof_callback(FStream, fdEofCallback);
-    FLAC__seekable_stream_decoder_set_error_callback(FStream, fdErrorCallback);
-    FLAC__seekable_stream_decoder_set_client_data(FStream, self);
-    err := FLAC__seekable_stream_decoder_init(FStream);
-    if err <> FLAC__SEEKABLE_STREAM_DECODER_OK then
-      raise Exception.Create(NoFlacInit + ': ' + IntToStr(err));
-    FLAC__seekable_stream_decoder_process_until_end_of_metadata(FStream);
+    err := FLAC__stream_decoder_init_stream(FStream, fdReadCallback,
+                fdSeekCallback, fdTellCallback, fdLengthCallback, fdEofCallback,
+                fdWriteCallback, fdMetadataCallback, fdErrorCallback, self);
+    if err <> 0 then
+        raise Exception.Create(NoFlacInit + ': ' + IntToStr(err));
+    FLAC__stream_decoder_process_until_end_of_metadata(FStream);
     // Decode first block te fetch the format stuff
     //while FPCMWaveFormat.Format.wBitsPerSample = 0 do
-    //  FLAC__seekable_stream_decoder_process_single(FStream);
-    if not FLAC__seekable_stream_decoder_seek_absolute(FStream, 0) then
-      raise Exception.CreateFmt(FlacError, [FLAC__seekable_stream_decoder_get_stream_decoder_state(FStream)]);
-    {if not FLAC__seekable_stream_decoder_process_until_end_of_stream(FStream) then
-      raise Exception.Create('Process until end failed: ' + IntToStr(FLAC__seekable_stream_decoder_get_stream_decoder_state(FStream)));}
+    //  FLAC__stream_decoder_process_single(FStream);
+    if not FLAC__stream_decoder_seek_absolute(FStream, 0) then
+      raise Exception.CreateFmt(FlacError, [FLAC__stream_decoder_get_stream_decoder_state(FStream)]);
+    {if not FLAC__stream_decoder_process_until_end_of_stream(FStream) then
+      raise Exception.Create('Process until end failed: ' + IntToStr(FLAC__stream_decoder_get_stream_decoder_state(FStream)));}
   except
     // clean it all up, return to initial state on error
-    FLAC__seekable_stream_decoder_delete(FStream);
+    FLAC__stream_decoder_delete(FStream);
     FStream := nil;
     CloseHandle(HFile);
     raise;
@@ -563,8 +556,8 @@ end;
 
 procedure TFLACWaveFile.Close;
 begin
-  FLAC__seekable_stream_decoder_finish(FStream);
-  FLAC__seekable_stream_decoder_delete(FStream);
+  FLAC__stream_decoder_finish(FStream);
+  FLAC__stream_decoder_delete(FStream);
   FStream := nil;
   CloseHandle(HFile);
   HFile := 0;
@@ -584,15 +577,15 @@ begin
   AtEOF := False;
   FCarrySize := 0;
   if not
-   //(FLAC__seekable_stream_decoder_reset(FStream) and
-   FLAC__seekable_stream_decoder_seek_absolute(FStream, bytes div FPCMWaveformat.Format.nBlockAlign) then
-     raise Exception.CreateFmt(FlacError, [FLAC__seekable_stream_decoder_get_stream_decoder_state(FStream)]);
+   //(FLAC__stream_decoder_reset(FStream) and
+   FLAC__stream_decoder_seek_absolute(FStream, bytes div FPCMWaveformat.Format.nBlockAlign) then
+     raise Exception.CreateFmt(FlacError, [FLAC__stream_decoder_get_stream_decoder_state(FStream)]);
 end;
 
 function TFLACWaveFile.GetFilePos;
 var pos: FLAC__uint64;
 begin
-  FLAC__seekable_stream_decoder_get_decode_position(FStream, pos);
+  FLAC__stream_decoder_get_decode_position(FStream, pos);
   Result := Pos * FPCMWaveFormat.Format.nBlockAlign;
 end;
 
@@ -605,13 +598,12 @@ begin
   FDataPos := 0;
   FDataReady := False;
   FetchCarry;
-  res := FLAC__SEEKABLE_STREAM_DECODER_OK;
+  res := 0;
   while (FDataSize < bytes) and
-        (res = FLAC__SEEKABLE_STREAM_DECODER_OK) and
-        FLAC__seekable_stream_decoder_process_single(FStream) do
-        res := FLAC__seekable_stream_decoder_get_state(FStream);
-  if not (res in [FLAC__SEEKABLE_STREAM_DECODER_OK,
-                 FLAC__SEEKABLE_STREAM_DECODER_END_OF_STREAM]) then
+        (res < FLAC__STREAM_DECODER_END_OF_STREAM) and
+        FLAC__stream_decoder_process_single(FStream) do
+        res := FLAC__stream_decoder_get_state(FStream);
+  if (res > FLAC__STREAM_DECODER_END_OF_STREAM) then
     raise Exception.Create('FLAC decoder failure: ' + IntToStr(res));
   FDataBuffer := nil;
   FDataCapacity := 0;

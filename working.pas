@@ -175,8 +175,9 @@ begin
                 ToRead := ToWrite - TotWritten;
                 WaveWriter.IsLastWrite;
               end;
-              if (ToRead <> 0) and (WaveFile.Read(Buffer, ToRead) <> ToRead) then
-                raise Exception.Create(NoReadStr2);
+              if (ToRead <> 0) and
+                 (WaveFile.Read(Buffer, ToRead) <> ToRead) then
+                  raise Exception.Create(NoReadStr2);
               BytesWritten := WaveWriter.write(ToRead);
               if BytesWritten = 0 then raise Exception.Create(ZeroBytesStr);
               Buffer := WaveWriter.Buffer;

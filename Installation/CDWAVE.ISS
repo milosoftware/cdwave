@@ -1,9 +1,9 @@
 [Setup]
 AppName=CD Wave
-AppVerName=CD Wave Editor version 1.95.2 beta
-AppVersion=1.95.2
-VersionInfoVersion=1.9.5.2
-VersionInfoTextVersion=1.95.2
+AppVerName=CD Wave Editor version 1.96
+AppVersion=1.96
+VersionInfoVersion=1.9.6.1
+VersionInfoTextVersion=1.96
 AppCopyright=Copyright © 1997-2006 Mike Looijmans
 DefaultDirName={pf}\CD Wave
 DefaultGroupName=CD Wave
@@ -17,7 +17,7 @@ AppUpdatesURL=http://www.cdwave.com/download.html
 DisableStartupPrompt=yes
 LicenseFile=license.txt
 VersionInfoDescription=CD Wave Editor Setup
-OutputBaseFilename=cdwav1952
+OutputBaseFilename=cdwav196
 
 [Languages]
 Name: "en"; MessagesFile: "compiler:Default.isl"
@@ -29,7 +29,7 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 Source: "..\Execute\CDWav.exe"; DestDir: "{app}"
-; Source: "..\Execute\CDWav.nl"; DestDir: "{app}"
+Source: "..\Execute\CDWav.nl"; DestDir: "{app}"
 ; Source: "..\Execute\CDWav.en"; DestDir: "{app}"
 Source: "..\Execute\CDWav.hlp"; DestDir: "{app}"
 Source: "..\Execute\CDWav.cnt"; DestDir: "{app}"

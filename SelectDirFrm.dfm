@@ -111,7 +111,6 @@ inherited SelectDirDlg: TSelectDirDlg
         Top = 48
         Width = 169
         Height = 49
-        Align = alCustom
         Caption = 'Space'
         TabOrder = 2
         object Label2: TLabel

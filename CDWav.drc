@@ -8,320 +8,310 @@
   resources were bound to the produced executable.
 */
 
-#define Main_NeedTimeStr 65184
-#define Main_IgnoreFileStr 65185
-#define Main_NoRecFileStr 65186
-#define Main_StartRecStr 65187
-#define Main_NoComLineStr 65188
-#define Main_UnregStr 65189
-#define Main_WaveErrStr 65190
-#define Main_WhileOpeneningStr 65191
-#define Main_WhilePrepareStr 65192
-#define Main_strSilence 65193
-#define Main_NoRecStr 65200
-#define Main_NoCallBackStr 65201
-#define Main_NoDataBlocksStr 65202
-#define Main_RecStopStr 65203
-#define Main_SureLoseStr 65204
-#define Main_NoWaveKeyStr 65205
-#define Main_OpenStr 65206
-#define Main_NoIndexStr 65207
-#define Main_ElapsedStr 65208
-#define Main_RemainStr 65209
-#define Main_TrackTimeStr 65210
-#define Main_TrackRemStr 65211
-#define Main_RecordStr 65212
-#define Main_MacroStr 65213
-#define Main_OnlySingleStr 65214
-#define Main_NoTimeStr 65215
-#define License_NoValidKeyStr 65216
-#define License_ThankRegStr 65217
-#define About_WindowsStr 65218
-#define About_VersionStr 65219
-#define AboutFull_RegStr 65220
-#define AuditionFrm_lastSecondsStr 65221
-#define TimeSplitFrm_SplitStr 65222
-#define TimeSplitFrm_SplitSmallFuzzStr 65223
-#define TimeSplitFrm_AtMarkerStr 65224
-#define Main_HelpStr 65225
-#define Main_LockMemStr 65226
-#define Main_TotTimeStr 65227
-#define Main_LoadStr 65228
-#define Main_AllocMemStr 65229
-#define Main_UnSavedStr 65230
-#define Main_NoWaveInStr 65231
-#define working_NoReadStr2 65232
-#define working_ZeroBytesStr 65233
-#define working_DAEErr 65234
-#define working_DAEStr 65235
-#define RecThd_NoFileStr 65236
-#define RecThd_NoRiffStr 65237
-#define RecThd_NoCrFmtStr 65238
-#define RecThd_NoWriteFmtStr 65239
-#define RecThd_NoAscWriteStr 65240
-#define RecThd_NoDataStr 65241
-#define RecThd_NoRiffStr2 65242
-#define RecThd_NoDescStr 65243
-#define RecThd_NoAllocMemStr 65244
-#define RecThd_NoSeekStr 65245
-#define RecThd_TimeOutStr 65246
-#define RecThd_ZombieStr 65247
-#define WaveIO_NoExtStr 65248
-#define WaveIO_FlacError 65249
-#define WaveIO_TooBigStr 65250
-#define WaveWriters_NoAllocMemStr 65251
-#define WaveWriters_NoWriteStr 65252
-#define WaveWriters_NoOpenConvStr 65253
-#define WaveWriters_NoBufSizeStr 65254
-#define WaveWriters_NoAllocDestStr 65255
-#define WaveWriters_NoHeaderStr 65256
-#define WaveWriters_AcmErrorStr 65257
-#define WaveWriters_NoWriteDestStr 65258
-#define WaveWriters_ReadStr 65259
-#define akrip32_ReadTOCError 65260
-#define working_CancelStr 65261
-#define working_WriteStr 65262
-#define working_WritingStr 65263
-#define SelectDirFrm_strSelectOutDir 65264
-#define WaveIO_NoRiffStr2 65265
-#define WaveIO_HeaderStr 65266
-#define WaveIO_NoDescrStr 65267
-#define WaveIO_LengthStr 65268
-#define WaveIO_TruncStr 65269
-#define WaveIO_NoAscStr 65270
-#define WaveIO_OnlyPCMStr 65271
-#define WaveIO_Only8Or16Str 65272
-#define WaveIO_NoDescStr2 65273
-#define WaveIO_TruncOKStr 65274
-#define WaveIO_ZeroSizeStr 65275
-#define WaveIO_LowSizeStr 65276
-#define WaveIO_NoReadStr 65277
-#define WaveIO_NoFlacMemory 65278
-#define WaveIO_NoFlacInit 65279
-#define WaveUtil_NoFmtStr 65280
-#define WaveUtil_NoWriteFmtStr 65281
-#define WaveUtil_NoAscWriteStr 65282
-#define WaveUtil_NoDataStr 65283
-#define WaveUtil_NoOpenStr 65284
-#define FormatFrm_ACMStr 65285
-#define FormatFrm_InvalidFlagStr 65286
-#define FormatFrm_InvalidHandleStr 65287
-#define FormatFrm_InvalidParamStr 65288
-#define FormatFrm_NoDriverStr 65289
-#define mmutil_WaveNameError 65290
-#define RecordFrm_MinStr 65291
-#define RecordFrm_UnknownStr 65292
-#define ShellUtils_NoOpenStr 65293
-#define SelectDirFrm_strNoVorbisDll 65294
-#define SelectDirFrm_strNoLameDll 65295
-#define HelpIntfs_hNothingFound 65296
-#define HelpIntfs_hNoContext 65297
-#define HelpIntfs_hNoTopics 65298
-#define ComStrs_sInvalidIndex 65299
-#define ComStrs_sInsertError 65300
-#define ComStrs_sInvalidOwner 65301
-#define ComStrs_sUDAssociated 65302
-#define ComStrs_sInvalidComCtl32 65303
-#define ComStrs_sDateTimeMax 65304
-#define ComStrs_sDateTimeMin 65305
-#define ComStrs_sNeedAllowNone 65306
-#define ComStrs_sFailSetCalDateTime 65307
-#define ComStrs_sFailSetCalMaxSelRange 65308
-#define ComStrs_sFailSetCalMinMaxRange 65309
-#define ComStrs_sFailsetCalSelRange 65310
-#define WaveUtil_NoRiffStr 65311
-#define Consts_SmkcShift 65312
-#define Consts_SmkcCtrl 65313
-#define Consts_SmkcAlt 65314
-#define Consts_SOutOfRange 65315
-#define Consts_SInsertLineError 65316
-#define Consts_SInvalidClipFmt 65317
-#define Consts_SIconToClipboard 65318
-#define Consts_SCannotOpenClipboard 65319
-#define Consts_SDuplicateMenus 65320
-#define Consts_SDockedCtlNeedsName 65321
-#define Consts_SDockTreeRemoveError 65322
-#define Consts_SDockZoneNotFound 65323
-#define Consts_SDockZoneHasNoCtl 65324
-#define Consts_SMultiSelectRequired 65325
-#define Consts_SSeparator 65326
-#define HelpIntfs_hNoTableOfContents 65327
-#define Consts_SMsgDlgYesToAll 65328
-#define Consts_SmkcBkSp 65329
-#define Consts_SmkcTab 65330
-#define Consts_SmkcEsc 65331
-#define Consts_SmkcEnter 65332
-#define Consts_SmkcSpace 65333
-#define Consts_SmkcPgUp 65334
-#define Consts_SmkcPgDn 65335
-#define Consts_SmkcEnd 65336
-#define Consts_SmkcHome 65337
-#define Consts_SmkcLeft 65338
-#define Consts_SmkcUp 65339
-#define Consts_SmkcRight 65340
-#define Consts_SmkcDown 65341
-#define Consts_SmkcIns 65342
-#define Consts_SmkcDel 65343
-#define Consts_SMaskErr 65344
-#define Consts_SMaskEditErr 65345
-#define Consts_SMsgDlgWarning 65346
-#define Consts_SMsgDlgError 65347
-#define Consts_SMsgDlgInformation 65348
-#define Consts_SMsgDlgConfirm 65349
-#define Consts_SMsgDlgYes 65350
-#define Consts_SMsgDlgNo 65351
-#define Consts_SMsgDlgOK 65352
-#define Consts_SMsgDlgCancel 65353
-#define Consts_SMsgDlgHelp 65354
-#define Consts_SMsgDlgAbort 65355
-#define Consts_SMsgDlgRetry 65356
-#define Consts_SMsgDlgIgnore 65357
-#define Consts_SMsgDlgAll 65358
-#define Consts_SMsgDlgNoToAll 65359
-#define Consts_SControlParentSetToSelf 65360
-#define Consts_SOKButton 65361
-#define Consts_SCancelButton 65362
-#define Consts_SYesButton 65363
-#define Consts_SNoButton 65364
-#define Consts_SHelpButton 65365
-#define Consts_SCloseButton 65366
-#define Consts_SIgnoreButton 65367
-#define Consts_SRetryButton 65368
-#define Consts_SAbortButton 65369
-#define Consts_SAllButton 65370
-#define Consts_SCannotDragForm 65371
-#define Consts_SVMetafiles 65372
-#define Consts_SVEnhMetafiles 65373
-#define Consts_SVIcons 65374
-#define Consts_SVBitmaps 65375
-#define Consts_SWindowDCError 65376
-#define Consts_SWindowClass 65377
-#define Consts_SCannotFocus 65378
-#define Consts_SParentRequired 65379
-#define Consts_SParentGivenNotAParent 65380
-#define Consts_SMDIChildNotVisible 65381
-#define Consts_SVisibleChanged 65382
-#define Consts_SCannotShowModal 65383
-#define Consts_SScrollBarRange 65384
-#define Consts_SPropertyOutOfRange 65385
-#define Consts_SMenuIndexError 65386
-#define Consts_SMenuReinserted 65387
-#define Consts_SMenuNotFound 65388
-#define Consts_SNoTimers 65389
-#define Consts_SGroupIndexTooLow 65390
-#define Consts_SNoMDIForm 65391
-#define RTLConsts_SWriteError 65392
-#define RTLConsts_SThreadCreateError 65393
-#define RTLConsts_SThreadError 65394
-#define Consts_SInvalidBitmap 65395
-#define Consts_SInvalidIcon 65396
-#define Consts_SInvalidMetafile 65397
-#define Consts_SChangeIconSize 65398
-#define Consts_SUnknownClipboardFormat 65399
-#define Consts_SOutOfResources 65400
-#define Consts_SNoCanvasHandle 65401
-#define Consts_SInvalidImageSize 65402
-#define Consts_SInvalidImageList 65403
-#define Consts_SReplaceImage 65404
-#define Consts_SImageIndexError 65405
-#define Consts_SImageReadFail 65406
-#define Consts_SImageWriteFail 65407
-#define RTLConsts_SInvalidPropertyValue 65408
-#define RTLConsts_SInvalidRegType 65409
-#define RTLConsts_SListCapacityError 65410
-#define RTLConsts_SListCountError 65411
-#define RTLConsts_SListIndexError 65412
-#define RTLConsts_SMemoryStreamError 65413
-#define RTLConsts_SPropertyException 65414
-#define RTLConsts_SReadError 65415
-#define RTLConsts_SReadOnlyProperty 65416
-#define RTLConsts_SRegGetDataFailed 65417
-#define RTLConsts_SRegSetDataFailed 65418
-#define RTLConsts_SResNotFound 65419
-#define RTLConsts_SSeekNotImplemented 65420
-#define RTLConsts_SSortedListError 65421
-#define RTLConsts_SUnknownGroup 65422
-#define RTLConsts_SUnknownProperty 65423
-#define RTLConsts_SAncestorNotFound 65424
-#define RTLConsts_SAssignError 65425
-#define RTLConsts_SBitsIndexError 65426
-#define RTLConsts_SCantWriteResourceStreamError 65427
-#define RTLConsts_SCheckSynchronizeError 65428
-#define RTLConsts_SClassNotFound 65429
-#define RTLConsts_SDuplicateClass 65430
-#define RTLConsts_SDuplicateItem 65431
-#define RTLConsts_SDuplicateName 65432
-#define RTLConsts_SDuplicateString 65433
-#define RTLConsts_SFCreateError 65434
-#define RTLConsts_SFOpenError 65435
-#define RTLConsts_SInvalidImage 65436
-#define RTLConsts_SInvalidName 65437
-#define RTLConsts_SInvalidProperty 65438
-#define RTLConsts_SInvalidPropertyPath 65439
-#define SysConst_SLongMonthNameNov 65440
-#define SysConst_SLongMonthNameDec 65441
-#define SysConst_SShortDayNameSun 65442
-#define SysConst_SShortDayNameMon 65443
-#define SysConst_SShortDayNameTue 65444
-#define SysConst_SShortDayNameWed 65445
-#define SysConst_SShortDayNameThu 65446
-#define SysConst_SShortDayNameFri 65447
-#define SysConst_SShortDayNameSat 65448
-#define SysConst_SLongDayNameSun 65449
-#define SysConst_SLongDayNameMon 65450
-#define SysConst_SLongDayNameTue 65451
-#define SysConst_SLongDayNameWed 65452
-#define SysConst_SLongDayNameThu 65453
-#define SysConst_SLongDayNameFri 65454
-#define SysConst_SLongDayNameSat 65455
-#define SysConst_SShortMonthNameJul 65456
-#define SysConst_SShortMonthNameAug 65457
-#define SysConst_SShortMonthNameSep 65458
-#define SysConst_SShortMonthNameOct 65459
-#define SysConst_SShortMonthNameNov 65460
-#define SysConst_SShortMonthNameDec 65461
-#define SysConst_SLongMonthNameJan 65462
-#define SysConst_SLongMonthNameFeb 65463
-#define SysConst_SLongMonthNameMar 65464
-#define SysConst_SLongMonthNameApr 65465
-#define SysConst_SLongMonthNameMay 65466
-#define SysConst_SLongMonthNameJun 65467
-#define SysConst_SLongMonthNameJul 65468
-#define SysConst_SLongMonthNameAug 65469
-#define SysConst_SLongMonthNameSep 65470
-#define SysConst_SLongMonthNameOct 65471
-#define SysConst_SVarUnexpected 65472
-#define SysConst_SExternalException 65473
-#define SysConst_SAssertionFailed 65474
-#define SysConst_SIntfCastError 65475
-#define SysConst_SSafecallException 65476
-#define SysConst_SAssertError 65477
-#define SysConst_SAbstractError 65478
-#define SysConst_SModuleAccessViolation 65479
-#define SysConst_SOSError 65480
-#define SysConst_SUnkOSError 65481
-#define SysConst_SShortMonthNameJan 65482
-#define SysConst_SShortMonthNameFeb 65483
-#define SysConst_SShortMonthNameMar 65484
-#define SysConst_SShortMonthNameApr 65485
-#define SysConst_SShortMonthNameMay 65486
-#define SysConst_SShortMonthNameJun 65487
-#define SysConst_SReadAccess 65488
-#define SysConst_SWriteAccess 65489
-#define SysConst_SVarArrayCreate 65490
-#define SysConst_SVarArrayBounds 65491
-#define SysConst_SVarArrayLocked 65492
-#define SysConst_SInvalidVarCast 65493
-#define SysConst_SInvalidVarOp 65494
-#define SysConst_SInvalidVarOpWithHResult 65495
-#define SysConst_SVarNotArray 65496
-#define SysConst_SInvalidVarNullOp 65497
-#define SysConst_SVarTypeCouldNotConvert 65498
-#define SysConst_SVarTypeConvertOverflow 65499
-#define SysConst_SVarOverflow 65500
-#define SysConst_SVarInvalid 65501
-#define SysConst_SVarBadType 65502
-#define SysConst_SVarNotImplemented 65503
+#define Main_TrackTimeStr 65200
+#define Main_TrackRemStr 65201
+#define Main_RecordStr 65202
+#define Main_MacroStr 65203
+#define Main_OnlySingleStr 65204
+#define Main_NoTimeStr 65205
+#define Main_NeedTimeStr 65206
+#define Main_IgnoreFileStr 65207
+#define Main_NoRecFileStr 65208
+#define Main_StartRecStr 65209
+#define Main_NoComLineStr 65210
+#define Main_UnregStr 65211
+#define Main_WaveErrStr 65212
+#define Main_WhileOpeneningStr 65213
+#define Main_WhilePrepareStr 65214
+#define Main_strSilence 65215
+#define Main_LockMemStr 65216
+#define Main_TotTimeStr 65217
+#define Main_LoadStr 65218
+#define Main_AllocMemStr 65219
+#define Main_UnSavedStr 65220
+#define Main_NoWaveInStr 65221
+#define Main_NoRecStr 65222
+#define Main_NoCallBackStr 65223
+#define Main_NoDataBlocksStr 65224
+#define Main_RecStopStr 65225
+#define Main_SureLoseStr 65226
+#define Main_NoWaveKeyStr 65227
+#define Main_OpenStr 65228
+#define Main_NoIndexStr 65229
+#define Main_ElapsedStr 65230
+#define Main_RemainStr 65231
+#define RecThd_NoRiffStr2 65232
+#define RecThd_NoDescStr 65233
+#define RecThd_NoAllocMemStr 65234
+#define RecThd_NoSeekStr 65235
+#define RecThd_TimeOutStr 65236
+#define RecThd_ZombieStr 65237
+#define License_NoValidKeyStr 65238
+#define License_ThankRegStr 65239
+#define About_WindowsStr 65240
+#define About_VersionStr 65241
+#define AboutFull_RegStr 65242
+#define AuditionFrm_lastSecondsStr 65243
+#define TimeSplitFrm_SplitStr 65244
+#define TimeSplitFrm_SplitSmallFuzzStr 65245
+#define TimeSplitFrm_AtMarkerStr 65246
+#define Main_HelpStr 65247
+#define WaveWriters_NoWriteDestStr 65248
+#define WaveWriters_ReadStr 65249
+#define akrip32_ReadTOCError 65250
+#define working_CancelStr 65251
+#define working_WriteStr 65252
+#define working_WritingStr 65253
+#define working_NoReadStr2 65254
+#define working_ZeroBytesStr 65255
+#define working_DAEErr 65256
+#define working_DAEStr 65257
+#define RecThd_NoFileStr 65258
+#define RecThd_NoRiffStr 65259
+#define RecThd_NoCrFmtStr 65260
+#define RecThd_NoWriteFmtStr 65261
+#define RecThd_NoAscWriteStr 65262
+#define RecThd_NoDataStr 65263
+#define WaveIO_TruncOKStr 65264
+#define WaveIO_ZeroSizeStr 65265
+#define WaveIO_LowSizeStr 65266
+#define WaveIO_NoReadStr 65267
+#define WaveIO_NoFlacMemory 65268
+#define WaveIO_NoFlacInit 65269
+#define WaveIO_NoExtStr 65270
+#define WaveIO_FlacError 65271
+#define WaveIO_TooBigStr 65272
+#define WaveWriters_NoAllocMemStr 65273
+#define WaveWriters_NoWriteStr 65274
+#define WaveWriters_NoOpenConvStr 65275
+#define WaveWriters_NoBufSizeStr 65276
+#define WaveWriters_NoAllocDestStr 65277
+#define WaveWriters_NoHeaderStr 65278
+#define WaveWriters_AcmErrorStr 65279
+#define mmutil_WaveNameError 65280
+#define RecordFrm_MinStr 65281
+#define RecordFrm_UnknownStr 65282
+#define ShellUtils_NoOpenStr 65283
+#define SelectDirFrm_strNoVorbisDll 65284
+#define SelectDirFrm_strNoLameDll 65285
+#define SelectDirFrm_strSelectOutDir 65286
+#define WaveIO_NoRiffStr2 65287
+#define WaveIO_HeaderStr 65288
+#define WaveIO_NoDescrStr 65289
+#define WaveIO_LengthStr 65290
+#define WaveIO_TruncStr 65291
+#define WaveIO_NoAscStr 65292
+#define WaveIO_OnlyPCMStr 65293
+#define WaveIO_Only8Or16Str 65294
+#define WaveIO_NoDescStr2 65295
+#define ComStrs_sNeedAllowNone 65296
+#define ComStrs_sFailSetCalDateTime 65297
+#define ComStrs_sFailSetCalMaxSelRange 65298
+#define ComStrs_sFailSetCalMinMaxRange 65299
+#define ComStrs_sFailsetCalSelRange 65300
+#define WaveUtil_NoRiffStr 65301
+#define WaveUtil_NoFmtStr 65302
+#define WaveUtil_NoWriteFmtStr 65303
+#define WaveUtil_NoAscWriteStr 65304
+#define WaveUtil_NoDataStr 65305
+#define WaveUtil_NoOpenStr 65306
+#define FormatFrm_ACMStr 65307
+#define FormatFrm_InvalidFlagStr 65308
+#define FormatFrm_InvalidHandleStr 65309
+#define FormatFrm_InvalidParamStr 65310
+#define FormatFrm_NoDriverStr 65311
+#define Consts_SDockTreeRemoveError 65312
+#define Consts_SDockZoneNotFound 65313
+#define Consts_SDockZoneHasNoCtl 65314
+#define Consts_SMultiSelectRequired 65315
+#define Consts_SSeparator 65316
+#define HelpIntfs_hNoTableOfContents 65317
+#define HelpIntfs_hNothingFound 65318
+#define HelpIntfs_hNoContext 65319
+#define HelpIntfs_hNoTopics 65320
+#define ComStrs_sInvalidIndex 65321
+#define ComStrs_sInsertError 65322
+#define ComStrs_sInvalidOwner 65323
+#define ComStrs_sUDAssociated 65324
+#define ComStrs_sInvalidComCtl32 65325
+#define ComStrs_sDateTimeMax 65326
+#define ComStrs_sDateTimeMin 65327
+#define Consts_SmkcLeft 65328
+#define Consts_SmkcUp 65329
+#define Consts_SmkcRight 65330
+#define Consts_SmkcDown 65331
+#define Consts_SmkcIns 65332
+#define Consts_SmkcDel 65333
+#define Consts_SmkcShift 65334
+#define Consts_SmkcCtrl 65335
+#define Consts_SmkcAlt 65336
+#define Consts_SOutOfRange 65337
+#define Consts_SInsertLineError 65338
+#define Consts_SInvalidClipFmt 65339
+#define Consts_SIconToClipboard 65340
+#define Consts_SCannotOpenClipboard 65341
+#define Consts_SDuplicateMenus 65342
+#define Consts_SDockedCtlNeedsName 65343
+#define Consts_SMsgDlgHelp 65344
+#define Consts_SMsgDlgAbort 65345
+#define Consts_SMsgDlgRetry 65346
+#define Consts_SMsgDlgIgnore 65347
+#define Consts_SMsgDlgAll 65348
+#define Consts_SMsgDlgNoToAll 65349
+#define Consts_SMsgDlgYesToAll 65350
+#define Consts_SmkcBkSp 65351
+#define Consts_SmkcTab 65352
+#define Consts_SmkcEsc 65353
+#define Consts_SmkcEnter 65354
+#define Consts_SmkcSpace 65355
+#define Consts_SmkcPgUp 65356
+#define Consts_SmkcPgDn 65357
+#define Consts_SmkcEnd 65358
+#define Consts_SmkcHome 65359
+#define Consts_SAllButton 65360
+#define Consts_SCannotDragForm 65361
+#define Consts_SVMetafiles 65362
+#define Consts_SVEnhMetafiles 65363
+#define Consts_SVIcons 65364
+#define Consts_SVBitmaps 65365
+#define Consts_SMaskErr 65366
+#define Consts_SMaskEditErr 65367
+#define Consts_SMsgDlgWarning 65368
+#define Consts_SMsgDlgError 65369
+#define Consts_SMsgDlgInformation 65370
+#define Consts_SMsgDlgConfirm 65371
+#define Consts_SMsgDlgYes 65372
+#define Consts_SMsgDlgNo 65373
+#define Consts_SMsgDlgOK 65374
+#define Consts_SMsgDlgCancel 65375
+#define Consts_SMenuIndexError 65376
+#define Consts_SMenuReinserted 65377
+#define Consts_SMenuNotFound 65378
+#define Consts_SNoTimers 65379
+#define Consts_SGroupIndexTooLow 65380
+#define Consts_SNoMDIForm 65381
+#define Consts_SControlParentSetToSelf 65382
+#define Consts_SOKButton 65383
+#define Consts_SCancelButton 65384
+#define Consts_SYesButton 65385
+#define Consts_SNoButton 65386
+#define Consts_SHelpButton 65387
+#define Consts_SCloseButton 65388
+#define Consts_SIgnoreButton 65389
+#define Consts_SRetryButton 65390
+#define Consts_SAbortButton 65391
+#define Consts_SInvalidImageSize 65392
+#define Consts_SInvalidImageList 65393
+#define Consts_SReplaceImage 65394
+#define Consts_SImageIndexError 65395
+#define Consts_SImageReadFail 65396
+#define Consts_SImageWriteFail 65397
+#define Consts_SWindowDCError 65398
+#define Consts_SWindowClass 65399
+#define Consts_SCannotFocus 65400
+#define Consts_SParentRequired 65401
+#define Consts_SParentGivenNotAParent 65402
+#define Consts_SMDIChildNotVisible 65403
+#define Consts_SVisibleChanged 65404
+#define Consts_SCannotShowModal 65405
+#define Consts_SScrollBarRange 65406
+#define Consts_SPropertyOutOfRange 65407
+#define RTLConsts_SRegSetDataFailed 65408
+#define RTLConsts_SResNotFound 65409
+#define RTLConsts_SSeekNotImplemented 65410
+#define RTLConsts_SSortedListError 65411
+#define RTLConsts_SUnknownGroup 65412
+#define RTLConsts_SUnknownProperty 65413
+#define RTLConsts_SWriteError 65414
+#define RTLConsts_SThreadCreateError 65415
+#define RTLConsts_SThreadError 65416
+#define Consts_SInvalidBitmap 65417
+#define Consts_SInvalidIcon 65418
+#define Consts_SInvalidMetafile 65419
+#define Consts_SChangeIconSize 65420
+#define Consts_SUnknownClipboardFormat 65421
+#define Consts_SOutOfResources 65422
+#define Consts_SNoCanvasHandle 65423
+#define RTLConsts_SFCreateError 65424
+#define RTLConsts_SFOpenError 65425
+#define RTLConsts_SInvalidImage 65426
+#define RTLConsts_SInvalidName 65427
+#define RTLConsts_SInvalidProperty 65428
+#define RTLConsts_SInvalidPropertyPath 65429
+#define RTLConsts_SInvalidPropertyValue 65430
+#define RTLConsts_SInvalidRegType 65431
+#define RTLConsts_SListCapacityError 65432
+#define RTLConsts_SListCountError 65433
+#define RTLConsts_SListIndexError 65434
+#define RTLConsts_SMemoryStreamError 65435
+#define RTLConsts_SPropertyException 65436
+#define RTLConsts_SReadError 65437
+#define RTLConsts_SReadOnlyProperty 65438
+#define RTLConsts_SRegGetDataFailed 65439
+#define SysConst_SLongDayNameMon 65440
+#define SysConst_SLongDayNameTue 65441
+#define SysConst_SLongDayNameWed 65442
+#define SysConst_SLongDayNameThu 65443
+#define SysConst_SLongDayNameFri 65444
+#define SysConst_SLongDayNameSat 65445
+#define RTLConsts_SAncestorNotFound 65446
+#define RTLConsts_SAssignError 65447
+#define RTLConsts_SBitsIndexError 65448
+#define RTLConsts_SCantWriteResourceStreamError 65449
+#define RTLConsts_SCheckSynchronizeError 65450
+#define RTLConsts_SClassNotFound 65451
+#define RTLConsts_SDuplicateClass 65452
+#define RTLConsts_SDuplicateItem 65453
+#define RTLConsts_SDuplicateName 65454
+#define RTLConsts_SDuplicateString 65455
+#define SysConst_SLongMonthNameMay 65456
+#define SysConst_SLongMonthNameJun 65457
+#define SysConst_SLongMonthNameJul 65458
+#define SysConst_SLongMonthNameAug 65459
+#define SysConst_SLongMonthNameSep 65460
+#define SysConst_SLongMonthNameOct 65461
+#define SysConst_SLongMonthNameNov 65462
+#define SysConst_SLongMonthNameDec 65463
+#define SysConst_SShortDayNameSun 65464
+#define SysConst_SShortDayNameMon 65465
+#define SysConst_SShortDayNameTue 65466
+#define SysConst_SShortDayNameWed 65467
+#define SysConst_SShortDayNameThu 65468
+#define SysConst_SShortDayNameFri 65469
+#define SysConst_SShortDayNameSat 65470
+#define SysConst_SLongDayNameSun 65471
+#define SysConst_SShortMonthNameJan 65472
+#define SysConst_SShortMonthNameFeb 65473
+#define SysConst_SShortMonthNameMar 65474
+#define SysConst_SShortMonthNameApr 65475
+#define SysConst_SShortMonthNameMay 65476
+#define SysConst_SShortMonthNameJun 65477
+#define SysConst_SShortMonthNameJul 65478
+#define SysConst_SShortMonthNameAug 65479
+#define SysConst_SShortMonthNameSep 65480
+#define SysConst_SShortMonthNameOct 65481
+#define SysConst_SShortMonthNameNov 65482
+#define SysConst_SShortMonthNameDec 65483
+#define SysConst_SLongMonthNameJan 65484
+#define SysConst_SLongMonthNameFeb 65485
+#define SysConst_SLongMonthNameMar 65486
+#define SysConst_SLongMonthNameApr 65487
+#define SysConst_SInvalidVarOp 65488
+#define SysConst_SDispatchError 65489
+#define SysConst_SReadAccess 65490
+#define SysConst_SWriteAccess 65491
+#define SysConst_SVarArrayCreate 65492
+#define SysConst_SVarNotArray 65493
+#define SysConst_SVarArrayBounds 65494
+#define SysConst_SExternalException 65495
+#define SysConst_SAssertionFailed 65496
+#define SysConst_SIntfCastError 65497
+#define SysConst_SSafecallException 65498
+#define SysConst_SAssertError 65499
+#define SysConst_SAbstractError 65500
+#define SysConst_SModuleAccessViolation 65501
+#define SysConst_SOSError 65502
+#define SysConst_SUnkOSError 65503
 #define SysConst_SInvalidOp 65504
 #define SysConst_SZeroDivide 65505
 #define SysConst_SOverflow 65506
@@ -337,7 +327,7 @@
 #define SysConst_SExceptTitle 65516
 #define SysConst_SInvalidFormat 65517
 #define SysConst_SArgumentMissing 65518
-#define SysConst_SDispatchError 65519
+#define SysConst_SInvalidVarCast 65519
 #define SysConst_SInvalidInteger 65520
 #define SysConst_SInvalidDateTime 65521
 #define SysConst_STimeEncodeError 65522
@@ -356,6 +346,12 @@
 #define SysConst_SIntOverflow 65535
 STRINGTABLE
 BEGIN
+	Main_TrackTimeStr,	"Track time"
+	Main_TrackRemStr,	"Track remain"
+	Main_RecordStr,	"Recording"
+	Main_MacroStr,	"DDE Macro Received: \"%s\""
+	Main_OnlySingleStr,	"You can only drop a single file on CDWave."
+	Main_NoTimeStr,	"Time format not understood (minutes or HH:MM)."
 	Main_NeedTimeStr,	"/T (duration) needs time, e.g. /T1:30"
 	Main_IgnoreFileStr,	"Ignored file parameter: "
 	Main_NoRecFileStr,	"Record (/R) supplied, but no file to record to."
@@ -366,6 +362,12 @@ BEGIN
 	Main_WhileOpeneningStr,	"While opening audio device"
 	Main_WhilePrepareStr,	"While preparing a buffer for playback"
 	Main_strSilence,	"(unused) "
+	Main_LockMemStr,	"Error occurred:\n%s\nwhile attempting to lock memory."
+	Main_TotTimeStr,	"Total time"
+	Main_LoadStr,	"Loading "
+	Main_AllocMemStr,	"Error occurred:\n%s\nwhile attempting to allocate memory."
+	Main_UnSavedStr,	"There are unsaved changes. Press OK to ignore and continue, Cancel to abort and return."
+	Main_NoWaveInStr,	"Cannot close wavein?"
 	Main_NoRecStr,	"Unable to create recording thread."
 	Main_NoCallBackStr,	"Internal error: Unknown CALLBACK mode."
 	Main_NoDataBlocksStr,	"Unable to add wave data blocks."
@@ -376,12 +378,12 @@ BEGIN
 	Main_NoIndexStr,	"Line %s: Invalid INDEX line, time format too short."
 	Main_ElapsedStr,	"Elapsed time"
 	Main_RemainStr,	"Remaining"
-	Main_TrackTimeStr,	"Track time"
-	Main_TrackRemStr,	"Track remain"
-	Main_RecordStr,	"Recording"
-	Main_MacroStr,	"DDE Macro Received: \"%s\""
-	Main_OnlySingleStr,	"You can only drop a single file on CDWave."
-	Main_NoTimeStr,	"Time format not understood (minutes or HH:MM)."
+	RecThd_NoRiffStr2,	"Cannot open RIFF chunk, file is not a valid WAVE file."
+	RecThd_NoDescStr,	"Cannot descend into data part."
+	RecThd_NoAllocMemStr,	"Unable to allocate memory, code: "
+	RecThd_NoSeekStr,	"Cannot seek on file."
+	RecThd_TimeOutStr,	"Semaphore timeout. Recording thread not ready?"
+	RecThd_ZombieStr,	"PostThreadMessage() failed. May have created zombie thread."
 	License_NoValidKeyStr,	"Key is not valid."
 	License_ThankRegStr,	"Thank you for registering"
 	About_WindowsStr,	"Windows 98 or 95 OSR2"
@@ -392,12 +394,12 @@ BEGIN
 	TimeSplitFrm_SplitSmallFuzzStr,	"\"Within\" must be smaller than half the split interval"
 	TimeSplitFrm_AtMarkerStr,	"Start at the marker position (%s)"
 	Main_HelpStr,	".HLP"
-	Main_LockMemStr,	"Error occurred:\n%s\nwhile attempting to lock memory."
-	Main_TotTimeStr,	"Total time"
-	Main_LoadStr,	"Loading "
-	Main_AllocMemStr,	"Error occurred:\n%s\nwhile attempting to allocate memory."
-	Main_UnSavedStr,	"There are unsaved changes. Press OK to ignore and continue, Cancel to abort and return."
-	Main_NoWaveInStr,	"Cannot close wavein?"
+	WaveWriters_NoWriteDestStr,	"Unable to write to destination file."
+	WaveWriters_ReadStr,	"Reading WAV data"
+	akrip32_ReadTOCError,	"Error reading TOC"
+	working_CancelStr,	"Cancelled by user."
+	working_WriteStr,	"Writing tracks"
+	working_WritingStr,	"Writing: "
 	working_NoReadStr2,	"Unable to read source file."
 	working_ZeroBytesStr,	"Reported 0 bytes written, cannot continue."
 	working_DAEErr,	"Error during audio extraction"
@@ -408,12 +410,12 @@ BEGIN
 	RecThd_NoWriteFmtStr,	"Cannot write to fmt chunk"
 	RecThd_NoAscWriteStr,	"Cannot ascend/write."
 	RecThd_NoDataStr,	"Cannot create data chunk."
-	RecThd_NoRiffStr2,	"Cannot open RIFF chunk, file is not a valid WAVE file."
-	RecThd_NoDescStr,	"Cannot descend into data part."
-	RecThd_NoAllocMemStr,	"Unable to allocate memory, code: "
-	RecThd_NoSeekStr,	"Cannot seek on file."
-	RecThd_TimeOutStr,	"Semaphore timeout. Recording thread not ready?"
-	RecThd_ZombieStr,	"PostThreadMessage() failed. May have created zombie thread."
+	WaveIO_TruncOKStr,	"File is truncated. OK to continue anyway?"
+	WaveIO_ZeroSizeStr,	"The data header reports that the file has a size of ZERO. Press OK to continue and assume the rest of the file is WAVE data."
+	WaveIO_LowSizeStr,	"The data header reports that the file has a size of only %s bytes, which is suspiciously low. Assume that the rest is data? (Yes to correct, No if you trust the header)"
+	WaveIO_NoReadStr,	"Failed to read from file"
+	WaveIO_NoFlacMemory,	"Unable to open FLAC stream (no memory?)"
+	WaveIO_NoFlacInit,	"FLAC Stream failed to initialize, cannot continue"
 	WaveIO_NoExtStr,	"Unknown file extension: %s"
 	WaveIO_FlacError,	"FLAC decoder failure: Code %d."
 	WaveIO_TooBigStr,	"File is to large, CD Wave can only handle files up to 4GB"
@@ -424,12 +426,12 @@ BEGIN
 	WaveWriters_NoAllocDestStr,	"Cannot allocate dest buffer."
 	WaveWriters_NoHeaderStr,	"Cannot prepare header."
 	WaveWriters_AcmErrorStr,	"ACM Converter reported an error."
-	WaveWriters_NoWriteDestStr,	"Unable to write to destination file."
-	WaveWriters_ReadStr,	"Reading WAV data"
-	akrip32_ReadTOCError,	"Error reading TOC"
-	working_CancelStr,	"Cancelled by user."
-	working_WriteStr,	"Writing tracks"
-	working_WritingStr,	"Writing: "
+	mmutil_WaveNameError,	"(Unknown device or multimedia error)"
+	RecordFrm_MinStr,	" minutes"
+	RecordFrm_UnknownStr,	"<Unknown>"
+	ShellUtils_NoOpenStr,	"Unable to create/open registry key: \"%s\""
+	SelectDirFrm_strNoVorbisDll,	"VORBIS.DLL not found"
+	SelectDirFrm_strNoLameDll,	"LAME_ENC.DLL not found"
 	SelectDirFrm_strSelectOutDir,	"Select output directory"
 	WaveIO_NoRiffStr2,	"Cannot open RIFF chunk, file is not a valid WAVE file"
 	WaveIO_HeaderStr,	"File header reports a size that is different than the system reports. Do you want to adjust the size? (Yes to override header, No to trust header, Cancel to abort)"
@@ -440,12 +442,12 @@ BEGIN
 	WaveIO_OnlyPCMStr,	"Bad format - only PCM format supported."
 	WaveIO_Only8Or16Str,	"Bad format - CDWAV can only handle 8, 16 or 24-bit sampled files."
 	WaveIO_NoDescStr2,	"Cannot descend into data part, code: "
-	WaveIO_TruncOKStr,	"File is truncated. OK to continue anyway?"
-	WaveIO_ZeroSizeStr,	"The data header reports that the file has a size of ZERO. Press OK to continue and assume the rest of the file is WAVE data."
-	WaveIO_LowSizeStr,	"The data header reports that the file has a size of only %s bytes, which is suspiciously low. Assume that the rest is data? (Yes to correct, No if you trust the header)"
-	WaveIO_NoReadStr,	"Failed to read from file"
-	WaveIO_NoFlacMemory,	"Unable to open FLAC stream (no memory?)"
-	WaveIO_NoFlacInit,	"FLAC Stream failed to initialize, cannot continue"
+	ComStrs_sNeedAllowNone,	"You must be in ShowCheckbox mode to set to this date"
+	ComStrs_sFailSetCalDateTime,	"Failed to set calendar date or time"
+	ComStrs_sFailSetCalMaxSelRange,	"Failed to set maximum selection range"
+	ComStrs_sFailSetCalMinMaxRange,	"Failed to set calendar min/max range"
+	ComStrs_sFailsetCalSelRange,	"Failed to set calendar selected range"
+	WaveUtil_NoRiffStr,	"Cannot create RIFF chunk."
 	WaveUtil_NoFmtStr,	"Cannot create fmt chunk."
 	WaveUtil_NoWriteFmtStr,	"Cannot write to fmt chunk."
 	WaveUtil_NoAscWriteStr,	"Cannot ascend/write."
@@ -456,12 +458,12 @@ BEGIN
 	FormatFrm_InvalidHandleStr,	"The specified handle is invalid."
 	FormatFrm_InvalidParamStr,	"At least one parameter is invalid."
 	FormatFrm_NoDriverStr,	"A suitable driver is not available to provide valid format selections."
-	mmutil_WaveNameError,	"(Unknown device or multimedia error)"
-	RecordFrm_MinStr,	" minutes"
-	RecordFrm_UnknownStr,	"<Unknown>"
-	ShellUtils_NoOpenStr,	"Unable to create/open registry key: \"%s\""
-	SelectDirFrm_strNoVorbisDll,	"VORBIS.DLL not found"
-	SelectDirFrm_strNoLameDll,	"LAME_ENC.DLL not found"
+	Consts_SDockTreeRemoveError,	"Error removing control from dock tree"
+	Consts_SDockZoneNotFound,	" - Dock zone not found"
+	Consts_SDockZoneHasNoCtl,	" - Dock zone has no control"
+	Consts_SMultiSelectRequired,	"Multiselect mode must be on for this feature"
+	Consts_SSeparator,	"Separator"
+	HelpIntfs_hNoTableOfContents,	"Unable to find a Table Of Contents"
 	HelpIntfs_hNothingFound,	"No help found for %s"
 	HelpIntfs_hNoContext,	"No context-sensitive help installed"
 	HelpIntfs_hNoTopics,	"No topic-based help system installed"
@@ -472,12 +474,12 @@ BEGIN
 	ComStrs_sInvalidComCtl32,	"This control requires version 4.70 or greater of COMCTL32.DLL"
 	ComStrs_sDateTimeMax,	"Date exceeds maximum of %s"
 	ComStrs_sDateTimeMin,	"Date is less than minimum of %s"
-	ComStrs_sNeedAllowNone,	"You must be in ShowCheckbox mode to set to this date"
-	ComStrs_sFailSetCalDateTime,	"Failed to set calendar date or time"
-	ComStrs_sFailSetCalMaxSelRange,	"Failed to set maximum selection range"
-	ComStrs_sFailSetCalMinMaxRange,	"Failed to set calendar min/max range"
-	ComStrs_sFailsetCalSelRange,	"Failed to set calendar selected range"
-	WaveUtil_NoRiffStr,	"Cannot create RIFF chunk."
+	Consts_SmkcLeft,	"Left"
+	Consts_SmkcUp,	"Up"
+	Consts_SmkcRight,	"Right"
+	Consts_SmkcDown,	"Down"
+	Consts_SmkcIns,	"Ins"
+	Consts_SmkcDel,	"Del"
 	Consts_SmkcShift,	"Shift+"
 	Consts_SmkcCtrl,	"Ctrl+"
 	Consts_SmkcAlt,	"Alt+"
@@ -488,12 +490,12 @@ BEGIN
 	Consts_SCannotOpenClipboard,	"Cannot open clipboard"
 	Consts_SDuplicateMenus,	"Menu '%s' is already being used by another form"
 	Consts_SDockedCtlNeedsName,	"Docked control must have a name"
-	Consts_SDockTreeRemoveError,	"Error removing control from dock tree"
-	Consts_SDockZoneNotFound,	" - Dock zone not found"
-	Consts_SDockZoneHasNoCtl,	" - Dock zone has no control"
-	Consts_SMultiSelectRequired,	"Multiselect mode must be on for this feature"
-	Consts_SSeparator,	"Separator"
-	HelpIntfs_hNoTableOfContents,	"Unable to find a Table of Contents"
+	Consts_SMsgDlgHelp,	"&Help"
+	Consts_SMsgDlgAbort,	"&Abort"
+	Consts_SMsgDlgRetry,	"&Retry"
+	Consts_SMsgDlgIgnore,	"&Ignore"
+	Consts_SMsgDlgAll,	"&All"
+	Consts_SMsgDlgNoToAll,	"N&o to All"
 	Consts_SMsgDlgYesToAll,	"Yes to &All"
 	Consts_SmkcBkSp,	"BkSp"
 	Consts_SmkcTab,	"Tab"
@@ -504,12 +506,12 @@ BEGIN
 	Consts_SmkcPgDn,	"PgDn"
 	Consts_SmkcEnd,	"End"
 	Consts_SmkcHome,	"Home"
-	Consts_SmkcLeft,	"Left"
-	Consts_SmkcUp,	"Up"
-	Consts_SmkcRight,	"Right"
-	Consts_SmkcDown,	"Down"
-	Consts_SmkcIns,	"Ins"
-	Consts_SmkcDel,	"Del"
+	Consts_SAllButton,	"&All"
+	Consts_SCannotDragForm,	"Cannot drag a form"
+	Consts_SVMetafiles,	"Metafiles"
+	Consts_SVEnhMetafiles,	"Enhanced Metafiles"
+	Consts_SVIcons,	"Icons"
+	Consts_SVBitmaps,	"Bitmaps"
 	Consts_SMaskErr,	"Invalid input value"
 	Consts_SMaskEditErr,	"Invalid input value.  Use escape key to abandon changes"
 	Consts_SMsgDlgWarning,	"Warning"
@@ -520,12 +522,12 @@ BEGIN
 	Consts_SMsgDlgNo,	"&No"
 	Consts_SMsgDlgOK,	"OK"
 	Consts_SMsgDlgCancel,	"Cancel"
-	Consts_SMsgDlgHelp,	"&Help"
-	Consts_SMsgDlgAbort,	"&Abort"
-	Consts_SMsgDlgRetry,	"&Retry"
-	Consts_SMsgDlgIgnore,	"&Ignore"
-	Consts_SMsgDlgAll,	"&All"
-	Consts_SMsgDlgNoToAll,	"N&o to All"
+	Consts_SMenuIndexError,	"Menu index out of range"
+	Consts_SMenuReinserted,	"Menu inserted twice"
+	Consts_SMenuNotFound,	"Sub-menu is not in menu"
+	Consts_SNoTimers,	"Not enough timers available"
+	Consts_SGroupIndexTooLow,	"GroupIndex cannot be less than a previous menu item's GroupIndex"
+	Consts_SNoMDIForm,	"Cannot create form. No MDI forms are currently active"
 	Consts_SControlParentSetToSelf,	"A control cannot have itself as its parent"
 	Consts_SOKButton,	"OK"
 	Consts_SCancelButton,	"Cancel"
@@ -536,12 +538,12 @@ BEGIN
 	Consts_SIgnoreButton,	"&Ignore"
 	Consts_SRetryButton,	"&Retry"
 	Consts_SAbortButton,	"Abort"
-	Consts_SAllButton,	"&All"
-	Consts_SCannotDragForm,	"Cannot drag a form"
-	Consts_SVMetafiles,	"Metafiles"
-	Consts_SVEnhMetafiles,	"Enhanced Metafiles"
-	Consts_SVIcons,	"Icons"
-	Consts_SVBitmaps,	"Bitmaps"
+	Consts_SInvalidImageSize,	"Invalid image size"
+	Consts_SInvalidImageList,	"Invalid ImageList"
+	Consts_SReplaceImage,	"Unable to Replace Image"
+	Consts_SImageIndexError,	"Invalid ImageList Index"
+	Consts_SImageReadFail,	"Failed to read ImageList data from stream"
+	Consts_SImageWriteFail,	"Failed to write ImageList data to stream"
 	Consts_SWindowDCError,	"Error creating window device context"
 	Consts_SWindowClass,	"Error creating window class"
 	Consts_SCannotFocus,	"Cannot focus a disabled or invisible window"
@@ -552,12 +554,12 @@ BEGIN
 	Consts_SCannotShowModal,	"Cannot make a visible window modal"
 	Consts_SScrollBarRange,	"Scrollbar property out of range"
 	Consts_SPropertyOutOfRange,	"%s property out of range"
-	Consts_SMenuIndexError,	"Menu index out of range"
-	Consts_SMenuReinserted,	"Menu inserted twice"
-	Consts_SMenuNotFound,	"Sub-menu is not in menu"
-	Consts_SNoTimers,	"Not enough timers available"
-	Consts_SGroupIndexTooLow,	"GroupIndex cannot be less than a previous menu item's GroupIndex"
-	Consts_SNoMDIForm,	"Cannot create form. No MDI forms are currently active"
+	RTLConsts_SRegSetDataFailed,	"Failed to set data for '%s'"
+	RTLConsts_SResNotFound,	"Resource %s not found"
+	RTLConsts_SSeekNotImplemented,	"%s.Seek not implemented"
+	RTLConsts_SSortedListError,	"Operation not allowed on sorted list"
+	RTLConsts_SUnknownGroup,	"%s not in a class registration group"
+	RTLConsts_SUnknownProperty,	"Property %s does not exist"
 	RTLConsts_SWriteError,	"Stream write error"
 	RTLConsts_SThreadCreateError,	"Thread creation error: %s"
 	RTLConsts_SThreadError,	"Thread Error: %s (%d)"
@@ -568,12 +570,12 @@ BEGIN
 	Consts_SUnknownClipboardFormat,	"Unsupported clipboard format"
 	Consts_SOutOfResources,	"Out of system resources"
 	Consts_SNoCanvasHandle,	"Canvas does not allow drawing"
-	Consts_SInvalidImageSize,	"Invalid image size"
-	Consts_SInvalidImageList,	"Invalid ImageList"
-	Consts_SReplaceImage,	"Unable to Replace Image"
-	Consts_SImageIndexError,	"Invalid ImageList Index"
-	Consts_SImageReadFail,	"Failed to read ImageList data from stream"
-	Consts_SImageWriteFail,	"Failed to write ImageList data to stream"
+	RTLConsts_SFCreateError,	"Cannot create file %s"
+	RTLConsts_SFOpenError,	"Cannot open file %s"
+	RTLConsts_SInvalidImage,	"Invalid stream format"
+	RTLConsts_SInvalidName,	"''%s'' is not a valid component name"
+	RTLConsts_SInvalidProperty,	"Invalid property value"
+	RTLConsts_SInvalidPropertyPath,	"Invalid property path"
 	RTLConsts_SInvalidPropertyValue,	"Invalid property value"
 	RTLConsts_SInvalidRegType,	"Invalid data type for '%s'"
 	RTLConsts_SListCapacityError,	"List capacity out of bounds (%d)"
@@ -584,12 +586,12 @@ BEGIN
 	RTLConsts_SReadError,	"Stream read error"
 	RTLConsts_SReadOnlyProperty,	"Property is read-only"
 	RTLConsts_SRegGetDataFailed,	"Failed to get data for '%s'"
-	RTLConsts_SRegSetDataFailed,	"Failed to set data for '%s'"
-	RTLConsts_SResNotFound,	"Resource %s not found"
-	RTLConsts_SSeekNotImplemented,	"%s.Seek not implemented"
-	RTLConsts_SSortedListError,	"Operation not allowed on sorted list"
-	RTLConsts_SUnknownGroup,	"%s not in a class registration group"
-	RTLConsts_SUnknownProperty,	"Property %s does not exist"
+	SysConst_SLongDayNameMon,	"Monday"
+	SysConst_SLongDayNameTue,	"Tuesday"
+	SysConst_SLongDayNameWed,	"Wednesday"
+	SysConst_SLongDayNameThu,	"Thursday"
+	SysConst_SLongDayNameFri,	"Friday"
+	SysConst_SLongDayNameSat,	"Saturday"
 	RTLConsts_SAncestorNotFound,	"Ancestor for '%s' not found"
 	RTLConsts_SAssignError,	"Cannot assign a %s to a %s"
 	RTLConsts_SBitsIndexError,	"Bits index out of range"
@@ -600,12 +602,12 @@ BEGIN
 	RTLConsts_SDuplicateItem,	"List does not allow duplicates ($0%x)"
 	RTLConsts_SDuplicateName,	"A component named %s already exists"
 	RTLConsts_SDuplicateString,	"String list does not allow duplicates"
-	RTLConsts_SFCreateError,	"Cannot create file %s"
-	RTLConsts_SFOpenError,	"Cannot open file %s"
-	RTLConsts_SInvalidImage,	"Invalid stream format"
-	RTLConsts_SInvalidName,	"''%s'' is not a valid component name"
-	RTLConsts_SInvalidProperty,	"Invalid property value"
-	RTLConsts_SInvalidPropertyPath,	"Invalid property path"
+	SysConst_SLongMonthNameMay,	"May"
+	SysConst_SLongMonthNameJun,	"June"
+	SysConst_SLongMonthNameJul,	"July"
+	SysConst_SLongMonthNameAug,	"August"
+	SysConst_SLongMonthNameSep,	"September"
+	SysConst_SLongMonthNameOct,	"October"
 	SysConst_SLongMonthNameNov,	"November"
 	SysConst_SLongMonthNameDec,	"December"
 	SysConst_SShortDayNameSun,	"Sun"
@@ -616,12 +618,12 @@ BEGIN
 	SysConst_SShortDayNameFri,	"Fri"
 	SysConst_SShortDayNameSat,	"Sat"
 	SysConst_SLongDayNameSun,	"Sunday"
-	SysConst_SLongDayNameMon,	"Monday"
-	SysConst_SLongDayNameTue,	"Tuesday"
-	SysConst_SLongDayNameWed,	"Wednesday"
-	SysConst_SLongDayNameThu,	"Thursday"
-	SysConst_SLongDayNameFri,	"Friday"
-	SysConst_SLongDayNameSat,	"Saturday"
+	SysConst_SShortMonthNameJan,	"Jan"
+	SysConst_SShortMonthNameFeb,	"Feb"
+	SysConst_SShortMonthNameMar,	"Mar"
+	SysConst_SShortMonthNameApr,	"Apr"
+	SysConst_SShortMonthNameMay,	"May"
+	SysConst_SShortMonthNameJun,	"Jun"
 	SysConst_SShortMonthNameJul,	"Jul"
 	SysConst_SShortMonthNameAug,	"Aug"
 	SysConst_SShortMonthNameSep,	"Sep"
@@ -632,13 +634,13 @@ BEGIN
 	SysConst_SLongMonthNameFeb,	"February"
 	SysConst_SLongMonthNameMar,	"March"
 	SysConst_SLongMonthNameApr,	"April"
-	SysConst_SLongMonthNameMay,	"May"
-	SysConst_SLongMonthNameJun,	"June"
-	SysConst_SLongMonthNameJul,	"July"
-	SysConst_SLongMonthNameAug,	"August"
-	SysConst_SLongMonthNameSep,	"September"
-	SysConst_SLongMonthNameOct,	"October"
-	SysConst_SVarUnexpected,	"Unexpected variant error"
+	SysConst_SInvalidVarOp,	"Invalid variant operation"
+	SysConst_SDispatchError,	"Variant method calls not supported"
+	SysConst_SReadAccess,	"Read"
+	SysConst_SWriteAccess,	"Write"
+	SysConst_SVarArrayCreate,	"Error creating variant array"
+	SysConst_SVarNotArray,	"Variant is not an array"
+	SysConst_SVarArrayBounds,	"Variant array index out of bounds"
 	SysConst_SExternalException,	"External exception %x"
 	SysConst_SAssertionFailed,	"Assertion failed"
 	SysConst_SIntfCastError,	"Interface not supported"
@@ -648,28 +650,6 @@ BEGIN
 	SysConst_SModuleAccessViolation,	"Access violation at address %p in module '%s'. %s of address %p"
 	SysConst_SOSError,	"System Error.  Code: %d.\r\n%s"
 	SysConst_SUnkOSError,	"A call to an OS function failed"
-	SysConst_SShortMonthNameJan,	"Jan"
-	SysConst_SShortMonthNameFeb,	"Feb"
-	SysConst_SShortMonthNameMar,	"Mar"
-	SysConst_SShortMonthNameApr,	"Apr"
-	SysConst_SShortMonthNameMay,	"May"
-	SysConst_SShortMonthNameJun,	"Jun"
-	SysConst_SReadAccess,	"Read"
-	SysConst_SWriteAccess,	"Write"
-	SysConst_SVarArrayCreate,	"Error creating variant array"
-	SysConst_SVarArrayBounds,	"Variant array index out of bounds"
-	SysConst_SVarArrayLocked,	"Variant array is locked"
-	SysConst_SInvalidVarCast,	"Invalid variant type conversion"
-	SysConst_SInvalidVarOp,	"Invalid variant operation"
-	SysConst_SInvalidVarOpWithHResult,	"Invalid variant operation ($%.8x)"
-	SysConst_SVarNotArray,	"Variant is not an array"
-	SysConst_SInvalidVarNullOp,	"Invalid NULL variant operation"
-	SysConst_SVarTypeCouldNotConvert,	"Could not convert variant of type (%s) into type (%s)"
-	SysConst_SVarTypeConvertOverflow,	"Overflow while converting variant of type (%s) into type (%s)"
-	SysConst_SVarOverflow,	"Variant overflow"
-	SysConst_SVarInvalid,	"Invalid argument"
-	SysConst_SVarBadType,	"Invalid variant type"
-	SysConst_SVarNotImplemented,	"Operation not supported"
 	SysConst_SInvalidOp,	"Invalid floating point operation"
 	SysConst_SZeroDivide,	"Floating point division by zero"
 	SysConst_SOverflow,	"Floating point overflow"
@@ -681,11 +661,11 @@ BEGIN
 	SysConst_SControlC,	"Control-C hit"
 	SysConst_SPrivilege,	"Privileged instruction"
 	SysConst_SOperationAborted,	"Operation aborted"
-	SysConst_SException,	"Exception %s in module %s at %p.\r\n%s%s\r\n"
+	SysConst_SException,	"Exception %s in module %s at %p.\n%s%s"
 	SysConst_SExceptTitle,	"Application Error"
 	SysConst_SInvalidFormat,	"Format '%s' invalid or incompatible with argument"
 	SysConst_SArgumentMissing,	"No argument for format '%s'"
-	SysConst_SDispatchError,	"Variant method calls not supported"
+	SysConst_SInvalidVarCast,	"Invalid variant type conversion"
 	SysConst_SInvalidInteger,	"'%s' is not a valid integer value"
 	SysConst_SInvalidDateTime,	"'%s' is not a valid date and time"
 	SysConst_STimeEncodeError,	"Invalid argument to time encode"

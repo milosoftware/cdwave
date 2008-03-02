@@ -8,38 +8,38 @@
   resources were bound to the produced executable.
 */
 
-#define Main_TrackTimeStr 65200
-#define Main_TrackRemStr 65201
-#define Main_RecordStr 65202
-#define Main_MacroStr 65203
-#define Main_OnlySingleStr 65204
-#define Main_NoTimeStr 65205
-#define Main_NeedTimeStr 65206
-#define Main_IgnoreFileStr 65207
-#define Main_NoRecFileStr 65208
-#define Main_StartRecStr 65209
-#define Main_NoComLineStr 65210
-#define Main_UnregStr 65211
-#define Main_WaveErrStr 65212
-#define Main_WhileOpeneningStr 65213
-#define Main_WhilePrepareStr 65214
-#define Main_strSilence 65215
-#define Main_LockMemStr 65216
-#define Main_TotTimeStr 65217
-#define Main_LoadStr 65218
-#define Main_AllocMemStr 65219
-#define Main_UnSavedStr 65220
-#define Main_NoWaveInStr 65221
-#define Main_NoRecStr 65222
-#define Main_NoCallBackStr 65223
-#define Main_NoDataBlocksStr 65224
-#define Main_RecStopStr 65225
-#define Main_SureLoseStr 65226
-#define Main_NoWaveKeyStr 65227
-#define Main_OpenStr 65228
-#define Main_NoIndexStr 65229
-#define Main_ElapsedStr 65230
-#define Main_RemainStr 65231
+#define Main_MacroStr 65200
+#define Main_OnlySingleStr 65201
+#define Main_NoTimeStr 65202
+#define Main_NeedTimeStr 65203
+#define Main_IgnoreFileStr 65204
+#define Main_NoRecFileStr 65205
+#define Main_StartRecStr 65206
+#define Main_NoComLineStr 65207
+#define Main_UnregStr 65208
+#define Main_WaveErrStr 65209
+#define Main_WhileOpeneningStr 65210
+#define Main_WhilePrepareStr 65211
+#define Main_strSilence 65212
+#define TimeSplitFrm_SplitStr 65213
+#define TimeSplitFrm_SplitSmallFuzzStr 65214
+#define TimeSplitFrm_AtMarkerStr 65215
+#define Main_AllocMemStr 65216
+#define Main_UnSavedStr 65217
+#define Main_NoWaveInStr 65218
+#define Main_NoRecStr 65219
+#define Main_NoCallBackStr 65220
+#define Main_NoDataBlocksStr 65221
+#define Main_RecStopStr 65222
+#define Main_SureLoseStr 65223
+#define Main_NoWaveKeyStr 65224
+#define Main_OpenStr 65225
+#define Main_NoIndexStr 65226
+#define Main_ElapsedStr 65227
+#define Main_RemainStr 65228
+#define Main_TrackTimeStr 65229
+#define Main_TrackRemStr 65230
+#define Main_RecordStr 65231
 #define RecThd_NoRiffStr2 65232
 #define RecThd_NoDescStr 65233
 #define RecThd_NoAllocMemStr 65234
@@ -52,10 +52,10 @@
 #define About_VersionStr 65241
 #define AboutFull_RegStr 65242
 #define AuditionFrm_lastSecondsStr 65243
-#define TimeSplitFrm_SplitStr 65244
-#define TimeSplitFrm_SplitSmallFuzzStr 65245
-#define TimeSplitFrm_AtMarkerStr 65246
-#define Main_HelpStr 65247
+#define Main_HelpStr 65244
+#define Main_LockMemStr 65245
+#define Main_TotTimeStr 65246
+#define Main_LoadStr 65247
 #define WaveWriters_NoWriteDestStr 65248
 #define WaveWriters_ReadStr 65249
 #define akrip32_ReadTOCError 65250
@@ -346,9 +346,6 @@
 #define SysConst_SIntOverflow 65535
 STRINGTABLE
 BEGIN
-	Main_TrackTimeStr,	"Track time"
-	Main_TrackRemStr,	"Track remain"
-	Main_RecordStr,	"Recording"
 	Main_MacroStr,	"DDE Macro Received: \"%s\""
 	Main_OnlySingleStr,	"You can only drop a single file on CDWave."
 	Main_NoTimeStr,	"Time format not understood (minutes or HH:MM)."
@@ -362,9 +359,9 @@ BEGIN
 	Main_WhileOpeneningStr,	"While opening audio device"
 	Main_WhilePrepareStr,	"While preparing a buffer for playback"
 	Main_strSilence,	"(unused) "
-	Main_LockMemStr,	"Error occurred:\n%s\nwhile attempting to lock memory."
-	Main_TotTimeStr,	"Total time"
-	Main_LoadStr,	"Loading "
+	TimeSplitFrm_SplitStr,	"Split interval must be more than zero."
+	TimeSplitFrm_SplitSmallFuzzStr,	"\"Within\" must be smaller than half the split interval"
+	TimeSplitFrm_AtMarkerStr,	"Start at the marker position (%s)"
 	Main_AllocMemStr,	"Error occurred:\n%s\nwhile attempting to allocate memory."
 	Main_UnSavedStr,	"There are unsaved changes. Press OK to ignore and continue, Cancel to abort and return."
 	Main_NoWaveInStr,	"Cannot close wavein?"
@@ -378,6 +375,9 @@ BEGIN
 	Main_NoIndexStr,	"Line %s: Invalid INDEX line, time format too short."
 	Main_ElapsedStr,	"Elapsed time"
 	Main_RemainStr,	"Remaining"
+	Main_TrackTimeStr,	"Track time"
+	Main_TrackRemStr,	"Track remain"
+	Main_RecordStr,	"Recording"
 	RecThd_NoRiffStr2,	"Cannot open RIFF chunk, file is not a valid WAVE file."
 	RecThd_NoDescStr,	"Cannot descend into data part."
 	RecThd_NoAllocMemStr,	"Unable to allocate memory, code: "
@@ -390,10 +390,10 @@ BEGIN
 	About_VersionStr,	"Version"
 	AboutFull_RegStr,	"Registered to: "
 	AuditionFrm_lastSecondsStr,	"Last seconds"
-	TimeSplitFrm_SplitStr,	"Split interval must be more than zero."
-	TimeSplitFrm_SplitSmallFuzzStr,	"\"Within\" must be smaller than half the split interval"
-	TimeSplitFrm_AtMarkerStr,	"Start at the marker position (%s)"
 	Main_HelpStr,	".HLP"
+	Main_LockMemStr,	"Error occurred:\n%s\nwhile attempting to lock memory."
+	Main_TotTimeStr,	"Total time"
+	Main_LoadStr,	"Loading "
 	WaveWriters_NoWriteDestStr,	"Unable to write to destination file."
 	WaveWriters_ReadStr,	"Reading WAV data"
 	akrip32_ReadTOCError,	"Error reading TOC"

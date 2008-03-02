@@ -1,6 +1,6 @@
 object MainForm: TMainForm
   Left = 506
-  Top = 220
+  Top = 251
   Width = 624
   Height = 555
   HelpContext = 9001

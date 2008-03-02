@@ -1,6 +1,6 @@
 inherited SelectDirDlg: TSelectDirDlg
   Left = 290
-  Top = 113
+  Top = 129
   HelpContext = 1030
   Caption = 'Select Output'
   ClientHeight = 385

@@ -1,6 +1,6 @@
 inherited DlgRecordShare: TDlgRecordShare
   Left = 328
-  Top = 370
+  Top = 421
   ClientHeight = 432
   ClientWidth = 488
   OnActivate = FormActivate
@@ -200,7 +200,7 @@ inherited DlgRecordShare: TDlgRecordShare
       ParentShowHint = False
       ShowHint = True
       TabOrder = 3
-      Text = '24,576'
+      Text = '24.576'
       OnChange = eLoudChange
     end
     object udSilence: TUpDown

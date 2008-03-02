@@ -421,7 +421,7 @@ var i: Integer;
 begin
   for i := 0 to (size div 3) - 1 do
   begin
-    PArray16(outbuffer)[i] := PSmallint(@(PArray24(inbuffer)[i].b))^;
+    PArray16(outbuffer)[i] := PArray24(inbuffer)[i].h;
   end;
 end;
 
@@ -430,7 +430,7 @@ var i: Integer;
 begin
   for i := 0 to (size div 3) - 1 do
   begin
-    PArray8(outbuffer)[i] := PArray24(inbuffer)[i].c + $80;
+    PArray8(outbuffer)[i] := Hi(PArray24(inbuffer)[i].h) + $80;
   end;
 end;
 
@@ -449,9 +449,8 @@ var i: Integer;
 begin
   for i := 0 to (size shr 1) - 1 do
   begin
-    PArray24(outbuffer)[i].c := Hi(PArray16(inbuffer)[i]);
-    PArray24(outbuffer)[i].b := Lo(PArray16(inbuffer)[i]);
-    PArray24(outbuffer)[i].a := 0;
+    PArray24(outbuffer)[i].h := PArray16(inbuffer)[i];
+    PArray24(outbuffer)[i].l := 0;
   end;
 end;
 
@@ -478,9 +477,8 @@ var i: Integer;
 begin
   for i := 0 to size - 1 do
   begin
-    PArray24(outbuffer)[i].c := PArray8(inbuffer)[i] - $80;
-    PArray24(outbuffer)[i].b := 0;
-    PArray24(outbuffer)[i].a := 0;
+    PArray24(outbuffer)[i].h := (PArray8(inbuffer)[i] - $80) shl 8;
+    PArray24(outbuffer)[i].l := 0;
   end;
 end;
 
@@ -1135,7 +1133,13 @@ begin
   case FromFormat.wBitsPerSample of
     0..8:   for i := 0 to s-1 do flacBuf[i] := PByteArray(Buf)[i] - $80;
     9..16:  for i := 0 to s-1 do flacBuf[i] := PShortArray(Buf)[i];
-    17..24: for i := 0 to s-1 do flacBuf[i] := PInteger(@(PArray24(Buf)[i]))^ and $00FFFFFF;
+    // FLAC wil 24-bit signed hebben?
+    // nok 17..24: for i := 0 to s-1 do flacBuf[i] := PInteger(@(PArray24(Buf)[i]))^ and $00FFFFFF ;
+    // nok 17..24: for i := 0 to s-1 do flacBuf[i] := (PInteger(@(PArray24(Buf)[i]))^ shl 8) shr 8;
+    17..24: for i := 0 to s-1 do
+            begin
+              flacBuf[i] := (PArray24(Buf)[i].h shl 8) or PArray24(Buf)[i].l;
+            end;
     else flacBuf := Buffer;
   end;
   if not FLAC__stream_encoder_process_interleaved(stream, @flacBuf[0], s div Fromformat.nChannels) then

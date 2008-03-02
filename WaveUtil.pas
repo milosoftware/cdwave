@@ -88,8 +88,9 @@ type
   PCardinal = ^Cardinal;
 
   PThreeByte = ^TThreeByte;
-  TThreeByte = record
-    a,b,c: Byte;
+  TThreeByte = packed record
+    l: Byte;
+    h: Smallint; // 24-bit is signed...
   end;
 
   TShortArray = array[0..MAXINT div sizeof(SmallInt) - 1] of Smallint;
@@ -373,7 +374,7 @@ begin
   Result.Max := 0;
   for i := 0 to Size-1 do
   begin
-    v := PSmallInt(@PArray24(Sector)[i].b)^;
+    v := PArray24(Sector)[i].h;
     if v > Result.Max then Result.Max := v
     else if v < Result.Min then Result.Min := v;
   end;

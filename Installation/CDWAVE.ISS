@@ -1,14 +1,23 @@
+#define MyAppName "CD Wave Editor"
+#define MyAppVersion GetFileVersion("..\Execute\CDWav.exe")
+#define MyProductVersion GetStringFileInfo("..\Execute\CDWav.exe", PRODUCT_VERSION)
+#define NoDotVersion Copy(MyProductVersion, 1, Pos('.', MyProductVersion)-1) + Copy(MyProductVersion, Pos('.', MyProductVersion)+1)
+
+#pragma message "Detailed version info: " + MyAppVersion
+#pragma message "Product version info: " + MyProductVersion
+#pragma message "Without dots: " + NoDotVersion
+
 [Setup]
-AppName=CD Wave
-AppVerName=CD Wave Editor version 1.97
-AppVersion=1.97
-VersionInfoVersion=1.9.7.0
-VersionInfoTextVersion=1.97
-AppCopyright=Copyright © 1997-2007 Mike Looijmans
+AppName={#MyAppName}
+AppVerName={#MyAppName} {#MyProductVersion}
+AppVersion={#MyAppVersion}
+VersionInfoVersion={#MyAppVersion}
+VersionInfoTextVersion={#MyProductVersion}
+AppCopyright=Copyright © 1997-2008 Mike Looijmans
 DefaultDirName={pf}\CD Wave
 DefaultGroupName=CD Wave
 UninstallDisplayIcon={app}\CDWav.exe
-Compression=lzma/max
+Compression=lzma/ultra
 SolidCompression=yes
 AppPublisher=MiLo Software
 AppPublisherURL=http://www.cdwave.com/
@@ -17,7 +26,7 @@ AppUpdatesURL=http://www.cdwave.com/download.html
 DisableStartupPrompt=yes
 LicenseFile=license.txt
 VersionInfoDescription=CD Wave Editor Setup
-OutputBaseFilename=cdwav197
+OutputBaseFilename=cdwav{#NoDotVersion}
 
 [Languages]
 Name: "en"; MessagesFile: "compiler:Default.isl"

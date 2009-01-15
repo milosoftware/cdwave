@@ -1756,6 +1756,7 @@ end;
 
 procedure TMainForm.StartRecording;
 var i: Integer;
+    RecordingFormat: TWAVEFORMATEXTENSIBLE;
 begin
   RecordTimer.Enabled := False;
   if RecSettings.RecordMode = rmAppend then
@@ -1780,16 +1781,19 @@ begin
       InsertSplit(0, 0, 0);
   end;
   if RecThread = nil then Raise Exception.Create(NoRecStr);
+  WaveUtil.CopyWaveFormat(WaveFormat, @RecordingFormat);
+  RecordingFormat.dwChannelMask := 0; // Someone claimed that this must be 0 for recording,
+  // See    http://www.tech-archive.net/Archive/Development/microsoft.public.win32.programmer.mmedia/2006-02/msg00003.html
   case RecCallbackMode of
       rcmWindow:
-        i := WaveInOpen(@WaveIn, RecSettings.Driver, WaveFormat, Handle, 0,
+        i := WaveInOpen(@WaveIn, RecSettings.Driver, @RecordingFormat, Handle, 0,
                         CallBack_Window);
       rcmFunction:
-        i := WaveInOpen(@WaveIn, RecSettings.Driver, WaveFormat,
+        i := WaveInOpen(@WaveIn, RecSettings.Driver, @RecordingFormat,
                         Integer(@WaveInCallback), RecThread.ThreadID,
                         CallBack_Function);
       rcmThread:
-        i := WaveInOpen(@WaveIn, RecSettings.Driver, WaveFormat,
+        i := WaveInOpen(@WaveIn, RecSettings.Driver, @RecordingFormat,
                         RecThread.ThreadID, 0, CallBack_Thread);
       else
         raise Exception.Create(NoCallBackStr);

@@ -25,6 +25,10 @@ type
     Bevel3: TBevel;
     Bevel4: TBevel;
     Bevel5: TBevel;
+    Bevel6: TBevel;
+    Bevel7: TBevel;
+    Label10: TLabel;
+    Label11: TLabel;
     c1: TCheckBox;
     c2: TCheckBox;
     c4: TCheckBox;
@@ -37,6 +41,14 @@ type
     c512: TCheckBox;
     c1024: TCheckBox;
     c2048: TCheckBox;
+    c01000: TCheckBox;
+    c02000: TCheckBox;
+    c04000: TCheckBox;
+    c08000: TCheckBox;
+    c10000: TCheckBox;
+    c20000: TCheckBox;
+    c40000: TCheckBox;
+    c80000: TCheckBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   public
     procedure ShowWaveInCapsOf(Driver: Integer);
@@ -59,7 +71,7 @@ begin
 end;
 
 procedure TWaveInfoForm.ShowWaveInCaps(const Caps: TWaveInCaps);
-var Boxes: array[0..11] of TCheckBox;
+var Boxes: array[0..19] of TCheckBox;
 var i, j: Integer;
 begin
   Boxes[0] := c1;
@@ -74,14 +86,21 @@ begin
   Boxes[9] := c512;
   Boxes[10] := c1024;
   Boxes[11] := c2048;
+  Boxes[12] := c01000;
+  Boxes[13] := c02000;
+  Boxes[14] := c04000;
+  Boxes[15] := c08000;
+  Boxes[16] := c10000;
+  Boxes[17] := c20000;
+  Boxes[18] := c40000;
+  Boxes[19] := c80000;
   lDriverName.Caption := Caps.szPname;
   j := 0;
   i := 1;
-  while i <= 2048 do
+  for j := 0 to 19 do
   begin
     Boxes[j].Checked := (Caps.dwFormats and i) <> 0;
     i := i shl 1;
-    inc(j);
   end;
 end;
 

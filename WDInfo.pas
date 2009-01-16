@@ -11,44 +11,41 @@ type
     Button1: TButton;
     lDriverName: TStaticText;
     GroupBox1: TGroupBox;
+    Label12: TLabel;
+    Label13: TLabel;
+    Panel1: TPanel;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
     Label9: TLabel;
-    Bevel1: TBevel;
-    Bevel2: TBevel;
-    Bevel3: TBevel;
-    Bevel4: TBevel;
-    Bevel5: TBevel;
-    Bevel6: TBevel;
-    Bevel7: TBevel;
-    Label10: TLabel;
-    Label11: TLabel;
     c1: TCheckBox;
     c2: TCheckBox;
     c4: TCheckBox;
     c8: TCheckBox;
-    c16: TCheckBox;
-    c32: TCheckBox;
-    c64: TCheckBox;
     c128: TCheckBox;
+    c64: TCheckBox;
+    c32: TCheckBox;
+    c16: TCheckBox;
+    Label8: TLabel;
+    Label7: TLabel;
     c256: TCheckBox;
     c512: TCheckBox;
     c1024: TCheckBox;
     c2048: TCheckBox;
+    Label10: TLabel;
     c01000: TCheckBox;
     c02000: TCheckBox;
     c04000: TCheckBox;
     c08000: TCheckBox;
+    Label11: TLabel;
     c10000: TCheckBox;
     c20000: TCheckBox;
     c40000: TCheckBox;
     c80000: TCheckBox;
+    LblNumChannels: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   public
     procedure ShowWaveInCapsOf(Driver: Integer);
@@ -65,6 +62,7 @@ implementation
 procedure TWaveInfoForm.ShowWaveInCapsOf(Driver: Integer);
 var Caps: TWaveInCaps;
 begin
+  FillChar(Caps, sizeof(Caps), 0);
   if WaveInGetDevCaps(Driver, @Caps, sizeof(Caps)) = 0
   then
     ShowWaveInCaps(Caps);
@@ -102,6 +100,10 @@ begin
     Boxes[j].Checked := (Caps.dwFormats and i) <> 0;
     i := i shl 1;
   end;
+  if Caps.wChannels = $FFFF then
+        LblNumChannels.Caption := 'any'
+  else
+        LblNumChannels.Caption := IntToStr(Caps.wChannels);
 end;
 
 procedure TWaveInfoForm.FormClose(Sender: TObject;

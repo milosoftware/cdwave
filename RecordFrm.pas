@@ -40,14 +40,12 @@ type
     SaveDialog: TSaveDialog;
     Label10: TLabel;
     cbDriver: TComboBox;
-    BtnInfo: TBitBtn;
     BtnHelp: TBitBtn;
     lFileExists: TLabel;
     rbAppendMode: TRadioButton;
     procedure BtnBrowseClick(Sender: TObject);
     procedure eFilenameChange(Sender: TObject);
     procedure eFilenameExit(Sender: TObject);
-    procedure BtnInfoClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure BtnHelpClick(Sender: TObject);
@@ -72,7 +70,7 @@ type
 
 implementation
 
-uses MMUtil, WDInfo, Utils, WaveUtil;
+uses MMUtil, Utils, WaveUtil;
 
 {$R *.DFM}
 resourcestring
@@ -152,15 +150,6 @@ begin
         t := t + '.wav';
       Text := ExpandFilename(t);
   end;
-end;
-
-procedure TDlgRecord.BtnInfoClick(Sender: TObject);
-var WaveInfoForm: TWaveInfoForm;
-begin
-  WaveInfoForm := TWaveInfoForm.Create(self);
-  WaveInfoForm.ShowWaveInCapsOf(cbDriver.ItemIndex-1);
-  WaveInfoForm.ShowModal;
-  WaveInfoForm.Free;
 end;
 
 procedure TDlgRecord.StoreInRegistry(Reg: TRegistry);

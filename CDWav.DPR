@@ -12,7 +12,6 @@ uses
   Settings in 'Settings.pas' {SettingsDialog},
   RecThd in 'RecThd.pas',
   mmutil in 'mmutil.pas',
-  WDInfo in 'WDInfo.pas' {WaveInfoForm},
   FormatFrm in 'FormatFrm.pas' {FormatForm},
   RecordFrm in 'RecordFrm.pas' {DlgRecord},
   SelectDirFrm in 'SelectDirFrm.pas' {SelectDirDlg},

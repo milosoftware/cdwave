@@ -8,118 +8,118 @@
   resources were bound to the produced executable.
 */
 
-#define Main_TrackTimeStr 65200
-#define Main_TrackRemStr 65201
-#define Main_RecordStr 65202
-#define Main_MacroStr 65203
-#define Main_OnlySingleStr 65204
-#define Main_NoTimeStr 65205
-#define Main_NeedTimeStr 65206
-#define Main_IgnoreFileStr 65207
-#define Main_NoRecFileStr 65208
-#define Main_StartRecStr 65209
-#define Main_NoComLineStr 65210
-#define Main_UnregStr 65211
-#define Main_WaveErrStr 65212
-#define Main_WhileOpeneningStr 65213
-#define Main_WhilePrepareStr 65214
-#define Main_strSilence 65215
-#define Main_LockMemStr 65216
-#define Main_TotTimeStr 65217
-#define Main_LoadStr 65218
-#define Main_AllocMemStr 65219
-#define Main_UnSavedStr 65220
-#define Main_NoWaveInStr 65221
-#define Main_NoRecStr 65222
-#define Main_NoCallBackStr 65223
-#define Main_NoDataBlocksStr 65224
-#define Main_RecStopStr 65225
-#define Main_SureLoseStr 65226
-#define Main_NoWaveKeyStr 65227
-#define Main_OpenStr 65228
-#define Main_NoIndexStr 65229
-#define Main_ElapsedStr 65230
-#define Main_RemainStr 65231
-#define RecThd_NoRiffStr2 65232
-#define RecThd_NoDescStr 65233
-#define RecThd_NoAllocMemStr 65234
-#define RecThd_NoSeekStr 65235
-#define RecThd_TimeOutStr 65236
-#define RecThd_ZombieStr 65237
+#define Main_MacroStr 65200
+#define Main_OnlySingleStr 65201
+#define Main_NoTimeStr 65202
+#define Main_NeedTimeStr 65203
+#define Main_IgnoreFileStr 65204
+#define Main_NoRecFileStr 65205
+#define Main_StartRecStr 65206
+#define Main_NoComLineStr 65207
+#define Main_UnregStr 65208
+#define Main_WaveErrStr 65209
+#define Main_WhileOpeneningStr 65210
+#define Main_WhilePrepareStr 65211
+#define Main_strSilence 65212
+#define TimeSplitFrm_SplitStr 65213
+#define TimeSplitFrm_SplitSmallFuzzStr 65214
+#define TimeSplitFrm_AtMarkerStr 65215
+#define Main_AllocMemStr 65216
+#define Main_UnSavedStr 65217
+#define Main_NoWaveInStr 65218
+#define Main_NoRecStr 65219
+#define Main_NoCallBackStr 65220
+#define Main_NoDataBlocksStr 65221
+#define Main_RecStopStr 65222
+#define Main_SureLoseStr 65223
+#define Main_NoWaveKeyStr 65224
+#define Main_OpenStr 65225
+#define Main_NoIndexStr 65226
+#define Main_ElapsedStr 65227
+#define Main_RemainStr 65228
+#define Main_TrackTimeStr 65229
+#define Main_TrackRemStr 65230
+#define Main_RecordStr 65231
+#define working_WriteStr 65232
+#define working_WritingStr 65233
+#define working_NoReadStr2 65234
+#define working_ZeroBytesStr 65235
+#define working_DAEErr 65236
+#define working_DAEStr 65237
 #define License_NoValidKeyStr 65238
 #define License_ThankRegStr 65239
 #define About_WindowsStr 65240
 #define About_VersionStr 65241
 #define AboutFull_RegStr 65242
 #define AuditionFrm_lastSecondsStr 65243
-#define TimeSplitFrm_SplitStr 65244
-#define TimeSplitFrm_SplitSmallFuzzStr 65245
-#define TimeSplitFrm_AtMarkerStr 65246
-#define Main_HelpStr 65247
-#define WaveWriters_NoWriteDestStr 65248
-#define WaveWriters_ReadStr 65249
-#define akrip32_ReadTOCError 65250
-#define working_CancelStr 65251
-#define working_WriteStr 65252
-#define working_WritingStr 65253
-#define working_NoReadStr2 65254
-#define working_ZeroBytesStr 65255
-#define working_DAEErr 65256
-#define working_DAEStr 65257
-#define RecThd_NoFileStr 65258
-#define RecThd_NoRiffStr 65259
-#define RecThd_NoCrFmtStr 65260
-#define RecThd_NoWriteFmtStr 65261
-#define RecThd_NoAscWriteStr 65262
-#define RecThd_NoDataStr 65263
-#define WaveIO_TruncOKStr 65264
-#define WaveIO_ZeroSizeStr 65265
-#define WaveIO_LowSizeStr 65266
-#define WaveIO_NoReadStr 65267
-#define WaveIO_NoFlacMemory 65268
-#define WaveIO_NoFlacInit 65269
-#define WaveIO_NoExtStr 65270
-#define WaveIO_FlacError 65271
-#define WaveIO_TooBigStr 65272
-#define WaveWriters_NoAllocMemStr 65273
-#define WaveWriters_NoWriteStr 65274
-#define WaveWriters_NoOpenConvStr 65275
-#define WaveWriters_NoBufSizeStr 65276
-#define WaveWriters_NoAllocDestStr 65277
-#define WaveWriters_NoHeaderStr 65278
-#define WaveWriters_AcmErrorStr 65279
-#define mmutil_WaveNameError 65280
-#define RecordFrm_MinStr 65281
-#define RecordFrm_UnknownStr 65282
-#define ShellUtils_NoOpenStr 65283
-#define SelectDirFrm_strNoVorbisDll 65284
-#define SelectDirFrm_strNoLameDll 65285
-#define SelectDirFrm_strSelectOutDir 65286
-#define WaveIO_NoRiffStr2 65287
-#define WaveIO_HeaderStr 65288
-#define WaveIO_NoDescrStr 65289
-#define WaveIO_LengthStr 65290
-#define WaveIO_TruncStr 65291
-#define WaveIO_NoAscStr 65292
-#define WaveIO_OnlyPCMStr 65293
-#define WaveIO_Only8Or16Str 65294
-#define WaveIO_NoDescStr2 65295
-#define ComStrs_sNeedAllowNone 65296
-#define ComStrs_sFailSetCalDateTime 65297
-#define ComStrs_sFailSetCalMaxSelRange 65298
-#define ComStrs_sFailSetCalMinMaxRange 65299
-#define ComStrs_sFailsetCalSelRange 65300
-#define WaveUtil_NoRiffStr 65301
-#define WaveUtil_NoFmtStr 65302
-#define WaveUtil_NoWriteFmtStr 65303
-#define WaveUtil_NoAscWriteStr 65304
-#define WaveUtil_NoDataStr 65305
-#define WaveUtil_NoOpenStr 65306
-#define FormatFrm_ACMStr 65307
-#define FormatFrm_InvalidFlagStr 65308
-#define FormatFrm_InvalidHandleStr 65309
-#define FormatFrm_InvalidParamStr 65310
-#define FormatFrm_NoDriverStr 65311
+#define Main_HelpStr 65244
+#define Main_LockMemStr 65245
+#define Main_TotTimeStr 65246
+#define Main_LoadStr 65247
+#define RecThd_TimeOutStr 65248
+#define RecThd_ZombieStr 65249
+#define WaveWriters_NoAllocMemStr 65250
+#define WaveWriters_NoWriteStr 65251
+#define WaveWriters_NoOpenConvStr 65252
+#define WaveWriters_NoBufSizeStr 65253
+#define WaveWriters_NoAllocDestStr 65254
+#define WaveWriters_NoHeaderStr 65255
+#define WaveWriters_AcmErrorStr 65256
+#define WaveWriters_NoWriteDestStr 65257
+#define WaveWriters_ReadStr 65258
+#define ShellUtils_NoOpenStr 65259
+#define SelectDirFrm_strNoVorbisDll 65260
+#define SelectDirFrm_strNoLameDll 65261
+#define SelectDirFrm_strSelectOutDir 65262
+#define working_CancelStr 65263
+#define FormatFrm_InvalidHandleStr 65264
+#define FormatFrm_InvalidParamStr 65265
+#define FormatFrm_NoDriverStr 65266
+#define mmutil_WaveNameError 65267
+#define RecordFrm_MinStr 65268
+#define RecordFrm_UnknownStr 65269
+#define RecThd_NoFileStr 65270
+#define RecThd_NoRiffStr 65271
+#define RecThd_NoCrFmtStr 65272
+#define RecThd_NoWriteFmtStr 65273
+#define RecThd_NoAscWriteStr 65274
+#define RecThd_NoDataStr 65275
+#define RecThd_NoRiffStr2 65276
+#define RecThd_NoDescStr 65277
+#define RecThd_NoAllocMemStr 65278
+#define RecThd_NoSeekStr 65279
+#define WaveIO_TooBigStr 65280
+#define akrip32_ReadTOCError 65281
+#define ComStrs_sInvalidIndex 65282
+#define ComStrs_sInsertError 65283
+#define ComStrs_sInvalidOwner 65284
+#define ComStrs_sUDAssociated 65285
+#define ComStrs_sInvalidComCtl32 65286
+#define ComStrs_sDateTimeMax 65287
+#define ComStrs_sDateTimeMin 65288
+#define ComStrs_sNeedAllowNone 65289
+#define ComStrs_sFailSetCalDateTime 65290
+#define ComStrs_sFailSetCalMaxSelRange 65291
+#define ComStrs_sFailSetCalMinMaxRange 65292
+#define ComStrs_sFailsetCalSelRange 65293
+#define FormatFrm_ACMStr 65294
+#define FormatFrm_InvalidFlagStr 65295
+#define WaveIO_HeaderStr 65296
+#define WaveIO_NoDescrStr 65297
+#define WaveIO_LengthStr 65298
+#define WaveIO_TruncStr 65299
+#define WaveIO_NoAscStr 65300
+#define WaveIO_OnlyPCMStr 65301
+#define WaveIO_Only8Or16Str 65302
+#define WaveIO_NoDescStr2 65303
+#define WaveIO_TruncOKStr 65304
+#define WaveIO_ZeroSizeStr 65305
+#define WaveIO_LowSizeStr 65306
+#define WaveIO_NoReadStr 65307
+#define WaveIO_NoFlacMemory 65308
+#define WaveIO_NoFlacInit 65309
+#define WaveIO_NoExtStr 65310
+#define WaveIO_FlacError 65311
 #define Consts_SDockTreeRemoveError 65312
 #define Consts_SDockZoneNotFound 65313
 #define Consts_SDockZoneHasNoCtl 65314
@@ -129,13 +129,13 @@
 #define HelpIntfs_hNothingFound 65318
 #define HelpIntfs_hNoContext 65319
 #define HelpIntfs_hNoTopics 65320
-#define ComStrs_sInvalidIndex 65321
-#define ComStrs_sInsertError 65322
-#define ComStrs_sInvalidOwner 65323
-#define ComStrs_sUDAssociated 65324
-#define ComStrs_sInvalidComCtl32 65325
-#define ComStrs_sDateTimeMax 65326
-#define ComStrs_sDateTimeMin 65327
+#define WaveUtil_NoRiffStr 65321
+#define WaveUtil_NoFmtStr 65322
+#define WaveUtil_NoWriteFmtStr 65323
+#define WaveUtil_NoAscWriteStr 65324
+#define WaveUtil_NoDataStr 65325
+#define WaveUtil_NoOpenStr 65326
+#define WaveIO_NoRiffStr2 65327
 #define Consts_SmkcLeft 65328
 #define Consts_SmkcUp 65329
 #define Consts_SmkcRight 65330
@@ -346,9 +346,6 @@
 #define SysConst_SIntOverflow 65535
 STRINGTABLE
 BEGIN
-	Main_TrackTimeStr,	"Track time"
-	Main_TrackRemStr,	"Track remain"
-	Main_RecordStr,	"Recording"
 	Main_MacroStr,	"DDE Macro Received: \"%s\""
 	Main_OnlySingleStr,	"You can only drop a single file on CDWave."
 	Main_NoTimeStr,	"Time format not understood (minutes or HH:MM)."
@@ -362,9 +359,9 @@ BEGIN
 	Main_WhileOpeneningStr,	"While opening audio device"
 	Main_WhilePrepareStr,	"While preparing a buffer for playback"
 	Main_strSilence,	"(unused) "
-	Main_LockMemStr,	"Error occurred:\n%s\nwhile attempting to lock memory."
-	Main_TotTimeStr,	"Total time"
-	Main_LoadStr,	"Loading "
+	TimeSplitFrm_SplitStr,	"Split interval must be more than zero."
+	TimeSplitFrm_SplitSmallFuzzStr,	"\"Within\" must be smaller than half the split interval"
+	TimeSplitFrm_AtMarkerStr,	"Start at the marker position (%s)"
 	Main_AllocMemStr,	"Error occurred:\n%s\nwhile attempting to allocate memory."
 	Main_UnSavedStr,	"There are unsaved changes. Press OK to ignore and continue, Cancel to abort and return."
 	Main_NoWaveInStr,	"Cannot close wavein?"
@@ -378,47 +375,27 @@ BEGIN
 	Main_NoIndexStr,	"Line %s: Invalid INDEX line, time format too short."
 	Main_ElapsedStr,	"Elapsed time"
 	Main_RemainStr,	"Remaining"
-	RecThd_NoRiffStr2,	"Cannot open RIFF chunk, file is not a valid WAVE file."
-	RecThd_NoDescStr,	"Cannot descend into data part."
-	RecThd_NoAllocMemStr,	"Unable to allocate memory, code: "
-	RecThd_NoSeekStr,	"Cannot seek on file."
-	RecThd_TimeOutStr,	"Semaphore timeout. Recording thread not ready?"
-	RecThd_ZombieStr,	"PostThreadMessage() failed. May have created zombie thread."
-	License_NoValidKeyStr,	"Key is not valid."
-	License_ThankRegStr,	"Thank you for registering"
-	About_WindowsStr,	"Windows 98 or 95 OSR2"
-	About_VersionStr,	"Version"
-	AboutFull_RegStr,	"Registered to: "
-	AuditionFrm_lastSecondsStr,	"Last seconds"
-	TimeSplitFrm_SplitStr,	"Split interval must be more than zero."
-	TimeSplitFrm_SplitSmallFuzzStr,	"\"Within\" must be smaller than half the split interval"
-	TimeSplitFrm_AtMarkerStr,	"Start at the marker position (%s)"
-	Main_HelpStr,	".HLP"
-	WaveWriters_NoWriteDestStr,	"Unable to write to destination file."
-	WaveWriters_ReadStr,	"Reading WAV data"
-	akrip32_ReadTOCError,	"Error reading TOC"
-	working_CancelStr,	"Cancelled by user."
+	Main_TrackTimeStr,	"Track time"
+	Main_TrackRemStr,	"Track remain"
+	Main_RecordStr,	"Recording"
 	working_WriteStr,	"Writing tracks"
 	working_WritingStr,	"Writing: "
 	working_NoReadStr2,	"Unable to read source file."
 	working_ZeroBytesStr,	"Reported 0 bytes written, cannot continue."
 	working_DAEErr,	"Error during audio extraction"
 	working_DAEStr,	"Digital Audio Extraction"
-	RecThd_NoFileStr,	"Cannot start recording (blank filename)."
-	RecThd_NoRiffStr,	"Cannot create RIFF chunk."
-	RecThd_NoCrFmtStr,	"Cannot create fmt chunk."
-	RecThd_NoWriteFmtStr,	"Cannot write to fmt chunk"
-	RecThd_NoAscWriteStr,	"Cannot ascend/write."
-	RecThd_NoDataStr,	"Cannot create data chunk."
-	WaveIO_TruncOKStr,	"File is truncated. OK to continue anyway?"
-	WaveIO_ZeroSizeStr,	"The data header reports that the file has a size of ZERO. Press OK to continue and assume the rest of the file is WAVE data."
-	WaveIO_LowSizeStr,	"The data header reports that the file has a size of only %s bytes, which is suspiciously low. Assume that the rest is data? (Yes to correct, No if you trust the header)"
-	WaveIO_NoReadStr,	"Failed to read from file"
-	WaveIO_NoFlacMemory,	"Unable to open FLAC stream (no memory?)"
-	WaveIO_NoFlacInit,	"FLAC Stream failed to initialize, cannot continue"
-	WaveIO_NoExtStr,	"Unknown file extension: %s"
-	WaveIO_FlacError,	"FLAC decoder failure: Code %d."
-	WaveIO_TooBigStr,	"File is to large, CD Wave can only handle files up to 4GB"
+	License_NoValidKeyStr,	"Key is not valid."
+	License_ThankRegStr,	"Thank you for registering"
+	About_WindowsStr,	"Windows 98 or 95 OSR2"
+	About_VersionStr,	"Version"
+	AboutFull_RegStr,	"Registered to: "
+	AuditionFrm_lastSecondsStr,	"Last seconds"
+	Main_HelpStr,	".HLP"
+	Main_LockMemStr,	"Error occurred:\n%s\nwhile attempting to lock memory."
+	Main_TotTimeStr,	"Total time"
+	Main_LoadStr,	"Loading "
+	RecThd_TimeOutStr,	"Semaphore timeout. Recording thread not ready?"
+	RecThd_ZombieStr,	"PostThreadMessage() failed. May have created zombie thread."
 	WaveWriters_NoAllocMemStr,	"Unable to allocate memory."
 	WaveWriters_NoWriteStr,	"Error writing file."
 	WaveWriters_NoOpenConvStr,	"Unable to open conversion stream."
@@ -426,14 +403,45 @@ BEGIN
 	WaveWriters_NoAllocDestStr,	"Cannot allocate dest buffer."
 	WaveWriters_NoHeaderStr,	"Cannot prepare header."
 	WaveWriters_AcmErrorStr,	"ACM Converter reported an error."
-	mmutil_WaveNameError,	"(Unknown device or multimedia error)"
-	RecordFrm_MinStr,	" minutes"
-	RecordFrm_UnknownStr,	"<Unknown>"
+	WaveWriters_NoWriteDestStr,	"Unable to write to destination file."
+	WaveWriters_ReadStr,	"Reading WAV data"
 	ShellUtils_NoOpenStr,	"Unable to create/open registry key: \"%s\""
 	SelectDirFrm_strNoVorbisDll,	"VORBIS.DLL not found"
 	SelectDirFrm_strNoLameDll,	"LAME_ENC.DLL not found"
 	SelectDirFrm_strSelectOutDir,	"Select output directory"
-	WaveIO_NoRiffStr2,	"Cannot open RIFF chunk, file is not a valid WAVE file"
+	working_CancelStr,	"Cancelled by user."
+	FormatFrm_InvalidHandleStr,	"The specified handle is invalid."
+	FormatFrm_InvalidParamStr,	"At least one parameter is invalid."
+	FormatFrm_NoDriverStr,	"A suitable driver is not available to provide valid format selections."
+	mmutil_WaveNameError,	"(Unknown device or multimedia error)"
+	RecordFrm_MinStr,	" minutes"
+	RecordFrm_UnknownStr,	"<Unknown>"
+	RecThd_NoFileStr,	"Cannot start recording (blank filename)."
+	RecThd_NoRiffStr,	"Cannot create RIFF chunk."
+	RecThd_NoCrFmtStr,	"Cannot create fmt chunk."
+	RecThd_NoWriteFmtStr,	"Cannot write to fmt chunk"
+	RecThd_NoAscWriteStr,	"Cannot ascend/write."
+	RecThd_NoDataStr,	"Cannot create data chunk."
+	RecThd_NoRiffStr2,	"Cannot open RIFF chunk, file is not a valid WAVE file."
+	RecThd_NoDescStr,	"Cannot descend into data part."
+	RecThd_NoAllocMemStr,	"Unable to allocate memory, code: "
+	RecThd_NoSeekStr,	"Cannot seek on file."
+	WaveIO_TooBigStr,	"File is to large, CD Wave can only handle files up to 4GB"
+	akrip32_ReadTOCError,	"Error reading TOC"
+	ComStrs_sInvalidIndex,	"Invalid index"
+	ComStrs_sInsertError,	"Unable to insert an item"
+	ComStrs_sInvalidOwner,	"Invalid owner"
+	ComStrs_sUDAssociated,	"%s is already associated with %s"
+	ComStrs_sInvalidComCtl32,	"This control requires version 4.70 or greater of COMCTL32.DLL"
+	ComStrs_sDateTimeMax,	"Date exceeds maximum of %s"
+	ComStrs_sDateTimeMin,	"Date is less than minimum of %s"
+	ComStrs_sNeedAllowNone,	"You must be in ShowCheckbox mode to set to this date"
+	ComStrs_sFailSetCalDateTime,	"Failed to set calendar date or time"
+	ComStrs_sFailSetCalMaxSelRange,	"Failed to set maximum selection range"
+	ComStrs_sFailSetCalMinMaxRange,	"Failed to set calendar min/max range"
+	ComStrs_sFailsetCalSelRange,	"Failed to set calendar selected range"
+	FormatFrm_ACMStr,	"Select ACM format"
+	FormatFrm_InvalidFlagStr,	"At least one flag is invalid."
 	WaveIO_HeaderStr,	"File header reports a size that is different than the system reports. Do you want to adjust the size? (Yes to override header, No to trust header, Cancel to abort)"
 	WaveIO_NoDescrStr,	"No fmt descriptor."
 	WaveIO_LengthStr,	"Bad fmt length."
@@ -442,22 +450,14 @@ BEGIN
 	WaveIO_OnlyPCMStr,	"Bad format - only PCM format supported."
 	WaveIO_Only8Or16Str,	"Bad format - CDWAV can only handle 8, 16 or 24-bit sampled files."
 	WaveIO_NoDescStr2,	"Cannot descend into data part, code: "
-	ComStrs_sNeedAllowNone,	"You must be in ShowCheckbox mode to set to this date"
-	ComStrs_sFailSetCalDateTime,	"Failed to set calendar date or time"
-	ComStrs_sFailSetCalMaxSelRange,	"Failed to set maximum selection range"
-	ComStrs_sFailSetCalMinMaxRange,	"Failed to set calendar min/max range"
-	ComStrs_sFailsetCalSelRange,	"Failed to set calendar selected range"
-	WaveUtil_NoRiffStr,	"Cannot create RIFF chunk."
-	WaveUtil_NoFmtStr,	"Cannot create fmt chunk."
-	WaveUtil_NoWriteFmtStr,	"Cannot write to fmt chunk."
-	WaveUtil_NoAscWriteStr,	"Cannot ascend/write."
-	WaveUtil_NoDataStr,	"Cannot create data chunk."
-	WaveUtil_NoOpenStr,	"Error occurred: \n%s\nWhile opening file: \"%s\""
-	FormatFrm_ACMStr,	"Select ACM format"
-	FormatFrm_InvalidFlagStr,	"At least one flag is invalid."
-	FormatFrm_InvalidHandleStr,	"The specified handle is invalid."
-	FormatFrm_InvalidParamStr,	"At least one parameter is invalid."
-	FormatFrm_NoDriverStr,	"A suitable driver is not available to provide valid format selections."
+	WaveIO_TruncOKStr,	"File is truncated. OK to continue anyway?"
+	WaveIO_ZeroSizeStr,	"The data header reports that the file has a size of ZERO. Press OK to continue and assume the rest of the file is WAVE data."
+	WaveIO_LowSizeStr,	"The data header reports that the file has a size of only %s bytes, which is suspiciously low. Assume that the rest is data? (Yes to correct, No if you trust the header)"
+	WaveIO_NoReadStr,	"Failed to read from file"
+	WaveIO_NoFlacMemory,	"Unable to open FLAC stream (no memory?)"
+	WaveIO_NoFlacInit,	"FLAC Stream failed to initialize, cannot continue"
+	WaveIO_NoExtStr,	"Unknown file extension: %s"
+	WaveIO_FlacError,	"FLAC decoder failure: Code %d."
 	Consts_SDockTreeRemoveError,	"Error removing control from dock tree"
 	Consts_SDockZoneNotFound,	" - Dock zone not found"
 	Consts_SDockZoneHasNoCtl,	" - Dock zone has no control"
@@ -467,13 +467,13 @@ BEGIN
 	HelpIntfs_hNothingFound,	"No help found for %s"
 	HelpIntfs_hNoContext,	"No context-sensitive help installed"
 	HelpIntfs_hNoTopics,	"No topic-based help system installed"
-	ComStrs_sInvalidIndex,	"Invalid index"
-	ComStrs_sInsertError,	"Unable to insert an item"
-	ComStrs_sInvalidOwner,	"Invalid owner"
-	ComStrs_sUDAssociated,	"%s is already associated with %s"
-	ComStrs_sInvalidComCtl32,	"This control requires version 4.70 or greater of COMCTL32.DLL"
-	ComStrs_sDateTimeMax,	"Date exceeds maximum of %s"
-	ComStrs_sDateTimeMin,	"Date is less than minimum of %s"
+	WaveUtil_NoRiffStr,	"Cannot create RIFF chunk."
+	WaveUtil_NoFmtStr,	"Cannot create fmt chunk."
+	WaveUtil_NoWriteFmtStr,	"Cannot write to fmt chunk."
+	WaveUtil_NoAscWriteStr,	"Cannot ascend/write."
+	WaveUtil_NoDataStr,	"Cannot create data chunk."
+	WaveUtil_NoOpenStr,	"Error occurred: \n%s\nWhile opening file: \"%s\""
+	WaveIO_NoRiffStr2,	"Cannot open RIFF chunk, file is not a valid WAVE file"
 	Consts_SmkcLeft,	"Left"
 	Consts_SmkcUp,	"Up"
 	Consts_SmkcRight,	"Right"

@@ -36,13 +36,8 @@ uses
 
 {$R *.RES}
 begin
-{$IFDEF LITE}
-  Application.Title := 'CD Wave Editor Lite';
-  Application.HelpFile := 'CDWAVLT.hlp';
-{$ELSE}
   Application.Title := 'CD Wave Editor';
   Application.HelpFile := 'CDWAV.hlp';
-{$ENDIF}
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;
 end.

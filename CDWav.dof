@@ -56,15 +56,13 @@ HostApplication=
 Launcher=
 UseLauncher=0
 DebugCWD=
-[Resource DLL Projects]
-Item0=Dutch (Netherlands)*$00000413*NL*NL
 [RDP Source Files]
-Item0=MAIN.dfm
-Item1=About.dfm
-Item2=working.dfm
-Item3=AutoCut.dfm
-Item4=Settings.dfm
-Item5=WDInfo.dfm
+Item0=WDInfo.dfm
+Item1=MAIN.dfm
+Item2=About.dfm
+Item3=working.dfm
+Item4=AutoCut.dfm
+Item5=Settings.dfm
 Item6=FormatFrm.dfm
 Item7=RecordFrm.dfm
 Item8=SelectDirFrm.dfm
@@ -81,7 +79,7 @@ Item18=DAEFrm.dfm
 Item19=DirNameFrm.dfm
 Item20=CDWav.drc
 [Language]
-ActiveLang=
+ActiveLang=NL
 ProjectLang=$00000409
 RootDir=
 [Version Info]
@@ -90,7 +88,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=9
 Release=7
-Build=6
+Build=12
 Debug=0
 PreRelease=0
 Special=0
@@ -101,7 +99,7 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=MiLo Software
 FileDescription=CD WAV Editor
-FileVersion=1.9.7.6
+FileVersion=1.9.7.12
 InternalName=CDWAV
 LegalCopyright=Copyright (c) 1998-2003 MiLo Software
 LegalTrademarks=
@@ -125,6 +123,7 @@ Item0=..\Components
 Count=1
 Item0=Units
 [HistoryLists\hlOutputDirectorry]
-Count=2
-Item0=Execute
-Item1=D:\Development\CDWav\Execute
+Count=3
+Item0=..\Execute
+Item1=Execute
+Item2=D:\Development\CDWav\Execute

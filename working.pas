@@ -238,7 +238,7 @@ begin
     SectorStatsSize := TotalSectors;
     StatsHandle := GlobalAlloc(GHND, TotalSectors * SizeOf(TSectorStats));
     if StatsHandle = 0 then
-      raise EWin32Error.Create(
+      raise EOSError.Create(
         NoAllocMemStr + #13#10 + SysErrorMessage(GetLastError));
     SectorStatsList := PSectorStatsList(GlobalLock(StatsHandle));
     try

@@ -211,7 +211,7 @@ begin
           FILE_ATTRIBUTE_NORMAL or FILE_FLAG_SEQUENTIAL_SCAN,
           0);
   if mmioInfo.adwInfo[0] = INVALID_HANDLE_VALUE then
-          raise EWin32Error.CreateFmt(
+          raise EOSError.CreateFmt(
             NoOpenStr,
             [SysErrorMessage(GetLastError), FileName]);
   if WaveFileSize <> nil then
@@ -232,7 +232,7 @@ begin
           FILE_ATTRIBUTE_NORMAL or FILE_FLAG_SEQUENTIAL_SCAN,
           0);
  if hFile = INVALID_HANDLE_VALUE then
-          raise EWin32Error.CreateFmt(
+          raise EOSError.CreateFmt(
             NoOpenStr,
             [SysErrorMessage(GetLastError), AFileName]);
  try
@@ -384,7 +384,7 @@ var h: DWORD;
 begin
   h := 0;
   if SetFilePointer(hFile, FWaveOffset + bytes, @h, FILE_BEGIN) = $FFFFFFFF then
-    RaiseLastWin32Error;
+    RaiseLastOSError;
 end;
 
 function TMMIOWaveFile.GetFilePos;
@@ -393,7 +393,7 @@ begin
   h := 0;
   Result := SetFilePointer(hFile, 0, @h, FILE_CURRENT);
   if (Result = $FFFFFFFF) then
-    RaiseLastWin32Error;
+    RaiseLastOSError;
 //    raise Exception.Create(NoPosStr);
   dec(Result, FWaveOffset);
 end;
@@ -403,7 +403,7 @@ begin
   if not ReadFile(hFile, Buffer^, bytes, Result, nil) then
 //  Result := mmioRead(FWaveFile, Buffer, Bytes);
 //  if Result = Cardinal(-1) then
-          raise EWin32Error.CreateFmt(
+          raise EOSError.CreateFmt(
             NoReadStr,
             [SysErrorMessage(GetLastError)]);
 end;
@@ -522,7 +522,7 @@ begin
           FILE_ATTRIBUTE_NORMAL or FILE_FLAG_SEQUENTIAL_SCAN,
           0);
   if HFile = INVALID_HANDLE_VALUE then
-    raise EWin32Error.CreateFmt(
+    raise EOSError.CreateFmt(
             NoOpenStr,
             [SysErrorMessage(GetLastError), AFileName]);
   FStream := FLAC__stream_decoder_new;
@@ -619,7 +619,7 @@ begin
     else
       FCarryBuffer := Pointer(GlobalReAlloc(Cardinal(FCarryBuffer), value, GMEM_MOVEABLE));
     if FCarryBuffer = nil then
-      RaiseLastWin32Error;
+      RaiseLastOSError;
     FCarryCapacity := Value;
   end;
 end;
@@ -833,7 +833,7 @@ begin
           FILE_ATTRIBUTE_NORMAL or FILE_FLAG_SEQUENTIAL_SCAN,
           0);
   if hFile = INVALID_HANDLE_VALUE then
-          raise EWin32Error.CreateFmt(
+          raise EOSError.CreateFmt(
             NoOpenStr,
             [SysErrorMessage(GetLastError), AFileName]);
   try
@@ -890,7 +890,7 @@ begin
         GotData := True;
         FWaveOffset :=  SetFilePointer(hFile, 0, @h, FILE_CURRENT);
         if (FWaveOffset = $FFFFFFFF) then
-            RaiseLastWin32Error;
+            RaiseLastOSError;
         if ChunkDataSize > $FFFFFFFE then
             raise Exception.Create(TooBigStr);
         FWaveSize := ChunkDataSize;
@@ -923,7 +923,7 @@ var h: DWORD;
 begin
   h := 0;
   if SetFilePointer(hFile, FWaveOffset + bytes, @h, FILE_BEGIN) = $FFFFFFFF then
-    RaiseLastWin32Error;
+    RaiseLastOSError;
 end;
 
 function TW64WaveFile.GetFilePos;
@@ -932,7 +932,7 @@ begin
   h := 0;
   Result := SetFilePointer(hFile, 0, @h, FILE_CURRENT);
   if (Result = $FFFFFFFF) then
-    RaiseLastWin32Error;
+    RaiseLastOSError;
 //    raise Exception.Create(NoPosStr);
   dec(Result, FWaveOffset);
 end;
@@ -940,7 +940,7 @@ end;
 function TW64WaveFile.Read;
 begin
   if not ReadFile(hFile, Buffer^, bytes, Result, nil) then
-    raise EWin32Error.CreateFmt(
+    raise EOSError.CreateFmt(
             NoReadStr,
             [SysErrorMessage(GetLastError)]);
 end;

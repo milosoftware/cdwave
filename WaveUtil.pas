@@ -189,7 +189,7 @@ begin
           FILE_ATTRIBUTE_NORMAL or FILE_FLAG_SEQUENTIAL_SCAN,
           0);
   if mmioInfo.adwInfo[0] = INVALID_HANDLE_VALUE then
-          raise EWin32Error.CreateFmt(
+          raise EOSError.CreateFmt(
             NoOpenStr,
             [SysErrorMessage(GetLastError), FileName]);
   if WaveFileSize <> nil then
@@ -255,11 +255,11 @@ var
 begin
    memh := GlobalAlloc(GMEM_SHARE or GHND, Sizeof(TWaveHdr));
    if memh=0 then
-      RaiseLastWin32Error;
+      RaiseLastOSError;
    memd := GlobalAlloc(GMEM_SHARE or GHND, Size);
    if memd=0 then begin
       GlobalFree(memh);
-      RaiseLastWin32Error;
+      RaiseLastOSError;
    end;
    Result := GlobalLock(memh);
    new(WaveInfo);

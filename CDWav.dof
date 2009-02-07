@@ -56,30 +56,31 @@ HostApplication=
 Launcher=
 UseLauncher=0
 DebugCWD=
+[Resource DLL Projects]
+Item0=Dutch (Netherlands)*$00000413*NLD*NLD
 [RDP Source Files]
-Item0=WDInfo.dfm
-Item1=MAIN.dfm
-Item2=About.dfm
-Item3=working.dfm
-Item4=AutoCut.dfm
-Item5=Settings.dfm
-Item6=FormatFrm.dfm
-Item7=RecordFrm.dfm
-Item8=SelectDirFrm.dfm
-Item9=FileAssociations.dfm
-Item10=AboutShare.dfm
-Item11=DlgRecShare.dfm
-Item12=Properties.dfm
-Item13=TimeSplitFrm.dfm
-Item14=DlgJumpTo.dfm
-Item15=AboutFull.dfm
-Item16=RegisterFrm.dfm
-Item17=AuditionFrm.dfm
-Item18=DAEFrm.dfm
-Item19=DirNameFrm.dfm
-Item20=CDWav.drc
+Item0=MAIN.dfm
+Item1=About.dfm
+Item2=working.dfm
+Item3=AutoCut.dfm
+Item4=Settings.dfm
+Item5=FormatFrm.dfm
+Item6=RecordFrm.dfm
+Item7=SelectDirFrm.dfm
+Item8=FileAssociations.dfm
+Item9=AboutShare.dfm
+Item10=DlgRecShare.dfm
+Item11=Properties.dfm
+Item12=TimeSplitFrm.dfm
+Item13=DlgJumpTo.dfm
+Item14=AboutFull.dfm
+Item15=RegisterFrm.dfm
+Item16=AuditionFrm.dfm
+Item17=DAEFrm.dfm
+Item18=DirNameFrm.dfm
+Item19=CDWav.drc
 [Language]
-ActiveLang=NL
+ActiveLang=NLD
 ProjectLang=$00000409
 RootDir=
 [Version Info]
@@ -87,8 +88,8 @@ IncludeVerInfo=1
 AutoIncBuild=1
 MajorVer=1
 MinorVer=9
-Release=7
-Build=12
+Release=8
+Build=1
 Debug=0
 PreRelease=0
 Special=0
@@ -99,20 +100,14 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=MiLo Software
 FileDescription=CD WAV Editor
-FileVersion=1.9.7.12
+FileVersion=1.9.8.1
 InternalName=CDWAV
 LegalCopyright=Copyright (c) 1998-2003 MiLo Software
 LegalTrademarks=
 OriginalFilename=cdwav.exe
 ProductName=CD Wave Editor
-ProductVersion=1.97
+ProductVersion=1.98
 Comments=
-[Excluded Packages]
-c:\program files\borland\delphi6\Bin\dclbde60.bpl=Borland BDE DB Components
-c:\program files\borland\delphi6\Bin\dcltee60.bpl=TeeChart Components
-c:\program files\borland\delphi6\Bin\dcldss60.bpl=Borland Decision Cube Components
-c:\program files\borland\delphi6\Bin\dcltqr60.bpl=TeeChart for QuickReport Components
-c:\program files\borland\delphi6\Bin\DBWEBXPRT.BPL=Borland Web Wizard Package
 [HistoryLists\hlUnitAliases]
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
@@ -124,6 +119,6 @@ Count=1
 Item0=Units
 [HistoryLists\hlOutputDirectorry]
 Count=3
-Item0=..\Execute
-Item1=Execute
+Item0=Execute
+Item1=..\Execute
 Item2=D:\Development\CDWav\Execute
